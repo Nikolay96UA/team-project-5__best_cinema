@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Nikolay96UA.github.io/team-project-6__best_cinema",
+  "homepage": "https://Nikolay96UA.github.io/team-project-6__best_cinema.git",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /team-project-6__best_cinema/"
