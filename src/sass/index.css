@@ -1,0 +1,20 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.library-section {
+  background-color: #0e0e0e;
+}
+
+.library-section__title {
+  color: #fff;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+.library-section__content {
+  background-image: linear-gradient(83.48deg, #0e0e0e 25.78%, rgba(14, 14, 14, 0) 60.07%), url(rows-red-seats-theater.jpg), #0e0e0e;
+}/*# sourceMappingURL=index.css.map */
