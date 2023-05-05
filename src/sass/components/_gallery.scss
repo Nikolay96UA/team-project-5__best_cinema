@@ -1,0 +1,25 @@
+.gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery-item {
+  position: static;
+  flex-basis: calc((100% - 16px) / 3);
+  margin-right: 32px;
+  margin-bottom: 32px;
+}
+.gallery > .gallery-item:nth-child(3n) {
+  margin-right: 0;
+}
+.gallery > .gallery-item:nth-last-child(-n + 3) {
+  margin-bottom: 0;
+}
+.gallery-item__about {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+// .gallery-item__title {
+//   position: absolute;
+// }

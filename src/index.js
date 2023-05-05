@@ -1,7 +1,7 @@
 import './js/components/footer';
 import './js/components/gallery';
 import './js/components/header';
-import './js/components/hero';
+// import './js/components/hero';
 import './js/components/loader';
 import './js/components/modal-oops';
 import './js/components/modal-pop-up';
