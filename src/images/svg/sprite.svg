@@ -1,0 +1,34 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-close" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
+</symbol>
+<symbol id="icon-film" viewBox="0 0 32 32">
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M26.427 2.667h-20.853c-1.605 0-2.907 1.301-2.907 2.907v20.853c0 1.605 1.301 2.907 2.907 2.907h20.853c1.605 0 2.907-1.301 2.907-2.907v-20.853c0-1.605-1.301-2.907-2.907-2.907z"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M9.333 2.667v26.667"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 2.667v26.667"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 16h26.667"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 9.333h6.667"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M2.667 22.667h6.667"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 22.667h6.667"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.333h6.667"></path>
+</symbol>
+<symbol id="icon-heart" viewBox="0 0 32 32">
+<path fill="#ff6b08" style="fill: var(--color2, #ff6b08)" d="M16 30.144l-2.24-2.218c-8.32-7.287-13.76-12.198-13.76-18.218 0-4.911 3.84-8.713 8.8-8.713 2.72 0 5.44 1.267 7.2 3.327 1.76-2.059 4.48-3.327 7.2-3.327 4.96 0 8.8 3.802 8.8 8.713 0 6.020-5.44 10.931-13.76 18.218l-2.24 2.218z"></path>
+</symbol>
+<symbol id="icon-search" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color3, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color3, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M28 28.001l-5.8-5.8"></path>
+</symbol>
+<symbol id="icon-github" viewBox="0 0 32 32">
+<path d="M16 0.941c-8.271 0-15.059 6.788-15.059 15.059 0 7.058 4.953 13.47 11.529 15.059v-4.982c-0.652 0.143-1.251 0.147-1.915-0.049-0.89-0.263-1.613-0.856-2.15-1.76-0.342-0.577-0.949-1.203-1.581-1.157l-0.155-1.758c1.368-0.117 2.551 0.833 3.254 2.013 0.312 0.525 0.671 0.832 1.132 0.969 0.446 0.131 0.924 0.068 1.481-0.129 0.14-1.116 0.651-1.534 1.037-2.122v-0.001c-3.922-0.585-5.486-2.666-6.106-4.308-0.822-2.181-0.381-4.905 1.073-6.627 0.028-0.034 0.079-0.121 0.060-0.183-0.667-2.014 0.146-3.679 0.176-3.856 0.769 0.228 0.894-0.229 3.342 1.258l0.423 0.254c0.177 0.105 0.121 0.045 0.298 0.032 1.022-0.278 2.099-0.431 3.16-0.445 1.069 0.014 2.14 0.167 3.204 0.456l0.137 0.014c-0.012-0.002 0.037-0.009 0.12-0.058 3.057-1.852 2.947-1.247 3.767-1.513 0.030 0.177 0.831 1.87 0.172 3.858-0.089 0.274 2.65 2.782 1.132 6.809-0.62 1.643-2.184 3.724-6.106 4.309v0.001c0.503 0.766 1.107 1.174 1.104 2.755v6.219c6.577-1.589 11.529-8.001 11.529-15.059 0-8.271-6.787-15.059-15.059-15.059v0z"></path>
+</symbol>
+<symbol id="icon-telegram" viewBox="0 0 40 32">
+<path d="M16.205 20.751l-0.635 8.339c0.909 0 1.302-0.364 1.774-0.802l4.261-3.801 8.829 6.035c1.619 0.842 2.76 0.399 3.197-1.39l5.797-25.346c0.514-2.234-0.866-3.108-2.443-2.56l-34.065 12.172c-2.325 0.842-2.29 2.052-0.395 2.6l8.709 2.528 20.229-11.814c0.952-0.588 1.818-0.263 1.106 0.326l-16.364 13.713z"></path>
+</symbol>
+<symbol id="icon-linkedin" viewBox="0 0 32 32">
+<path  d="M31.992 32v-.001H32V20.263c0-5.741-1.236-10.164-7.948-10.164-3.227 0-5.392 1.771-6.276 3.449h-.093v-2.913h-6.364v21.364h6.627V21.42c0-2.785.528-5.479 3.977-5.479 3.399 0 3.449 3.179 3.449 5.657v10.401h6.62zM.528 10.636h6.635V32H.528V10.636zM3.843 0C1.722 0 0 1.721 0 3.843s1.721 3.879 3.843 3.879c2.121 0 3.843-1.757 3.843-3.879C7.685 1.722 5.963 0 3.843 0z"/>
+</symbol>
+</defs>
+</svg>
