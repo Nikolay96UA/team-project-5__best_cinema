@@ -1,0 +1,25 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 150px;
+    right: 70px;
+    font-size: 40px;
+    z-index: 9999;
+    fill: rgba(248, 119, 25, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+    transform: translateY(25px);
+}
+
+.scroll-to-top:hover {
+    fill: #F84119;
+}
+
+
+.scroll-to-top-activ {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
