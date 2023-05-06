@@ -1,4 +1,4 @@
-export function renderTeamCard({
+export function renderTeamMembersCard({
     name = '',
     github = '',
     linkedin = '',
