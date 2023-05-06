@@ -1,5 +1,5 @@
-.catalog {
-}
+// .catalog {
+// }
 .invisible-title {
   position: absolute;
   width: 1px;
@@ -21,13 +21,15 @@
 .gallery-item {
   width: 395px;
   height: 574px;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
   flex-basis: calc((100% - 31px) / 3);
   margin-right: 16px;
   margin-bottom: 32px;
 }
 .gallery > .gallery-item:nth-child(2n) {
-  margin-right: 15;
+  margin-right: 15px;
 }
 .gallery > .gallery-item:nth-child(3n) {
   margin-right: 0;
