@@ -33,11 +33,12 @@
   }
 }
 
+
 .header-logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: 58px;
+  margin-right: 307px;
 
   @mixin desktop {
     margin-right: 307px;
@@ -99,3 +100,20 @@
 .moon-icon {
   transform: translateX(-20px);
 }
+
+:root {
+    --bg-color: #111;
+    --text-color: #fff;
+  }
+  
+  [data-theme="dark"] {
+    --bg-color: #fff;
+    --text-color: #282828;
+  }
+
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
