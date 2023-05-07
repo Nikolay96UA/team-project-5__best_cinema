@@ -1,2 +1,44 @@
-<h2>header</h2>
-<header id="header"></header>
+<header class="header">
+  <div class="header-container container">
+    <nav class="header-nav">
+      <a class="header-logo" href="index.html">
+        <svg width="48" height="48">
+          <use href="./images/svg/sprite.svg#cinemania"></use>
+        </svg>
+        <span class="header-logo-txt">Cinemania</span>
+      </a>
+
+      <ul class="header-nav-list">
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./index.html">home</a>
+        </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./catalog.html">catalog</a>
+        </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./library.html">my library</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="theme-switch">
+      <input
+        class="checkbox"
+        type="checkbox"
+        name="theme-toggle"
+        id="theme-toggle"
+      />
+      <label class="theme-toggler" for="theme-toggle">
+        <svg class="theme-toggler-icons" width="14" height="14">
+          <use
+            class="sun-icon"
+            href="/src/images/svg/sprite.svg#icon-sun"
+          ></use>
+          <use
+            class="moon-icon"
+            href="/src/images/svg/sprite.svg#icon-moon"
+          ></use>
+        </svg>
+      </label>
+    </div>
+  </div>
+</header>
