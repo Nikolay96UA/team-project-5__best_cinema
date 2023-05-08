@@ -8,19 +8,14 @@ let idsArray = [];
 let categorysArray = [];
 const galleryEl = document.getElementById('gallery');
 
-getMoviesWeekAndGenreList();
-async function getMoviesWeekAndGenreList() {
+onPageShow();
+async function onPageShow() {
   try {
-    const { data: moviesObject } = await axios.get(
-      `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
-    );
-
-    // console.log('tenPaginationArr', tenPaginationArr);
-    // console.log('twentyPaginationArr', twentyPaginationArr);
+    const arrayTrandMovies = await getTrendMoviesOfWeek();
+    // console.log('result object', arrayTrandMovies);
     const { data: genresObject } = await axios.get(
       `${BASE_URL}${URL_GENRE_LIST}?api_key=${API_KEY}`
     );
-    console.log('result object', moviesObject);
     genresListArray = genresObject.genres;
     for (let i = 0; i < genresListArray.length; i += 1) {
       idsArray.push(genresListArray[i].id);
@@ -29,7 +24,19 @@ async function getMoviesWeekAndGenreList() {
     // console.log('idsArray', idsArray);
     // console.log('categorysArray', categorysArray);
     // console.log('genresListArray', genresListArray);
-    createMarkUp(moviesObject.results);
+    createMarkUp(arrayTrandMovies);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function getTrendMoviesOfWeek() {
+  try {
+    const { data: moviesObject } = await axios.get(
+      `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
+    );
+    // console.log('result object', moviesObject.results);
+    return moviesObject.results;
   } catch (error) {
     console.log(error);
   }
@@ -68,18 +75,7 @@ function getGenreForCard(genreIds) {
   }
   return genreArr.join(', ');
 }
-// <div class="for-img"></div>
-// style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"
 
-pagInstance.on('beforeMove', event => {
-  const { page: pagPage } = event;
-  console.log(pagPage);
-  if (pagPage === 2) {
-    pagInstance.movePageTo(3);
-    console.log(pagPage);
-  }
-});
-// pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
 function stars(vote) {
   if (vote === 10) {
     return 'ten-stars';
@@ -107,3 +103,14 @@ function stars(vote) {
     return 'No rating';
   }
 }
+
+// style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"
+
+pagInstance.on('beforeMove', async event => {
+  const { page: pagPage } = event;
+  console.log(pagPage);
+  currentPage = pagPage;
+  const pagArray = await getTrendMoviesOfWeek();
+  createMarkUp(pagArray);
+});
+// pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
