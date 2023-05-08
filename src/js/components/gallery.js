@@ -36,7 +36,7 @@ export async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
-    // console.log('result object', moviesObject.results);
+    console.log('result object', moviesObject.results);
     return moviesObject.results;
   } catch (error) {
     console.log(error);
@@ -49,7 +49,7 @@ export function createMarkUp(array) {
       return `<li class="gallery-item" style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"><a class="gallery-item__link"><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
         genre_ids
       )} | ${release_date.slice(0, 4)}</p></div><div class="vote-cinemas ${stars(
-        vote_average.toFixed(2)
+        Number(vote_average.toFixed(1))
       )}"></div></a></li>`;
     })
     .join('');
