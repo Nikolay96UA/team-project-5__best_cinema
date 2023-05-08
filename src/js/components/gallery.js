@@ -115,7 +115,7 @@ pagInstance.on('beforeMove', async event => {
   createMarkUp(pagArray);
 });
 // pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
-function onGalleryLinkClick(event) {
+export function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'A') {
     console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
   }
