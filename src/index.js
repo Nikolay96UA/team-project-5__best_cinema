@@ -1,6 +1,7 @@
 import './js/components/footer';
 import './js/components/gallery';
-import './js/components/header';
+// import './js/components/header';
+import './js/components/theme';
 import './js/components/hero';
 import './js/components/loader';
 import './js/components/modal-oops';

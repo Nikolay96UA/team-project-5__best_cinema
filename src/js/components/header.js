@@ -1,6 +1,6 @@
-// const checkboxThemeSwitcher = document.getElementById('checkbox-theme-switcher');
+// const themeSwitcher = document.getElementById('theme-switcher');
 
-// checkboxThemeSwitcher.addEventListener('change', changeStatus);
+// themeSwitcher.addEventListener('change', changeStatus);
 
 // if (localStorage.getItem('darkMode') === null) {
 //     localStorage.setItem('darkMode', "false");
@@ -31,40 +31,56 @@
 //     }
 // }
 
-const checkbox = document.querySelector('input[name="theme-toggle"]');
-const sunIcon = document.querySelector('.sun-icon');
-const moonIcon = document.querySelector('.moon-icon');
 
-checkbox.addEventListener('change', function() {
-  if(this.checked) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'inline-block';
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    sunIcon.style.display = 'inline-block';
-    moonIcon.style.display = 'none';
-  }
-});
+// const toggleSwitch = document.querySelector('#theme-toggle');
+// const currentTheme = localStorage.getItem('theme');
 
-// const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-// function switchTheme(e) {
-//   if (e.target.checked) {
-//     document.documentElement.setAttribute('data-theme', 'dark');
-//     localStorage.setItem('theme', 'dark'); // сохраняем тему в localStorage
-//   }
-//   else {
-//     document.documentElement.setAttribute('data-theme', 'light');
-//     localStorage.setItem('theme', 'light');
-//   }
-// }
-// //переключатель темы
-// toggleSwitch.addEventListener('change', switchTheme, false);
-// //тема localStorage
-// const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
 // if (currentTheme) {
 //   document.documentElement.setAttribute('data-theme', currentTheme);
 //   if (currentTheme === 'dark') {
 //     toggleSwitch.checked = true;
 //   }
 // }
+
+// const defaultTheme = localStorage.getItem('theme');
+// if (!defaultTheme) {
+//   document.documentElement.setAttribute('data-theme', 'dark');
+//   localStorage.setItem('theme', 'dark');
+//   toggleSwitch.checked = true;
+// }
+
+// function switchTheme(e) {
+//   if (e.target.checked) {
+//     document.documentElement.setAttribute('data-theme', 'dark');
+//     localStorage.setItem('theme', 'dark');
+//   } else {
+//     document.documentElement.setAttribute('data-theme', 'light');
+//     localStorage.setItem('theme', 'light');
+//   }
+// }
+
+// toggleSwitch.addEventListener('change', switchTheme, false);
+
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+if (currentTheme) {
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  if (currentTheme === 'dark') {
+    toggleSwitch.checked = true;
+  }
+}
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+  else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }
+}
