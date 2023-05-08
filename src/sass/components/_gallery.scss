@@ -18,14 +18,18 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  @include mobile {
+    display: block;
+  }
 }
 .gallery-item {
   position: relative;
   background-size: contain;
   background-repeat: no-repeat;
   @include mobile {
-    width: 280px;
-    height: 406px;
+    display: block;
+    width: 100%;
+    // height: 100%;
     margin-right: 0;
     margin-bottom: 16px;
   }
@@ -39,10 +43,9 @@
   @include desktop {
     width: 395px;
     height: 574px;
-
-    flex-basis: calc((100% - 31px) / 3);
     margin-right: 15px;
     margin-bottom: 32px;
+    flex-basis: calc((100% - 31px) / 3);
   }
 }
 .gallery > .gallery-item:nth-child(3n) {
