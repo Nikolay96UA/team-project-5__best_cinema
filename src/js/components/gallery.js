@@ -31,7 +31,7 @@ async function onPageShow() {
   }
 }
 
-async function getTrendMoviesOfWeek() {
+export async function getTrendMoviesOfWeek() {
   try {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
