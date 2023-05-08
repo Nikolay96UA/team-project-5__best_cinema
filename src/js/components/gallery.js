@@ -7,6 +7,7 @@ let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
 const galleryEl = document.getElementById('gallery');
+galleryEl.addEventListener('click', onGalleryLinkClick);
 
 onPageShow();
 async function onPageShow() {
@@ -45,11 +46,11 @@ async function getTrendMoviesOfWeek() {
 export function createMarkUp(array) {
   const markup = array
     .map(({ title, genre_ids, release_date, poster_path, vote_average }) => {
-      return `<li class="gallery-item" style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
+      return `<li class="gallery-item" style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"><a class="gallery-item__link"><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
         genre_ids
       )} | ${release_date.slice(0, 4)}</p></div><div class="vote-cinemas ${stars(
         vote_average.toFixed(2)
-      )}"></div></li>`;
+      )}"></div></a></li>`;
     })
     .join('');
   renderMarkup(markup);
@@ -114,3 +115,8 @@ pagInstance.on('beforeMove', async event => {
   createMarkUp(pagArray);
 });
 // pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
+function onGalleryLinkClick(event) {
+  if (event.target.nodeName === 'A') {
+    console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
+  }
+}
