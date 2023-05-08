@@ -3,3 +3,4 @@ export const BASE_URL = 'https://api.themoviedb.org/3/';
 
 export const URL_TREND_DAY = 'trending/movie/day';
 export const URL_TREND_WEEK = 'trending/movie/week';
+export const URL_GENRE_LIST = '/genre/movie/list';
