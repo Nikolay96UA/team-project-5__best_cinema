@@ -35,17 +35,14 @@ async function getMoviesWeekAndGenreList() {
   }
 }
 
-function createMarkUp(array) {
+export function createMarkUp(array) {
   const markup = array
     .map(({ title, genre_ids, release_date, poster_path, vote_average }) => {
       return `<li class="gallery-item" style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
         genre_ids
-      )} | ${release_date.slice(
-        0,
-        4
-      )}</p></div><input class="input-vote" type="range" name="vote" min="0" max="10.0" step="0.1" value=${vote_average.toFixed(
-        1
-      )}></li>`;
+      )} | ${release_date.slice(0, 4)}</p></div><div class="vote-cinemas ${stars(
+        vote_average.toFixed(2)
+      )}"></div></li>`;
     })
     .join('');
   renderMarkup(markup);
@@ -83,3 +80,30 @@ pagInstance.on('beforeMove', event => {
   }
 });
 // pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
+function stars(vote) {
+  if (vote === 10) {
+    return 'ten-stars';
+  } else if (vote < 10 && vote > 8) {
+    return 'nine-stars';
+  } else if (vote === 8) {
+    return 'eight-stars';
+  } else if (vote < 8 && vote > 6) {
+    return 'seven-stars';
+  } else if (vote === 6) {
+    return 'six-stars';
+  } else if (vote < 6 && vote > 4) {
+    return 'five-stars';
+  } else if (vote === 4) {
+    return 'four-stars';
+  } else if (vote < 4 && vote > 2) {
+    return 'three-stars';
+  } else if (vote === 2) {
+    return 'two-stars';
+  } else if (vote < 2 && vote > 0) {
+    return 'one-star';
+  } else if (vote === 0) {
+    return 'zero-star';
+  } else if (!vote) {
+    return 'No rating';
+  }
+}
