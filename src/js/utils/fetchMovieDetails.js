@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_KEY, BASE_URL } from '../constants/api';
-import { renderOnError } from '../components/hero';
+// import { renderOnError } from '../components/hero';
 import { onGalleryLinkClick } from '../components/gallery';
 
 class MovieDatabaseAPI{
@@ -16,7 +16,7 @@ async fetchMovieDetails(movieId) {
     return response.data;
   } catch (error) {
     console.error(error);
-    renderOnError();
+    // renderOnError();
   }
 }
 }
