@@ -70,8 +70,12 @@
     }
 }
 
-.close-modal{
+.close-modal-oops{
     position: absolute;
     top: 40px;
     right: 40px;
+}
+
+.container-content{
+    display: flex;
 }

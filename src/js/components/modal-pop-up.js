@@ -11,7 +11,7 @@ const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
 
 // form.addEventListener('submit', fetchDetailInfo);
-// closeModalBtn.addEventListener('click', toggleModal);
+closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
     backdrop.classList.toggle('backdrop--hidden');
@@ -79,14 +79,7 @@ function renderDetailMarkup({poster_path, original_title, vote_average, vote_cou
         <p class='feature-value feature-value-description'>${overview}</p>
         <button class="add-to-library" type="button">Add to my library</button>
     </div>
-    <button class="close-modal" type="button" data-close-modal>
-          <svg width="24px" height="24px">
-            <use
-              class="close-modal__icon-close"
-              href="./images/icons/symbol-defs.svg#close-button"
-            ></use>
-          </svg>
-        </button>
+    
     `;
     container.innerHTML = detailMarkup;
 }
