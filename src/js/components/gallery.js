@@ -10,8 +10,7 @@ let categorysArray = [];
 const testObj = {
   total: 0,
 };
-const galleryEl = document.getElementById('gallery');
-// galleryEl.addEventListener('click', onGalleryLinkClick);
+export const galleryEl = document.getElementById('gallery');
 
 onPageShow();
 async function onPageShow() {
