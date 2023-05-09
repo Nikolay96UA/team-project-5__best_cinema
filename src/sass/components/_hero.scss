@@ -4,11 +4,7 @@
 
   position: relative;
 
-  --swiper-theme-color: linear-gradient(
-    141.22deg,
-    #ffc226 9.4%,
-    #f84119 91.91%
-  );
+  --swiper-theme-color: var(--gradient);
   --swiper-navigation-color: #b7b7b7;
   --swiper-pagination-bullet-inactive-color: transparent;
   // --swiper-pagination-bullet-active-color: transparent;
@@ -105,7 +101,9 @@
 }
 
 .hero-trend__info {
-  background-image: url(../images/hero/hero-bgd-dark-mobile-1x.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-image: var(--hero-bg-mob);
 
   @include tablet {
     position: absolute;
@@ -114,39 +112,13 @@
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-image: url(../images/hero/hero-bgd-dark-desktop-1x.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
     padding-top: 118px;
     padding-left: 32px;
+    background-image: var(--hero-bg-tab);
   }
 
   @include desktop {
-    position: absolute;
-    left: 0;
-    top: 0;
-    // z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-image: url(../images/hero/hero-bgd-dark-desktop-1x.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    // padding-top: 118px;
-    // padding-left: 32px;
-  }
-}
-
-.hero-trend__info-light {
-  background-image: url(../images/hero/hero-bgd-light-mobile-1x.png);
-
-  @include tablet {
-    background-image: url(../images/hero/hero-bgd-light-tablet-1x.png);
-  }
-
-  @include desktop {
-    background-image: url(../images/hero/hero-bgd-light-desktop-1x.png);
+    background-image: var(--hero-bg-desk);
   }
 }
 
@@ -154,13 +126,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: $primary-text-color;
+  color: var(--primary-text-color);
   height: 100%;
   width: 496px;
 }
 
 .hero-trend__details-light {
-  color: $primary-white-theme;
+  color: var(--primary-text-color);
 }
 
 .hero-trend__title {
@@ -201,12 +173,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.19;
-  color: $secondary-text-color;
+  color: var(--secondary-text-color);
   margin-bottom: 36px;
 }
 
 .hero-trend__overview-light {
-  color: $secondary-white-theme;
+  color: var(--secondary-text-color);
 }
 
 .hero-trend__btn {
@@ -215,7 +187,7 @@
   height: 48px;
 
   /* linear */
-  background: $btn-bg-liner;
+  background: var(--gradient);
   border-radius: 74px;
   border: none;
 
@@ -223,16 +195,16 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: $btn-text-color;
+  color: var(--btn-text-color);
 
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .hero-trend__btn:hover {
-  background: $primary-text-color;
-  border: 1px solid #f84119;
-  color: #f84119;
+  background: var(--primary-text-color);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
 }
 
 // !=== stars
