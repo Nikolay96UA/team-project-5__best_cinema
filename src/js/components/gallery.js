@@ -1,24 +1,19 @@
-import {
-  BASE_URL,
-  API_KEY,
-  URL_TREND_WEEK,
-  URL_GENRE_LIST,
-} from '../constants/api';
+import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 import axios from 'axios';
 import { pagInstance } from './pagination';
 
 let currentPage = 1;
+let totalPages = 0;
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
 const galleryEl = document.getElementById('gallery');
-galleryEl.addEventListener('click', onGalleryLinkClick);
+// galleryEl.addEventListener('click', onGalleryLinkClick);
 
 onPageShow();
 async function onPageShow() {
   try {
     const arrayTrandMovies = await getTrendMoviesOfWeek();
-    // console.log('result object', arrayTrandMovies);
     const { data: genresObject } = await axios.get(
       `${BASE_URL}${URL_GENRE_LIST}?api_key=${API_KEY}`
     );
@@ -27,9 +22,6 @@ async function onPageShow() {
       idsArray.push(genresListArray[i].id);
       categorysArray.push(genresListArray[i].name);
     }
-    // console.log('idsArray', idsArray);
-    // console.log('categorysArray', categorysArray);
-    // console.log('genresListArray', genresListArray);
     createMarkUp(arrayTrandMovies);
   } catch (error) {
     console.log(error);
@@ -41,7 +33,7 @@ export async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
-    console.log('result object', moviesObject.results);
+    totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {
     console.log(error);
@@ -50,13 +42,10 @@ export async function getTrendMoviesOfWeek() {
 
 export function createMarkUp(array) {
   const markup = array
-    .map(({ title, genre_ids, release_date, poster_path, vote_average }) => {
-      return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})"><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
+    .map(({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
+      return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
         genre_ids
-      )} | ${release_date.slice(
-        0,
-        4
-      )}</p></div><div class="vote-cinemas ${stars(
+      )} | ${release_date.slice(0, 4)}</p></div><div class="vote-cinemas ${stars(
         Number(vote_average.toFixed(1))
       )}"></div></li>`;
     })
@@ -68,9 +57,6 @@ function renderMarkup(markup) {
 }
 
 function getGenreForCard(genreIds) {
-  // console.log('genreListArray', genresListArray);
-  // console.log('data[0].name', genresListArray[0].name);
-  // console.log('genreId', genreId);
   const genreArr = [];
   for (let i = 0; i <= genreIds.length; i += 1) {
     if (idsArray.includes(genreIds[i])) {
@@ -80,7 +66,6 @@ function getGenreForCard(genreIds) {
   }
   while (genreArr.length > 2) {
     genreArr.pop();
-    // console.log('length is more than 2');
   }
   return genreArr.join(', ');
 }
@@ -113,18 +98,16 @@ function stars(vote) {
   }
 }
 
-// style="background-image: url(https://image.tmdb.org/t/p/w500${poster_path})"
-
 pagInstance.on('beforeMove', async event => {
   const { page: pagPage } = event;
-  console.log(pagPage);
   currentPage = pagPage;
   const pagArray = await getTrendMoviesOfWeek();
   createMarkUp(pagArray);
 });
-// pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
-export function onGalleryLinkClick(event) {
-  if (event.target.nodeName === 'A') {
-    console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
-  }
-}
+
+// export function onGalleryLinkClick(event) {
+//   if (event.target.nodeName === 'LI') {
+//     console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
+//     console.log(event.target.dataset.id);
+//   }
+// }
