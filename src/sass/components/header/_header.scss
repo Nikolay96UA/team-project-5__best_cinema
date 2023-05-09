@@ -1,0 +1,47 @@
+.header {
+  background: var(--header-bg-color);
+  padding: 12px 0;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 92px;
+
+  @media only screen and (min-width: 768px) {
+    gap: 59px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    gap: 307px;
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @media only screen and (max-width: 767.98px) {
+      display: none;
+    }
+  }
+
+  &-link {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+
+    text-transform: uppercase;
+    color: var(--grey-text-color);
+
+    &:hover,
+    &:focus {
+      color: var(--accent-color);
+    }
+  }
+}
