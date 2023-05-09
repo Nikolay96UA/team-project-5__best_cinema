@@ -163,6 +163,9 @@ renderTrendingMovies();
 //   window.open(url, '_blank');
 // }
 
+// =========================================
+// Винести код для модальних вікон в окремий файл
+// =========================================
 // // ! to open modal
 // function openModal() {
 //   const modal = document.getElementById('modal');
