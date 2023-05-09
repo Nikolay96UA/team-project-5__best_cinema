@@ -1,7 +1,7 @@
 .weekly-trends {
-    padding-top: 80px;
-    padding-bottom: 60px;
-  background-color: $primary-bg-color;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  background-color: var(--primary-bg-color);
 }
 
 .weekly-trends__tite {
@@ -11,22 +11,22 @@
   line-height: 1.17;
 
   text-transform: uppercase;
-  color: $primary-text-color;
+  color: var(--primary-text-color);
 }
-.weekly-trends__link{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 33px;
-    
-    color: var(--accent-color);
+.weekly-trends__link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+
+  color: var(--accent-color);
 }
 
-.weekly-trends_info{
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 28px;
+.weekly-trends_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
 }
 
 .weekly-trends__elems {
@@ -66,7 +66,7 @@ margin-bottom: 28px;
     flex-basis: calc((100% - 31px) / 3);
   }
 }
-.weekly-trends__elems> .gallery-item:nth-child(3n) {
+.weekly-trends__elems > .gallery-item:nth-child(3n) {
   margin-right: 0;
 }
 .weekly-trends__elems > .gallery-item:nth-last-child(-n + 1) {
@@ -108,14 +108,15 @@ margin-bottom: 28px;
     font-size: 12px;
     line-height: 1.5;
   }
-  color: $primary-text-color;
+
+  color: var(--primary-text-color);
   text-transform: uppercase;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.17;
 }
 .gallery-item__about__p {
-  color: $grey-text-color;
+  color: car(--grey-text-color);
   text-transform: none;
 }
 // .for-img {
