@@ -16,8 +16,6 @@ let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
 
-// ++++++++++++++++
-
 onPageShow();
 async function onPageShow() {
   try {
@@ -33,7 +31,6 @@ async function onPageShow() {
       idsArray.push(genresListArray[i].id);
       categorysArray.push(genresListArray[i].name);
     }
-    console.log(allUncomingArr);
     createMarkUp(allUncomingArr);
   } catch (error) {
     console.log(error);
@@ -45,10 +42,6 @@ async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
-    // const arrayWeekTrends = arrayTrendsWeek.push(
-    //   moviesObject.results.slice(0, 3)
-    // );
-    // console.log(arrayWeekTrends);
     return moviesObject.results;
   } catch (error) {
     console.log(error);
@@ -120,20 +113,3 @@ function stars(vote) {
     return 'No rating';
   }
 }
-
-// ++++++++++++++++
-
-// async function getTrendMoviesOfWeek() {
-//   try {
-//     const { data: moviesObject } = await axios.get(
-//       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
-//     );
-//     const arrayWeekTrends = arrayTrendsWeek.push(
-//       moviesObject.results.slice(0, 3)
-//     );
-//     console.log(arrayWeekTrends);
-//     return arrayWeekTrends;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
