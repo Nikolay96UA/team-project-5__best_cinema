@@ -2,6 +2,9 @@
   background-color: $primary-bg-color;
 }
 .tui-pagination {
+  @include mobile {
+    gap: 8px;
+  }
   display: flex;
   justify-content: center;
   text-align: center;
@@ -13,6 +16,8 @@
     width: 24px;
     height: 24px;
   }
+  font-weight: 400;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +32,7 @@
     width: 24px;
     height: 24px;
   }
-  // font-weight: 400;
+  font-weight: 400;
   font-size: 14px;
   display: flex;
   justify-content: center;

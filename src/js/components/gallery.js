@@ -3,6 +3,7 @@ import axios from 'axios';
 import { pagInstance } from './pagination';
 
 let currentPage = 1;
+let totalPages = 0;
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
@@ -36,7 +37,9 @@ export async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
-    console.log('result object', moviesObject.results);
+    console.log('result object', moviesObject);
+    totalPages = moviesObject.total_pages;
+    // pagInstance.reset(moviesObject.total_pages);
     return moviesObject.results;
   } catch (error) {
     console.log(error);
@@ -114,6 +117,7 @@ pagInstance.on('beforeMove', async event => {
   const pagArray = await getTrendMoviesOfWeek();
   createMarkUp(pagArray);
 });
+
 // pagInstance.on('afterMove', ({ page: pagPage }) => console.log(pagPage));
 export function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'A') {

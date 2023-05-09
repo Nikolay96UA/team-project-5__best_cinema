@@ -67,15 +67,17 @@
 .gallery-item__about {
   position: absolute;
   @include mobile {
+    width: 60%;
     left: 12px;
     bottom: 12px;
   }
   @include tablet {
+    width: 130px;
     left: 12px;
     bottom: 12px;
   }
   @include desktop {
-    width: 260px;
+    width: 245px;
     left: 20px;
     bottom: 20px;
   }
