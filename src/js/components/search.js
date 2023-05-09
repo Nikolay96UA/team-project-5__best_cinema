@@ -1,10 +1,10 @@
 import { createMarkUp } from "./gallery";
 
 // Оголошення змінних
-const searchInput = document.querySelector('.searchInput');
-const yearSelect = document.querySelector('.yearSelect');
-const genreSelect = document.querySelector('.genreSelect');
-const countrySelect = document.querySelector('.countrySelect');
+const searchInput = document.querySelector('.search-input');
+const yearSelect = document.querySelector('.years-select');
+const genreSelect = document.querySelector('.genre-select');
+const countrySelect = document.querySelector('.country-select');
 const searchBtn = document.getElementById("searchBtn");
 const resultBlock = document.querySelector('.search-movies');
 
