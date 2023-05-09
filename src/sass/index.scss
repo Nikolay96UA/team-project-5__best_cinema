@@ -1,18 +1,24 @@
+// Utils
 @import './utils/vars';
 @import './utils/mixin';
+
+// Base styles
 @import './base/common';
 @import './base/reset';
-@import './components/footer';
-@import './components/gallery';
+@import './base/container';
+
+// Components styles
 @import './components/header';
 @import './components/hero';
-@import './components/modal-oops';
-@import './components/modal-pop-up';
-@import './components/modal-team';
+@import './components/weekly-trends';
+@import './components/upcoming-this-mounth';
+@import './components/footer';
+
+@import './components/gallery';
 @import './components/pagination';
 @import './components/search';
-@import './components/uncoming-this-mounth';
-@import './components/weekly-trends';
 @import './components/scroll-to-top';
 @import './components/loader';
-@import './base/container';
+
+// Modal windows
+@import './components/modals';

@@ -1,0 +1,10 @@
+:root {
+  --header-bg-color: #000000;
+  --header-bg-color-20: rgba(255, 255, 255, 0.2);
+  --primary-bg-color: #282828;
+  --modal-bg-color: #171717;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #f8f8f8;
+  --grey-text-color: #b7b7b7;
+  --close-icon: var(--secondary-text-color);
+}/*# sourceMappingURL=dark-theme.css.map */
