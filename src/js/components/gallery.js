@@ -7,6 +7,9 @@ let totalPages = 0;
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
+const testObj = {
+  total: 0,
+};
 const galleryEl = document.getElementById('gallery');
 // galleryEl.addEventListener('click', onGalleryLinkClick);
 
@@ -33,6 +36,10 @@ export async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
+    if (moviesObject.results.length === 0) {
+      return ['Ssory, we can not find something :-('];
+    }
+
     totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {

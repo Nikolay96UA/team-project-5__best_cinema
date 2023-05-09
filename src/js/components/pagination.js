@@ -1,7 +1,10 @@
 import Pagination from 'tui-pagination';
+// import { totalPages } from './gallery';
+export { pagInstance };
 const paginContainer = document.getElementById('tui-pagination-container');
+// console.log('totalPages', totalPages);
 const pagOptions = {
-  totalItems: 240,
+  totalItems: 1000,
   itemsPerPage: 10,
   visiblePages: 3,
   page: 1,
@@ -31,5 +34,3 @@ const pagOptions = {
   },
 };
 const pagInstance = new Pagination(paginContainer, pagOptions);
-
-export { pagInstance };
