@@ -141,6 +141,7 @@ export function defaultHeroMarkup() {
   ROOT_HERO_CONTAINER.innerHTML = `
       <div class="hero__wrap">
       <div class="hero__bgd hero__bgd-default"></div>
+      <div class="hero__overlay"></div>
         <div class="hero__info">
           <div class="hero__details" >
             <h2 class="hero__title">Let's Make Your Own Cinema</h2>
