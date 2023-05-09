@@ -34,7 +34,7 @@ function handleFooterBtnClick(e) {
 refs.footerBtnRef.addEventListener('click', handleFooterBtnClick);
 
 function renderSwiper() {
-    const memberCards = shuffle(teamInfo.map(member => renderTeamCard(member))).loin('');
+    const memberCards = shuffle(teamInfo.map(member => renderTeamCard(member))).join('');
     const markup = `<div class="swiper">
     <div class="swiper-wrapper">
         ${memberCards}

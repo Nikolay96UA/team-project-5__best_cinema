@@ -1,15 +1,14 @@
 .footer {
-    $grey-text-color:#B7B7B7;
-    $primery-bg-color:#282828;
+    color: $grey-text-color;
+    background: $primary-white-theme;
 }
 
-.footer__container {
+.footer-container {
     flex-wrap: wrap;
     text-align: center;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
-
+    font-size: 16px;
+    line-height: 18.75px;
     padding: 28px 35px;
 
     @media screen and (min-width: 768px) {
@@ -19,56 +18,55 @@
     }
 }
 
-.footer__text {
-    flex-wrap: wrap;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.14;
-}
-
-.footer__link {
-    display: inline-block;
-    margin: 0 5px;
-    transition: transform;
-
-    &:hover,
-    &:focus {
-        transform: scale(1.2);
-    }
-}
-
-.footer__text-btn {
-    font-size: 14px;
-    line-height: 1.14;
-    @media screen and (max-width: 767px) {
-        margin-top: 10px;
+    .footer-text {
+        flex-wrap: wrap;
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18.75px;
     }
 
-    @media screen and (min-width: 768px) {
+    .footer-link {
+        display: inline-block;
+        margin: 0 5px;
+        transition: transform;
+    
+        &:hover,
+        &:focus {
+            transform: scale(1.2);
+        }
+    }
+
+    .footer-text-btn {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18.75px;
+    }
+
+    .footer-icon {
+        color: $accent-color;
         margin-left: 5px;
     }
-}
-.footer__icon-heart {
-    $accent-color: #F87719;
-    // margin: 0px 8px;
-}
 
-.by {
-    margin-left: 5px;
-}
-
-.footer__btn {
-    text-decoration: underline;
-    line-height: 1.14;
-    text-align: center;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    //transition: transform;
-
-    &:hover,
-    &:focus {
-        transform: scale(1.1);
-        //$btn-bg-liner:  #FFC226;
+    .footer-btn {
+        font-size: 14px;
+        line-height: 18.75px;
+        font-weight: 400;
+        font-family: inherit;
+        text-align: center;
+        border: none;
+        color: inherit;
+        background-color: inherit;
+        cursor: pointer;
+        transition: transform;
+    
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+        }
     }
-}
+
+    .footer-underline {
+        text-decoration: underline;
+    }
+
