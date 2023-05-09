@@ -1,9 +1,7 @@
 import { MovieDatabaseAPI } from '../utils/fetchMovieDetails';
-import { onGalleryLinkClick } from './gallery';
+// import { onGalleryLinkClick } from '../components/gallery';
+import {galleryEl} from '../components/gallery';
 
-const inputFilmID = document.querySelector('.film-id');
-const fetchDetailInfoBTN = document.querySelector('.fetch-detail-info');
-const form = document.querySelector('.form');
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
@@ -12,19 +10,19 @@ const container = document.querySelector('.wrap');
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
 
-form.addEventListener('submit', fetchDetailInfo);
-closeModalBtn.addEventListener('click', toggleModal);
+// form.addEventListener('submit', fetchDetailInfo);
+// closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
     backdrop.classList.toggle('backdrop--hidden');
 }
 
-async function fetchDetailInfo(e) {
+async function fetchDetailInfo(movieId) {
 try{
-    e.preventDefault();
-    movieDatabaseAPI.query = e.currentTarget.elements.searchQuery.value;
-    console.log(movieDatabaseAPI.query);
-    const result = await movieDatabaseAPI.fetchMovieDetails();
+    // e.preventDefault();
+    // movieDatabaseAPI.query = e.currentTarget.elements.searchQuery.value;
+    // console.log(movieDatabaseAPI.query);
+    const result = await movieDatabaseAPI.fetchMovieDetails(movieId);
     // const secondResult = await fetchGenreDetails(result.genres.id);
     renderDetailMarkup(result);
     console.log(result);
@@ -81,9 +79,25 @@ function renderDetailMarkup({poster_path, original_title, vote_average, vote_cou
         <p class='feature-value feature-value-description'>${overview}</p>
         <button class="add-to-library" type="button">Add to my library</button>
     </div>
-    
+    <button class="close-modal" type="button" data-close-modal>
+          <svg width="24px" height="24px">
+            <use
+              class="close-modal__icon-close"
+              href="./images/icons/symbol-defs.svg#close-button"
+            ></use>
+          </svg>
+        </button>
     `;
     container.innerHTML = detailMarkup;
 }
 
+galleryEl.addEventListener('click', onGalleryLinkClick);
 
+function onGalleryLinkClick(event) {
+  if (event.target.nodeName === 'LI') {
+    const movieId = event.target.dataset.id;
+    fetchDetailInfo(movieId);
+  }
+}
+
+export {fetchDetailInfo};
