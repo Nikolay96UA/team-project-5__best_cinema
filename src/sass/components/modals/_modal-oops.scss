@@ -1,4 +1,4 @@
-.backdrop{
+.backdrop-oops{
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     z-index: 998;
 }
 
-.backdrop--hidden{
+.backdrop-oops--hidden{
     opacity: 0;
     pointer-events: none;
 }
