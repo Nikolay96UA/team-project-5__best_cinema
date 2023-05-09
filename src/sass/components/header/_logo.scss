@@ -1,0 +1,20 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-icon {
+  @media only screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
+}
+.logo-txt {
+  font-size: 24px;
+  line-height: 1.16;
+  color: var(--primary-text-color);
+
+  @media only screen and (max-width: 767.98px) {
+    display: none;
+  }
+}

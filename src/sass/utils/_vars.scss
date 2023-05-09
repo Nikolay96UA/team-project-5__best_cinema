@@ -1,23 +1,34 @@
+:root {
+  // accent color
+  --accent-color: #f87719;
+  // others
+  --gradient: linear-gradient(141deg, #ffc226 10%, #f84119 90%);
+  --menu-idx: 1000;
+}
+
 // text color black theme
-$primary-text-color:#FFFFFF;
-$secondary-text-color:#F8F8F8;
-$grey-text-color:#B7B7B7;
+$primary-text-color: #ffffff;
+$secondary-text-color: #f8f8f8;
+$grey-text-color: #b7b7b7;
 
 // text color white theme
-$primary-white-theme:#111111;
-$secondary-white-theme:#282828;
-$grey-white-theme:#595959;
+$primary-white-theme: #111111;
+$secondary-white-theme: #282828;
+$grey-white-theme: #595959;
 
-// accent color 
-$accent-color: #F87719;
+// accent color
+$accent-color: #f87719;
 
 // button
 $btn-text-color: #111111;
-$btn-bg-liner: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+$btn-bg-liner: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 
 // stars
-$star-bg-colog: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
-
+$star-bg-colog: linear-gradient(
+  141.22deg,
+  #f84119 9.4%,
+  rgba(248, 159, 25, 0.68) 91.91%
+);
 
 // modal box-shadow
 $modal-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
@@ -25,11 +36,10 @@ $mobal-shadow-white-theme: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
 
 // bg color black theme
 $header-bg-color: #000000;
-$primery-bg-color:#282828;
+$primary-bg-color: #111111;
 
 // bg color white theme
-$white-bg-color:#ffffff;
-
+$white-bg-color: #ffffff;
 
 // animation
 $time-duration: 250ms;
