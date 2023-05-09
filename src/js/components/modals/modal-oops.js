@@ -1,14 +1,12 @@
-import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
-
-const openModalOopsBtn = document.querySelector('.open-modal');
-const closeModalBtn = document.querySelector('[data-close-modal]');
-const backdrop = document.querySelector('[data-backdrop]');
+const openModalOopsBtn = document.querySelector('[data-modal-oops-open]');
+const closeModaOopslBtn = document.querySelector('[data-modal-oops-close]');
+const backdropOops = document.querySelector('[data-backdrop-oops]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 
 openModalOopsBtn.addEventListener('click', toggleModalOops);
-closeModalBtn.addEventListener('click', toggleModalOops);
+closeModaOopslBtn.addEventListener('click', toggleModalOops);
 
 function toggleModalOops() {
-  backdrop.classList.toggle('backdrop--hidden');
+  backdropOops.classList.toggle('backdrop-oops--hidden');
 }
