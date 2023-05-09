@@ -1,1 +1,1 @@
-export const ROOT_HERO_CONTAINER = document.getElementById('hero-trending');
+export const ROOT_HERO_CONTAINER = document.getElementById('hero-container');
