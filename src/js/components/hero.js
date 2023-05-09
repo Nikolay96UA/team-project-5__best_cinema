@@ -163,36 +163,36 @@ renderTrendingMovies();
 //   window.open(url, '_blank');
 // }
 
-// ! to open modal
-function openModal() {
-  const modal = document.getElementById('modal');
-  modal.style.display = 'block';
-}
+// // ! to open modal
+// function openModal() {
+//   const modal = document.getElementById('modal');
+//   modal.style.display = 'block';
+// }
 
-// Get the Modal Overlay and Modal Content elements
-const modalOverlay = document.getElementById('modal-overlay');
-const modal = document.getElementById('modal');
+// // Get the Modal Overlay and Modal Content elements
+// const modalOverlay = document.getElementById('modal-overlay');
+// const modal = document.getElementById('modal');
 
-// Get the Modal Trigger Button and Modal Close Button elements
-const modalTrigger = document.getElementById('modal-trigger');
-const modalClose = document.getElementById('modal-close');
+// // Get the Modal Trigger Button and Modal Close Button elements
+// const modalTrigger = document.getElementById('modal-trigger');
+// const modalClose = document.getElementById('modal-close');
 
-// Add a click event listener to the Modal Trigger Button
-modalTrigger.addEventListener('click', () => {
-  // Show the Modal Overlay
-  modalOverlay.style.display = 'block';
-});
+// // Add a click event listener to the Modal Trigger Button
+// modalTrigger.addEventListener('click', () => {
+//   // Show the Modal Overlay
+//   modalOverlay.style.display = 'block';
+// });
 
-// Add a click event listener to the Modal Close Button
-modalClose.addEventListener('click', () => {
-  // Hide the Modal Overlay
-  modalOverlay.style.display = 'none';
-});
+// // Add a click event listener to the Modal Close Button
+// modalClose.addEventListener('click', () => {
+//   // Hide the Modal Overlay
+//   modalOverlay.style.display = 'none';
+// });
 
-// Add a click event listener to the Modal Overlay (to close the modal if clicked outside of it)
-modalOverlay.addEventListener('click', event => {
-  if (event.target === modalOverlay) {
-    // Hide the Modal Overlay
-    modalOverlay.style.display = 'none';
-  }
-});
+// // Add a click event listener to the Modal Overlay (to close the modal if clicked outside of it)
+// modalOverlay.addEventListener('click', event => {
+//   if (event.target === modalOverlay) {
+//     // Hide the Modal Overlay
+//     modalOverlay.style.display = 'none';
+//   }
+// });
