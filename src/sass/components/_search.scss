@@ -2,21 +2,14 @@
   background-color: #111;
 }
 
-.search-movies {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #111;
-  width: 100%;
-}
-
-.searchInput[type="text"] {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-right: 10px;
-}
+// .search-movies {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: #111;
+//   width: 100%;
+// }
 
 #searchBtn {
   width: 48px;
@@ -29,46 +22,45 @@
 }
 
 .search-form {
+  width: 100%;
 
   & select {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
   margin-right: 10px;
+  background-color: #111;
+  }
 
-    & .yearSelect{
+  & .yearSelect {
+  color: #fff; /* Базовый цвет текста */
 
-    }
+    & option.value {
+  color: #000; /* Цвет текста первого элемента */
+}
 
-    & .genreSelect{
+&:hover {
+  color: #f87719; /* Цвет текста при ховере и фокусе */
+}
+}
 
-    }
+  & .genreSelect{
+  width: 260px;
+  }
 
-    & .countrySelect{
-
-    }
+  & .countrySelect{
+  width: 281px;
   }
 
 }
 
-.results {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.result {
-  margin: 10px;
-  width: 200px;
-  height: 300px;
-  overflow: hidden;
+.searchInput {
+  background-color: #111;
+  height: 48px;
+  width: 315px;
+  padding: 10px;
+  font-size: 16px;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.result img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin-right: 10px;
+  color: #fff
 }
