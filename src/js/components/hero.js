@@ -33,7 +33,7 @@ async function createMovieCardMarkup(movie) {
             <div class="hero-trend__rating ${stars(
               Number(rating.toFixed(1))
             )}"></div>
-            <p class="hero-trend__overview hero-trend__overview">${
+            <p class="hero-trend__overview">${
               overview.length > 300
                 ? overview.substring(0, 300) + '...'
                 : overview
