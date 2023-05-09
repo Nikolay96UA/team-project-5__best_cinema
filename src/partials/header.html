@@ -1,3 +1,53 @@
-<h2>header</h2>
-<header id="header"></header>
-<a href="./catalog.html">Catalog</a>
+<header class="header">
+  <div class="header-container container">
+    <nav class="header-nav">
+      <a class="logo" href="./index.html">
+        <svg class="logo-icon" width="32" height="32">
+          <use href="./img/icons.svg#logo"></use>
+        </svg>
+        <span class="logo-txt">Cinemania</span>
+      </a>
+
+      <ul class="header-nav-list">
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./index.html">home</a>
+        </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./catalog.html">catalog</a>
+        </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="./library.html">my library</a>
+        </li>
+      </ul>
+
+      <button
+        class="menu-toggle js-open-menu"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
+    </nav>
+    <fieldset class="switcher">
+      <legend class="switcher-legend">Scheme</legend>
+      <input
+        class="switcher-radio switcher-radio-dark"
+        type="radio"
+        name="color-scheme"
+        value="dark"
+        aria-label="Dark"
+        checked
+      />
+      <input
+        class="switcher-radio switcher-radio-light"
+        type="radio"
+        name="color-scheme"
+        value="light"
+        aria-label="Light"
+      />
+
+      <div class="switcher-status"></div>
+    </fieldset>
+  </div>
+</header>

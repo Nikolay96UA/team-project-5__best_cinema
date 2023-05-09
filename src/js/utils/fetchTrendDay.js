@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_KEY, BASE_URL, URL_TREND_DAY } from '../constants/api';
-import { renderOnError } from '../components/hero';
+import { defaultHeroMarkup } from '../components/hero';
 
 // Function to fetch trending movies from TMDB API
 export async function fetchTrendingMovies() {
@@ -8,9 +8,28 @@ export async function fetchTrendingMovies() {
     const response = await axios.get(
       `${BASE_URL}${URL_TREND_DAY}?api_key=${API_KEY}`
     );
-    return response.data.results;
+
+    const trendingMovies = response.data.results.slice(0, 5);
+
+    return trendingMovies;
   } catch (error) {
     console.error(error);
-    renderOnError();
+    defaultHeroMarkup();
+  }
+}
+
+// Function to fetch movie trailer
+export async function getTrailer(movie_id) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}movie/${movie_id}/videos?api_key=${API_KEY}`
+    );
+
+    const movieTrailer = await response.data.results[0].key;
+
+    return movieTrailer;
+  } catch (error) {
+    console.error(error);
+    defaultHeroMarkup();
   }
 }
