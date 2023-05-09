@@ -1,21 +1,25 @@
 const lightStyles = document.querySelectorAll(
   'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]'
 );
+
 const darkStyles = document.querySelectorAll(
   'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]'
 );
 const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
-const switcher = document.querySelectorAll('.theme-switch .checkbox');
+const switcherRadios = document.querySelectorAll('.switcher-radio');
 
 function setupSwitcher() {
   const savedScheme = getSavedScheme();
+  console.log(savedScheme);
 
-  if (savedScheme !== null) {
-    switcher.checked = true;
+  if (savedScheme === null) {
+    setScheme('dark');
   }
 
-  switcher.addEventListener('change', event => {
-    setScheme(event.target.value);
+  [...switcherRadios].forEach(radio => {
+    radio.addEventListener('change', event => {
+      setScheme(event.target.value);
+    });
   });
 }
 
@@ -32,25 +36,12 @@ function setupScheme() {
 
 function setScheme(scheme) {
   switchMedia(scheme);
-
-  if (scheme === 'auto') {
-    clearScheme();
-  } else {
-    saveScheme(scheme);
-  }
+  saveScheme(scheme);
 }
 
 function switchMedia(scheme) {
-  let lightMedia;
-  let darkMedia;
-
-  if (scheme === 'auto') {
-    lightMedia = '(prefers-color-scheme: light)';
-    darkMedia = '(prefers-color-scheme: dark)';
-  } else {
-    lightMedia = scheme === 'light' ? 'all' : 'not all';
-    darkMedia = scheme === 'dark' ? 'all' : 'not all';
-  }
+  let lightMedia = scheme === 'light' ? 'all' : 'not all';
+  let darkMedia = scheme === 'dark' ? 'all' : 'not all';
 
   [...lightStyles].forEach(link => {
     link.media = lightMedia;
