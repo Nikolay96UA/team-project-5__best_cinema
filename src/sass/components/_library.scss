@@ -77,7 +77,7 @@
   @media screen and (max-width: 767px) {
     background-image: linear-gradient(rgba(14, 14, 14, 0), rgba(14, 14, 14, 0)),
       url('/img/Hero-bg-tablet1x.jpg');
-    /* min-width: 480px; */
+    min-width: 480px;
     max-width: 464px;
     min-height: 372px;
     @media (min-device-pixel-ratio: 2),
