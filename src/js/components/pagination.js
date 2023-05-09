@@ -1,6 +1,5 @@
 import Pagination from 'tui-pagination';
 const paginContainer = document.getElementById('tui-pagination-container');
-const title = 'myTitle';
 const pagOptions = {
   totalItems: 240,
   itemsPerPage: 10,

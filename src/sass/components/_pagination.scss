@@ -1,5 +1,5 @@
 .pagination {
-  background-color: $primary-bg-color;
+  background-color: --primary-bg-color;
 }
 .tui-pagination {
   @include mobile {
