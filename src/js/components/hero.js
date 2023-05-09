@@ -18,9 +18,7 @@ async function createMovieCardMarkup(movie) {
 
   try {
     const trailer = await getTrailer(id);
-    const trailerLink = trailer
-      ? `https://www.youtube.com/watch?v=${trailer}`
-      : 'openModal()';
+    const trailerLink = `https://www.youtube.com/watch?v=${trailer}`;
 
     return `
       <div class="hero__wrap swiper-slide">
@@ -38,9 +36,7 @@ async function createMovieCardMarkup(movie) {
                 : overview
             }</p>
             <button id="modal-trigger" type="button" class="hero__btn" onclick="${
-              trailerLink
-                ? `window.open('${trailerLink}', '_blank')`
-                : 'openModal()'
+              trailerLink ? `window.open('${trailerLink}', '_blank')` : `#`
             }">
               Watch trailer
             </button>
