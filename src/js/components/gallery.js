@@ -8,7 +8,7 @@ let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
 const galleryEl = document.getElementById('gallery');
-galleryEl.addEventListener('click', onGalleryLinkClick);
+// galleryEl.addEventListener('click', onGalleryLinkClick);
 
 onPageShow();
 async function onPageShow() {
@@ -100,14 +100,14 @@ function stars(vote) {
 
 pagInstance.on('beforeMove', async event => {
   const { page: pagPage } = event;
-  console.log(pagPage);
   currentPage = pagPage;
   const pagArray = await getTrendMoviesOfWeek();
   createMarkUp(pagArray);
 });
 
-export function onGalleryLinkClick(event) {
-  if (event.target.nodeName === 'A') {
-    console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
-  }
-}
+// export function onGalleryLinkClick(event) {
+//   if (event.target.nodeName === 'LI') {
+//     console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
+//     console.log(event.target.dataset.id);
+//   }
+// }
