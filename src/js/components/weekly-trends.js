@@ -16,8 +16,6 @@ let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
 
-// ++++++++++++++++
-
 onPageShow();
 async function onPageShow() {
   try {
@@ -33,7 +31,6 @@ async function onPageShow() {
       idsArray.push(genresListArray[i].id);
       categorysArray.push(genresListArray[i].name);
     }
-    console.log(allUncomingArr);
     createMarkUp(allUncomingArr);
   } catch (error) {
     console.log(error);
@@ -45,10 +42,6 @@ async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
-    // const arrayWeekTrends = arrayTrendsWeek.push(
-    //   moviesObject.results.slice(0, 3)
-    // );
-    // console.log(arrayWeekTrends);
     return moviesObject.results;
   } catch (error) {
     console.log(error);
@@ -59,7 +52,7 @@ export function createMarkUp(array) {
   const markup = array
     .map(
       ({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
-        return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
+        return `<li class="weekly-trends__item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})" data-id=${id}><div class="weekly-trends__about"><h3 class="weekly-trends__item__about__title">${title}</h3><p class="weekly-trends__item__about__p">${getGenreForCard(
           genre_ids
         )} | ${release_date.slice(
           0,
@@ -117,20 +110,3 @@ function stars(vote) {
     return 'No rating';
   }
 }
-
-// ++++++++++++++++
-
-// async function getTrendMoviesOfWeek() {
-//   try {
-//     const { data: moviesObject } = await axios.get(
-//       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
-//     );
-//     const arrayWeekTrends = arrayTrendsWeek.push(
-//       moviesObject.results.slice(0, 3)
-//     );
-//     console.log(arrayWeekTrends);
-//     return arrayWeekTrends;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
