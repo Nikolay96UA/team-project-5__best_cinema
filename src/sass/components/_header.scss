@@ -103,42 +103,42 @@
 
 //  Mobile
 
-@media (max-width: 767px) {
-  .header {
-    padding: 12px 16px;
-  }
+// @media (max-width: 767px) {
+//   .header {
+//     padding: 12px 16px;
+//   }
 
-  .header-logo {
-    margin-right: 0;
-  }
+//   .header-logo {
+//     margin-right: 0;
+//   }
 
-  .header-nav {
-    &-list {
-      display: none;
-    }
-  }
+//   .header-nav {
+//     &-list {
+//       display: none;
+//     }
+//   }
 
-  .theme-toggler {
-    width: 40px;
-    height: 16px;
-  }
+//   .theme-toggler {
+//     width: 40px;
+//     height: 16px;
+//   }
 
-  .theme-toggler::after {
-    width: 16px;
-    height: 16px;
-    top: 0;
-    right: 0;
-  }
+//   .theme-toggler::after {
+//     width: 16px;
+//     height: 16px;
+//     top: 0;
+//     right: 0;
+//   }
 
-  .theme-toggler-icons {
-    width: 100%;
-    height: 14px;
-  }
+//   .theme-toggler-icons {
+//     width: 100%;
+//     height: 14px;
+//   }
 
-  .sun-icon {
-    transform: translateX(12px);
-  }
-  .moon-icon {
-    transform: translateX(-12px);
-  }
-}
+//   .sun-icon {
+//     transform: translateX(12px);
+//   }
+//   .moon-icon {
+//     transform: translateX(-12px);
+//   }
+// }
