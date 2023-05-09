@@ -1,11 +1,21 @@
-.weekly-trends {
+.trends {
   padding-top: 80px;
   padding-bottom: 60px;
-  background-color: var(--primary-bg-color);
 }
 
-.weekly-trends__tite {
-  font-style: normal;
+.trends-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+
+  @include tablet {
+    margin-bottom: 28px;
+  }
+}
+
+.trends-title {
   font-weight: 500;
   font-size: 28px;
   line-height: 1.17;
@@ -13,8 +23,7 @@
   text-transform: uppercase;
   color: var(--primary-text-color);
 }
-.weekly-trends__link {
-  font-style: normal;
+.trends-link {
   font-weight: 500;
   font-size: 28px;
   line-height: 33px;
@@ -22,75 +31,41 @@
   color: var(--accent-color);
 }
 
-.weekly-trends_info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px;
-}
-
-.weekly-trends__elems {
-  list-style: none;
+.trends-list {
   display: flex;
   flex-wrap: wrap;
-  @include mobile {
-    display: block;
-  }
+  gap: 32px 16px;
 }
 
-.gallery-item {
+.trends-card {
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 224px;
+
+  flex-basis: 100%;
   height: 335px;
-  @include mobile {
-    // display: block;
-    width: 100%;
-    height: 406px;
-    margin-right: 0;
-    margin-bottom: 16px;
-  }
+
   @include tablet {
-    width: 224px;
+    flex-basis: calc((100% - 16px * 2) / 3);
     height: 335px;
-    margin-right: 16px;
-    margin-bottom: 28px;
-    flex-basis: calc((100% - 32px) / 3);
   }
+
   @include desktop {
-    width: 395px;
+    flex-basis: calc((100% - 16px * 2) / 3);
     height: 574px;
-    margin-right: 15px;
-    margin-bottom: 32px;
-    flex-basis: calc((100% - 31px) / 3);
   }
 }
-.weekly-trends__elems > .gallery-item:nth-child(3n) {
-  margin-right: 0;
-}
-.weekly-trends__elems > .gallery-item:nth-last-child(-n + 1) {
-  @include mobile {
-    margin-bottom: 20px;
-  }
-  @include tablet {
-    margin-bottom: 44px;
-  }
-  @include desktop {
-    margin-bottom: 60;
-  }
-}
-.gallery-item__about {
+
+.trends-card-about {
   position: absolute;
+  bottom: 12px;
+  left: 12px;
+
   @include mobile {
     width: 60%;
-    left: 12px;
-    bottom: 12px;
   }
   @include tablet {
     width: 130px;
-    left: 12px;
-    bottom: 12px;
   }
   @include desktop {
     width: 245px;
@@ -98,31 +73,24 @@
     bottom: 20px;
   }
 }
-.gallery-item__about__title,
-.gallery-item__about__p {
-  @include mobile {
-    font-size: 12px;
-    line-height: 1.67;
-  }
-  @include tablet {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  color: var(--primary-text-color);
-  text-transform: uppercase;
+.trends-card-subtitle,
+.trends-card-meta {
   font-weight: 500;
-  font-size: 20px;
-  line-height: 1.17;
+  font-size: 12px;
+  line-height: 1.67;
+  text-transform: uppercase;
+  color: var(--primary-text-color);
+
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.17;
+  }
 }
-.gallery-item__about__p {
+.trends-card-meta {
   color: car(--grey-text-color);
   text-transform: none;
 }
-// .for-img {
-//   width: 395px;
-//   height: 574px;
-// }
+
 .vote-cinemas {
   position: absolute;
   // pointer-events: none; used for input, but now this is div
@@ -302,9 +270,3 @@
 
   @include bgcStarsDesk;
 }
-// .gallery-item__link {
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-//   cursor: pointer;
-// }

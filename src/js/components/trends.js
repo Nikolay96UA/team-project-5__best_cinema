@@ -7,7 +7,7 @@ import {
 // import { getTrendMoviesOfWeek } from './gallery';
 import axios from 'axios';
 
-const weekTrendsEl = document.getElementById('trends-cont');
+const weekTrendsEl = document.getElementById('trends-list');
 
 let currentPage = 1;
 let arrayTrendsWeek = [];
@@ -59,14 +59,17 @@ export function createMarkUp(array) {
   const markup = array
     .map(
       ({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
-        return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
-          genre_ids
-        )} | ${release_date.slice(
-          0,
-          4
-        )}</p></div><div class="vote-cinemas ${stars(
-          Number(vote_average.toFixed(1))
-        )}"></div></li>`;
+        return `
+        <li class="trends-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})" data-id=${id}>
+          <div class="trends-card-about">
+            <h3 class="trends-card-subtitle">${title}</h3>
+            <p class="trends-card-meta">
+              ${getGenreForCard(genre_ids)} | ${release_date.slice(0, 4)}
+            </p>
+          </div>
+          <div class="vote-cinemas ${stars(Number(vote_average.toFixed(1)))}">
+          </div>
+        </li>`;
       }
     )
     .join('');
