@@ -12,7 +12,7 @@ const pagOptions = {
 
   template: {
     page: '<a href="#" class="tui-page-btn page">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected curr-page">{{page}}</strong>',
+    currentPage: '<span class="tui-page-btn tui-is-selected curr-page">{{page}}</span>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} custom-class-{{type}}">' +
       '<span class="tui-ico-{{type}}"></span>' +
