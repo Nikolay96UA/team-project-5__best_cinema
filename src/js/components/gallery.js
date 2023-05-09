@@ -12,7 +12,7 @@ let totalPages = 0;
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
-const galleryEl = document.getElementById('gallery');
+export const galleryEl = document.getElementById('gallery');
 
 onPageShow();
 async function onPageShow() {
@@ -114,9 +114,9 @@ pagInstance.on('beforeMove', async event => {
   createMarkUp(pagArray);
 });
 
-// export function onGalleryLinkClick(event) {
-//   if (event.target.nodeName === 'LI') {
-//     console.log('Ай, ти тицнюв пальцем в ноду:', event.target.nodeName);
-//     console.log(event.target.dataset.id);
-//   }
-// }
+export function onGalleryLinkClick(event) {
+  if (event.target.nodeName === 'LI') {
+    const movieId = event.target.dataset.id;
+    return movieId;
+  }
+}
