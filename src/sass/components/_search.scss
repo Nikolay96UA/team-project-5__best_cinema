@@ -1,7 +1,16 @@
 .search {
-  background-color: $primary-bg-color;
+  background-color: var(--primary-bg-color);
   padding: 60px 32px 36px;
 }
+
+// .search-movies {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: #111;
+//   width: 100%;
+// }
 
 #searchBtn {
   width: 48px;
@@ -10,53 +19,49 @@
   border: none;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   cursor: pointer;
-  margin-left: 10px;
-  color: $primary-text-color;
-  fill: $primary-text-color;
 }
 
 .search-form {
   width: 100%;
-  background-color: $primary-bg-color;
 
   & select {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid $primary-text-color;
-  background-color: $primary-bg-color;
-  border-radius: 8px;
-  margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #111;
   }
 
-  & .years-select{
-  color: $primary-text-color;
-  width: 95px;
+  & .yearSelect {
+    color: #fff; /* Базовый цвет текста */
+
+    & option.value {
+      color: #000; /* Цвет текста первого элемента */
+    }
+
+    &:hover {
+      color: #f87719; /* Цвет текста при ховере и фокусе */
+    }
   }
 
-  & .genre-select{
-  color: $primary-text-color;
-  width: 260px;
+  & .genreSelect {
+    width: 260px;
   }
 
-  & .country-select{
-  color: $primary-text-color;
-  width: 281px;
+  & .countrySelect {
+    width: 281px;
   }
-
 }
 
-
-.search-input {
-  background-color: $primary-bg-color;
+.searchInput {
+  background-color: #111;
   height: 48px;
   width: 315px;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid $primary-text-color;
-  border-radius: 8px;
+  border-radius: 5px;
   margin-right: 10px;
-  color : $primary-text-color;
-  background: rgba(0,0,0,0);
+  color: #fff;
 }
 
 // .iconsearch {

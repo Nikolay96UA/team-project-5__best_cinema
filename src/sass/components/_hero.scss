@@ -193,6 +193,28 @@
   }
 }
 
+// .hero__info {
+//   background-repeat: no-repeat;
+//   background-position: left center;
+//   background-image: var(--hero-bg-mob);
+
+//   @include tablet {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     z-index: 1;
+//     width: 100%;
+//     height: 100%;
+//     padding-top: 118px;
+//     padding-left: 32px;
+//     background-image: var(--hero-bg-tab);
+//   }
+
+//   @include desktop {
+//     background-image: var(--hero-bg-desk);
+//   }
+// }
+
 .hero__details {
   display: flex;
   flex-direction: column;
@@ -288,8 +310,9 @@
   font-size: 12px;
   line-height: 1.17;
 
-  color: $btn-text-color;
-  background: $btn-bg-liner;
+  color: var(--primary-text-color);
+  background-color: var(--accent-color);
+  background-image: var(--gradient);
   border-radius: 74px;
   border: 1px solid transparent;
 
@@ -307,8 +330,8 @@
 
 .hero__btn:hover {
   background: var(--primary-text-color);
-  border: 1px solid $accent-color;
-  color: $accent-color;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
 }
 
 // !=== stars

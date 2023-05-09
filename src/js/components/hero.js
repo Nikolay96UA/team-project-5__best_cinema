@@ -1,10 +1,7 @@
 import { API_KEY, BASE_URL, IMG_URL } from '../constants/api';
 import { ROOT_HERO_CONTAINER } from '../constants/root';
 import { fetchTrendingMovies, getTrailer } from '../utils/fetchTrendDay';
-// import Swiper, { Navigation, Pagination } from 'swiper';
-// import 'swiper/swiper.min.css';
-// import 'swiper/modules/navigation/navigation.min.css';
-// import 'swiper/modules/pagination/pagination.min.css';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 // Function to create markup for a single movie
 async function createMovieCardMarkup(movie) {
@@ -100,16 +97,15 @@ async function renderTrendingMovies() {
 
     // create SWIPER with options
     const swiper = new Swiper('.swiper-container', {
+      modules: [Navigation, Pagination],
       slidesPerView: 1,
-      spaceBetween: 50,
+      spaceBetween: 500,
       loop: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
         renderBullet: function (index, className) {
-          return (
-            '<span class="' + className + '">' + 0 + (index + 1) + '</span>'
-          );
+          return `<span class="${className}">${index + 1}</span>`;
         },
       },
       navigation: {
@@ -120,12 +116,12 @@ async function renderTrendingMovies() {
       fadeEffect: {
         crossFade: true,
       },
-      // autoplay: {
-      //   delay: 5000,
-      //   stopOnLastSlide: false,
-      //   disableOnInteraction: false,
-      //   pauseOnMouseEnter: true,
-      // },
+      autoplay: {
+        delay: 2000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
     });
   } catch (error) {
     console.error(error);

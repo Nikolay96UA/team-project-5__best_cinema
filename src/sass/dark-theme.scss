@@ -1,7 +1,7 @@
 :root {
   // Background colors
-  --header-bg-color: #000000;
-  --header-bg-color-20: rgba(255, 255, 255, 0.2);
+  --main-bg-color: #111111;
+  --main-bg-color-20: rgba(255, 255, 255, 0.2);
   --primary-bg-color: #282828;
   --modal-bg-color: #171717;
   // Text colors
@@ -10,4 +10,9 @@
   --grey-text-color: #b7b7b7;
   // Others
   --close-icon: var(--secondary-text-color);
+  --modal-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  // Hero background
+  --hero-bg-mob: url(/src/images/hero/hero-bgd-dark-mobile-1x.png);
+  --hero-bg-tab: url(/src/images/hero/hero-bgd-dark-tablet-1x.png);
+  --hero-bg-desk: url(/src/images/hero/hero-bgd-dark-desktop-1x.png);
 }
