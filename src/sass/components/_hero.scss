@@ -56,7 +56,7 @@
 .swiper-container .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-container .swiper-pagination-custom,
 .swiper-container .swiper-pagination-fraction {
-  left: -25%;
+  left: -15%;
 
   @include tablet {
     left: -30%;
@@ -79,7 +79,7 @@
   }
 }
 .swiper-container .swiper-button-next {
-  left: 42.5%;
+  left: 61.5%;
 
   @include tablet {
     left: 34.8%;
