@@ -24,12 +24,14 @@
 }
 .gallery-item {
   position: relative;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  width: 224px;
+  height: 335px;
   @include mobile {
-    display: block;
+    // display: block;
     width: 100%;
-    // height: 100%;
+    height: 406px;
     margin-right: 0;
     margin-bottom: 16px;
   }
@@ -81,6 +83,7 @@
 .gallery-item__about__title,
 .gallery-item__about__p {
   @include mobile {
+    font-size: 12px;
     line-height: 1.67;
   }
   @include tablet {
@@ -280,9 +283,9 @@
 
   @include bgcStarsDesk;
 }
-.gallery-item__link {
-  display: block;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
+// .gallery-item__link {
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   cursor: pointer;
+// }
