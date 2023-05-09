@@ -186,8 +186,8 @@
   max-width: 200px;
   height: 48px;
 
-  /* linear */
-  background: var(--gradient);
+  background-color: var(--accent-color);
+  background-image: var(--gradient);
   border-radius: 74px;
   border: none;
 
@@ -195,7 +195,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--btn-text-color);
+  color: var(--primary-text-color);
 
   cursor: pointer;
   transition: all 0.3s ease;
