@@ -57,27 +57,27 @@ async function createMovieCardMarkup(movie) {
 // to render Rating in stars
 function stars(vote) {
   if (vote === 10) {
-    return 'ten-stars';
+    return 'ten-stars1';
   } else if (vote < 10 && vote > 8) {
-    return 'nine-stars';
+    return 'nine-stars1';
   } else if (vote === 8) {
-    return 'eight-stars';
+    return 'eight-stars1';
   } else if (vote < 8 && vote > 6) {
-    return 'seven-stars';
+    return 'seven-stars1';
   } else if (vote === 6) {
-    return 'six-stars';
+    return 'six-stars1';
   } else if (vote < 6 && vote > 4) {
-    return 'five-stars';
+    return 'five-stars1';
   } else if (vote === 4) {
-    return 'four-stars';
+    return 'four-stars1';
   } else if (vote < 4 && vote > 2) {
-    return 'three-stars';
+    return 'three-stars1';
   } else if (vote === 2) {
-    return 'two-stars';
+    return 'two-stars1';
   } else if (vote < 2 && vote > 0) {
-    return 'one-star';
+    return 'one-star1';
   } else if (vote === 0) {
-    return 'zero-star';
+    return 'zero-star1';
   } else if (!vote) {
     return 'No rating';
   }
