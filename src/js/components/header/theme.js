@@ -10,7 +10,6 @@ const switcherRadios = document.querySelectorAll('.switcher-radio');
 
 function setupSwitcher() {
   const savedScheme = getSavedScheme();
-  console.log(savedScheme);
 
   if (savedScheme === null) {
     setScheme('dark');
