@@ -7,7 +7,7 @@ const yearSelect = document.querySelector('.yearSelect');
 const genreSelect = document.querySelector('.genreSelect');
 const countrySelect = document.querySelector('.countrySelect');
 const searchBtn = document.getElementById('searchBtn');
-const resultBlock = document.querySelector('.search-movies'); // Де він в розмітці?
+const resultBlock = document.querySelector('.search-movies');
 
 const apiKey = 'e228a48ce493c266d1ac0e25cdb4d9c4';
 
