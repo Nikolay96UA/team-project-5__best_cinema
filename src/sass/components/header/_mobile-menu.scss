@@ -71,12 +71,12 @@
 .mobile-menu-icon {
   stroke: var(--close-icon);
 }
-.mobile-menu__item {
+.mobile-menu-item {
   &:not(:last-child) {
     margin-bottom: 24px;
   }
 }
-.mobile-menu__link {
+.mobile-menu-link {
   font-size: 14px;
   line-height: 1.14;
   color: var(--primary-text-color);
