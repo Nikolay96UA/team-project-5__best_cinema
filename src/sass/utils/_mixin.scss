@@ -1,17 +1,11 @@
-@mixin phone {
-  @media screen and (max-width: 480px) {
-    @content;
-  }
-}
-
 @mixin mobile {
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 320px) and (max-width: 480px) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
     @content;
   }
 }
@@ -23,9 +17,30 @@
 }
 
 @mixin retina {
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     @content;
+  }
+}
+
+// Styles for stars
+@mixin bgcStarsMob {
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    background-repeat: no-repeat;
+    background-size: 13px, 13px, 13px, 13px, 13px;
+    background-position: 0, 18px, 36px, 54px, 72px;
+  }
+}
+@mixin bgcStarsTabl {
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    background-repeat: no-repeat;
+    background-size: 10px, 10px, 10px, 10px, 10px;
+    background-position: 0, 15px, 30px, 45px, 60px;
+  }
+}
+@mixin bgcStarsDesk {
+  @media screen and (min-width: 1200px) {
+    background-repeat: no-repeat;
+    background-size: 17px, 17px, 17px, 17px, 17px;
+    background-position: 0, 22px, 44px, 66px, 88px;
   }
 }

@@ -1,11 +1,11 @@
 <header class="header">
   <div class="header-container container">
     <nav class="header-nav">
-      <a class="header-logo" href="index.html">
-        <svg width="48" height="48">
-          <use href="./images/svg/sprite.svg#cinemania"></use>
+      <a class="logo" href="./index.html">
+        <svg class="logo-icon" width="32" height="32">
+          <use href="./img/icons.svg#logo"></use>
         </svg>
-        <span class="header-logo-txt">Cinemania</span>
+        <span class="logo-txt">Cinemania</span>
       </a>
 
       <ul class="header-nav-list">
@@ -20,28 +20,34 @@
         </li>
       </ul>
 
-      <button class="menu-btn" type="button">Menu</button>
+      <button
+        class="menu-toggle js-open-menu"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
     </nav>
-    <div class="theme-switch">
+    <fieldset class="switcher">
+      <legend class="switcher-legend">Scheme</legend>
       <input
-        class="checkbox"
-        type="checkbox"
-        name="theme-toggle"
-        id="theme-toggle"
+        class="switcher-radio switcher-radio-dark"
+        type="radio"
+        name="color-scheme"
+        value="dark"
+        aria-label="Dark"
+        checked
       />
-      <label class="theme-toggler" for="theme-toggle">
-        <svg class="theme-toggler-icons" width="14" height="14">
-          <use
-            class="sun-icon"
-            href="/src/images/svg/sprite.svg#icon-sun"
-          ></use>
-          <use
-            class="moon-icon"
-            href="/src/images/svg/sprite.svg#icon-moon"
-          ></use>
-        </svg>
-      </label>
-    </div>
-    </div>
+      <input
+        class="switcher-radio switcher-radio-light"
+        type="radio"
+        name="color-scheme"
+        value="light"
+        aria-label="Light"
+      />
+
+      <div class="switcher-status"></div>
+    </fieldset>
   </div>
 </header>
