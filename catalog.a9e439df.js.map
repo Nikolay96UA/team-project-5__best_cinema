@@ -1,1 +1,0 @@
-{"mappings":"oeAAAA,EAAA,S","sources":["src/js/catalog.js"],"sourcesContent":["import './components/gallery';\nimport './components/pagination';\n"],"names":["parcelRequire"],"version":3,"file":"catalog.a9e439df.js.map"}
