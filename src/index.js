@@ -6,5 +6,5 @@ import './js/components/search';
 import './js/components/uncoming-this-mounth';
 import './js/components/weekly-trends';
 import './js/components/footer';
-// Mmodals
+// Modals
 import './js/components/modals';
