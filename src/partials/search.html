@@ -1,15 +1,9 @@
 <section class="search">
   <h2 class="invisible-title">search-movies</h2>
   <div class="container">
-    <form class="search-form">
-      <input
-        type="text"
-        class="searchInput"
-        name="keyword"
-        placeholder="Film"
-        required
-      />
-      <select class="yearSelect" name="yearSelect" placeholder="Film">
+    <form class="search-form form-single">
+      <input type="text" class="search-input" name="keyword" placeholder="Search" required />
+      <select class="year-select input__is-hidden" name="yearSelect">
         <option value="">Year</option>
         <option value="2022">2022</option>
         <option value="2021">2021</option>
@@ -20,7 +14,7 @@
         <option value="2016">2016</option>
         <option value="2015">2015</option>
       </select>
-      <select class="genre-select" name="genreSelect">
+      <select class="genre-select input__is-hidden" name="genreSelect">
         <option value="">Genre</option>
         <option value="10749">Romance</option>
         <option value="80">Detective</option>
@@ -29,7 +23,7 @@
         <option value="99">Documentary</option>
         <option value="27">Horror</option>
       </select>
-      <select class="country-select" name="countrySelect">
+      <select class="country-select input__is-hidden" name="countrySelect">
         <option value="">Country</option>
         <option value="US">USA</option>
         <option value="GB">Great Britain</option>
@@ -38,17 +32,30 @@
         <option value="ES">Spain</option>
         <option value="MX">Mexico</option>
       </select>
-      <button type="submit" id="searchBtn">
-        <!-- <svg width="20" height="20" <symbol id="icon-search-movi"
-          viewBox="0 0 32 32">
-          <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round"
-            stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.0800"
-            d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z">
-          </path>
-          <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round"
-            stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.0800" d="M28 28l-5.8-5.8"></path>
-          </symbol>
-        </svg> -->
+      <button type="submit" class="search-btn">
+        <svg
+          width="20"
+          height="20"
+          class="icon-search"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+            stroke="white"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M17.5 17.5L13.875 13.875"
+            stroke="white"
+            stroke-width="1.3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
       </button>
     </form>
   </div>

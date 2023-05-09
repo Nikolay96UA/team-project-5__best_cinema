@@ -23,6 +23,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "handlebars": "^4.7.7",
     "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.6",
     "simplelightbox": "^2.13.0",
     "swiper": "^9.3.0",
     "switcher": "^1.0.1",

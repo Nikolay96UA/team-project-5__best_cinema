@@ -7,4 +7,4 @@ import './js/components/uncoming-this-mounth';
 import './js/components/weekly-trends';
 import './js/components/footer';
 // Mmodals
-import './js/components/modals';
+// import './js/components/modals';
