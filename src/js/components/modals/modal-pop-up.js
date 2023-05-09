@@ -1,6 +1,6 @@
-import { MovieDatabaseAPI } from '../utils/fetchMovieDetails';
+import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { onGalleryLinkClick } from '../components/gallery';
-import { galleryEl } from '../components/gallery';
+import { galleryEl } from '../gallery';
 
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
