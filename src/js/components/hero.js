@@ -1,106 +1,198 @@
-import axios from 'axios';
-// import Swiper from 'swiper';
-// import 'swiper/css/swiper.min.css';
-import { API_KEY, BASE_URL, URL_TREND_DAY } from '../constants/api';
+import { API_KEY, BASE_URL, IMG_URL } from '../constants/api';
 import { ROOT_HERO_CONTAINER } from '../constants/root';
-import { fetchTrendingMovies } from '../utils/fetchTrendDay';
-
-// import '../../sass/components/Hero.scss';
-
-const swiper = new Swiper('.swiper-container', {
-  slidesPerView: 3,
-  spaceBetween: 30,
-  loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-});
+import { fetchTrendingMovies, getTrailer } from '../utils/fetchTrendDay';
+// import Swiper, { Navigation, Pagination } from 'swiper';
+// import 'swiper/swiper.min.css';
+// import 'swiper/modules/navigation/navigation.min.css';
+// import 'swiper/modules/pagination/pagination.min.css';
 
 // Function to create markup for a single movie
-function createMovieCardMarkup(movie) {
-  const image = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : 'https://via.placeholder.com/500x750.png?text=No+Image';
+async function createMovieCardMarkup(movie) {
+  const image = movie.backdrop_path
+    ? `${IMG_URL}${movie.backdrop_path}`
+    : `${IMG_URL}${movie.poster_path}`;
   const title = movie.title || movie.name || 'Untitled';
-  const releaseDate = movie.release_date || movie.first_air_date || 'N/A';
   const overview = movie.overview || 'No description available.';
-  const rating = movie.rating || 'No rating';
-  const movieId = movie.movie_id;
-  const trailer = movie.videos;
+  const rating = movie.vote_average || 'No rating';
+  const id = movie.id;
 
-  return `
-    <div class="hero-trend__wrap">
-      <div class="hero-trend__details">
-        <h2 class="hero-trend__title">${title}</h2>
-        <p class="hero-trend__rating">${rating}</p>
-        <p class="hero-trend__overview">${overview}</p>
-        <button class="hero-trend__btn">Watch trailer</button>
+  try {
+    const trailer = await getTrailer(id);
+    const trailerLink = trailer
+      ? `https://www.youtube.com/watch?v=${trailer}`
+      : 'openModal()';
+
+    return `
+      <div class="hero-trend__wrap swiper-slide">
+        <div class="hero-trend__bgd" style="background-image: url('${image}')"></div>
+        <div class="hero-trend__info  container">
+          <div class="hero-trend__details">
+            <h2 class="hero-trend__title">${
+              title.length > 25 ? title.substring(0, 25) + '...' : title
+            }</h2>
+            <div class="hero-trend__rating ${stars(
+              Number(rating.toFixed(1))
+            )}"></div>
+            <p class="hero-trend__overview">${
+              overview.length > 300
+                ? overview.substring(0, 300) + '...'
+                : overview
+            }</p>
+            <button id="modal-trigger" type="button" class="hero-trend__btn" onclick="${
+              trailerLink
+                ? `window.open('${trailerLink}', '_blank')`
+                : 'openModal()'
+            }">
+              Watch trailer
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="hero-trend__image">
-      <img src="${image}" alt="${title}">
-      </div>
-    </div>
-  `;
+    `;
+  } catch (error) {
+    console.error(error);
+    defaultHeroMarkup();
+  }
+}
+
+// to render Rating in stars
+function stars(vote) {
+  if (vote === 10) {
+    return 'ten-stars';
+  } else if (vote < 10 && vote > 8) {
+    return 'nine-stars';
+  } else if (vote === 8) {
+    return 'eight-stars';
+  } else if (vote < 8 && vote > 6) {
+    return 'seven-stars';
+  } else if (vote === 6) {
+    return 'six-stars';
+  } else if (vote < 6 && vote > 4) {
+    return 'five-stars';
+  } else if (vote === 4) {
+    return 'four-stars';
+  } else if (vote < 4 && vote > 2) {
+    return 'three-stars';
+  } else if (vote === 2) {
+    return 'two-stars';
+  } else if (vote < 2 && vote > 0) {
+    return 'one-star';
+  } else if (vote === 0) {
+    return 'zero-star';
+  } else if (!vote) {
+    return 'No rating';
+  }
 }
 
 // Function to render trending movies to the DOM
 async function renderTrendingMovies() {
-  // const ROOT_HERO_CONTAINER = document.querySelector('#trending-container');
-  ROOT_HERO_CONTAINER.innerHTML = '';
-
-  const swiperContainer = document.createElement('div');
-  swiperContainer.classList.add('swiper-container');
-
-  const swiperWrapper = document.createElement('div');
-  swiperWrapper.classList.add('swiper-wrapper');
+  const swiperWrap = document.querySelector('.swiper-wrapper');
+  let markup = '';
 
   try {
     const trendingMovies = await fetchTrendingMovies();
 
     if (trendingMovies.length === 0) {
-      throw new Error('No data returned from the server.');
+      defaultHeroMarkup();
     }
 
-    trendingMovies.forEach(movie => {
-      const movieCardMarkup = createMovieCardMarkup(movie);
+    for (let i = 0; i < trendingMovies.length; i++) {
+      const movieCardMarkup = await createMovieCardMarkup(trendingMovies[i]);
+      markup += movieCardMarkup;
+    }
 
-      const swiperSlide = document.createElement('div');
-      swiperSlide.classList.add('swiper-slide');
-      swiperSlide.innerHTML = movieCardMarkup;
+    swiperWrap.innerHTML = markup;
 
-      swiperWrapper.appendChild(swiperSlide);
-    });
-
-    swiperContainer.appendChild(swiperWrapper);
-    ROOT_HERO_CONTAINER.appendChild(swiperContainer);
-
+    // create SWIPER with options
     const swiper = new Swiper('.swiper-container', {
-      // Add your Swiper options here
+      slidesPerView: 1,
+      spaceBetween: 50,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+          return (
+            '<span class="' + className + '">' + 0 + (index + 1) + '</span>'
+          );
+        },
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      autoplay: {
+        delay: 5000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
     });
   } catch (error) {
     console.error(error);
-    renderOnError();
+    defaultHeroMarkup();
   }
 }
 
-export function renderOnError() {
-  // const ROOT_HERO_CONTAINER = document.getElementById('trending-container');
+export function defaultHeroMarkup() {
   ROOT_HERO_CONTAINER.innerHTML = `
-    <div class="hero-trend__wrap">
-      <img src="https://via.placeholder.com/500x750.png?text=No+Image" alt="Let's Make Your Own Cinema">
-      <div class="hero-trend__details">
-        <h2 class="hero-trend__title">Let's Make Your Own Cinema</h2>
-        <p class="hero-trend__overview">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
-        <button class="hero-trend__btn">Get Started</button>
-      </div>
+      <div class="hero-trend__wrap">
+      <div class="hero-trend__bgd hero-trend__bgd-default"></div>
+        <div class="hero-trend__info">
+          <div class="hero-trend__details" >
+            <h2 class="hero-trend__title">Let's Make Your Own Cinema</h2>
+            <p class="hero-trend__overview">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
+            <button class="hero-trend__btn">
+              <a href="./catalog.html" class="hero-trend__btn-link">Get Started</a>
+            </button>
+          </div>
+        </div>
     </div>
   `;
 }
 
 // Call renderTrendingMovies to initially render trending movies
 renderTrendingMovies();
+
+//! IDN doesn't work - openLinkInNewTab(url)
+// function openLinkInNewTab(url) {
+//   window.open(url, '_blank');
+// }
+
+// // ! to open modal
+// function openModal() {
+//   const modal = document.getElementById('modal');
+//   modal.style.display = 'block';
+// }
+
+// // Get the Modal Overlay and Modal Content elements
+// const modalOverlay = document.getElementById('modal-overlay');
+// const modal = document.getElementById('modal');
+
+// // Get the Modal Trigger Button and Modal Close Button elements
+// const modalTrigger = document.getElementById('modal-trigger');
+// const modalClose = document.getElementById('modal-close');
+
+// // Add a click event listener to the Modal Trigger Button
+// modalTrigger.addEventListener('click', () => {
+//   // Show the Modal Overlay
+//   modalOverlay.style.display = 'block';
+// });
+
+// // Add a click event listener to the Modal Close Button
+// modalClose.addEventListener('click', () => {
+//   // Hide the Modal Overlay
+//   modalOverlay.style.display = 'none';
+// });
+
+// // Add a click event listener to the Modal Overlay (to close the modal if clicked outside of it)
+// modalOverlay.addEventListener('click', event => {
+//   if (event.target === modalOverlay) {
+//     // Hide the Modal Overlay
+//     modalOverlay.style.display = 'none';
+//   }
+// });
