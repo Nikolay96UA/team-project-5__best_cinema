@@ -7,19 +7,21 @@ body{
 
 
 #uncoming-this-mounth {
-    padding-left: 20px;
-    padding-right: 20px;
+    // padding-left: 20px;
+    // padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
     @media screen and (min-width: 768px) {
-        padding-left: 32px;
-        padding-right: 32px;
+        // padding-left: 32px;
+        // padding-right: 32px;
     }
 
     @media screen and (min-width: 1200px) {
         display: flex;
-        padding-left: 32px;
-        padding-right: 32px;
+        // padding-left: 32px;
+        // padding-right: 32px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -132,9 +134,11 @@ max-width: 280px;
 }
 
 .muvie-image-poster{
-
-    max-width: 280px;
-        height: 402px;
+    min-width: 320px;
+ 
+    height: auto;
+    margin-bottom: 24px;
+       
         margin-bottom: 24px;
         @media screen and (min-width: 768px) {
                 display: none;
