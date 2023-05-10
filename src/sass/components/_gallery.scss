@@ -1,5 +1,5 @@
 .catalog {
-  background-color: var(--primary-bg-color);
+  // background-color: var(--primary-bg-color);
 }
 .invisible-title {
   position: absolute;
@@ -92,14 +92,14 @@
     font-size: 12px;
     line-height: 1.5;
   }
-  color: $primary-text-color;
+  color: --primary-text-color;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.17;
 }
 .gallery-item__about__p {
-  color: $grey-text-color;
+  color: --grey-text-color;
   text-transform: none;
 }
 // .for-img {
