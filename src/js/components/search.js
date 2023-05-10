@@ -22,6 +22,7 @@ const countrySelect = document.querySelector('.country-select');
 const searchBtn = document.querySelector('.search-btn');
 const resultBlock = document.querySelector('.search-movies');
 let currentSearchPage = 1;
+let pageAfterMove = 0;
 let searchUrl = '';
 
 generateGenreList();
@@ -109,7 +110,7 @@ async function searchMovies() {
       Notiflix.Notify.failure('Ooops, nothing to search.');
       return;
     }
-    pagInstanceTrendWeek.reset(objResultSearch.total_pages);
+    pagInstanceTrendWeek.reset(objResultSearch.total_results);
     paginContainerTrend.dataset.status = 'pagin-search';
     currentSearchPage = objResultSearch.page;
     createMarkUp(objResultSearch.results);
@@ -137,9 +138,9 @@ async function searchMovies() {
 export async function searchWithQuery() {
   console.log(pagInstanceTrendWeek.getCurrentPage());
   console.log(currentSearchPage);
-  const { data: resultSearch } = await axios.get(`${searchUrl}&page=${(currentSearchPage += 1)}`);
+  const { data: resultSearch } = await axios.get(
+    `${searchUrl}&page=${pagInstanceTrendWeek.getCurrentPage()}`
+  );
   console.log(resultSearch);
   createMarkUp(resultSearch.results);
-  if (resultSearch.total_pages === currentSearchPage) {
-  }
 }

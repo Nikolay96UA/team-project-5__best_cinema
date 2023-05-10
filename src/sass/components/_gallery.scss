@@ -28,6 +28,8 @@
   background-repeat: no-repeat;
   width: 224px;
   height: 335px;
+  cursor: pointer;
+  transition: scale 200ms linear, box-shadow 200ms linear;
   @include mobile {
     // display: block;
     width: 100%;
@@ -55,6 +57,11 @@
     margin-right: 15px;
     margin-bottom: 32px;
     flex-basis: calc((100% - 31px) / 3);
+  }
+  &:hover,
+  &:focus {
+    scale: 1.03;
+    box-shadow: 1px 1px 14px var(--primary-text-color);
   }
 }
 .gallery > .gallery-item:nth-child(3n) {
