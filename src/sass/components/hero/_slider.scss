@@ -1,0 +1,91 @@
+// ! styles for SWIPER
+.swiper-container {
+  position: relative;
+
+  --swiper-theme-color: var(--gradient);
+
+  --swiper-navigation-color: var(--grey-text-color);
+  --swiper-navigation-size: 11px;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 7px;
+
+  --swiper-pagination-top: 0;
+  --swiper-pagination-bottom: 0;
+
+  --swiper-pagination-bullet-size: 24px;
+  --swiper-pagination-bullet-width: 24px;
+  --swiper-pagination-bullet-height: 24px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bullet-inactive-color: transparent;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+
+  @include tablet {
+    --swiper-navigation-size: 14px;
+    --swiper-navigation-sides-offset: 16px;
+
+    --swiper-pagination-bullet-size: 32px;
+    --swiper-pagination-bullet-width: 32px;
+    --swiper-pagination-bullet-height: 32px;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+  }
+
+  @include desktop {
+    --swiper-navigation-size: 16px;
+    --swiper-navigation-sides-offset: 22px;
+
+    --swiper-pagination-bullet-size: 40px;
+    --swiper-pagination-bullet-width: 40px;
+    --swiper-pagination-bullet-height: 40px;
+    --swiper-pagination-bullet-horizontal-gap: 8px;
+  }
+}
+
+.swiper-controls {
+  position: absolute;
+  left: calc(50% - 145px);
+  bottom: 28px;
+
+  width: 200px;
+  height: 24px;
+
+  @include tablet {
+    left: calc(50% - 352px);
+    bottom: 36px;
+
+    width: 272px;
+    height: 32px;
+  }
+
+  @include desktop {
+    left: calc(50% - 572px);
+    bottom: 159px;
+
+    width: 368px;
+    height: 40px;
+  }
+}
+
+.swiper-pagination {
+  color: var(--grey-text-color);
+}
+
+.swiper-pagination-bullet {
+  border: 1px solid var(--grey-text-color) !important;
+  font-size: 10px !important;
+  line-height: 24px !important;
+
+  @include tablet {
+    border-width: 2px;
+    font-size: 12px !important;
+    line-height: 32px !important;
+  }
+
+  @include desktop {
+    font-size: 14px !important;
+    line-height: 40px !important;
+  }
+
+  &-active {
+    color: var(--main-bg-color) !important;
+  }
+}

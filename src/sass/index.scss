@@ -10,15 +10,17 @@
 // Components styles
 @import './components/header';
 @import './components/hero';
-@import './components/weekly-trends';
-@import './components/upcoming-this-mounth';
+@import './components/trends';
+@import './components/upcoming';
 @import './components/footer';
 
 @import './components/gallery';
 @import './components/pagination';
 @import './components/search';
+@import './components/library';
 @import './components/scroll-to-top';
 @import './components/loader';
+@import './components/library';
 
 // Modal windows
 @import './components/modals';
