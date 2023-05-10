@@ -74,7 +74,11 @@
 
 .library__content {
   display: block;
-  background-image: linear-gradient(rgba(14, 14, 14, 0), rgba(14, 14, 14, 0)),
+  background-image: linear-gradient(
+      83.48deg,
+      #0e0e0e 25.78%,
+      rgba(14, 14, 14, 0) 60.07%
+    ),
     url('/src/img/hero-bg-mobile1x.jpg');
   background-repeat: no-repeat;
   background-size: cover;
