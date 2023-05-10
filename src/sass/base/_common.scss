@@ -1,1 +1,7 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@import '~node_modules/swiper/swiper-bundle.css';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-bg-color);
+}

@@ -65,9 +65,5 @@ function saveScheme(scheme) {
   localStorage.setItem('color-scheme', scheme);
 }
 
-function clearScheme() {
-  localStorage.removeItem('color-scheme');
-}
-
 setupSwitcher();
 setupScheme();
