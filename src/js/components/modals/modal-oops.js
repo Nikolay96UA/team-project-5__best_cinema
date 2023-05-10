@@ -8,5 +8,5 @@ openModalOopsBtn.addEventListener('click', toggleModalOops);
 closeModaOopslBtn.addEventListener('click', toggleModalOops);
 
 function toggleModalOops() {
-    backdropOops.classList.toggle('backdrop-oops--hidden');
+  backdropOops.classList.toggle('backdrop-oops--hidden');
 }

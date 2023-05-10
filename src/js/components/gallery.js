@@ -5,6 +5,7 @@ import {
   URL_GENRE_LIST,
 } from '../constants/api';
 import axios from 'axios';
+
 import { pagInstance } from './pagination';
 
 let currentPage = 1;

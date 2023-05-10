@@ -15,29 +15,37 @@ async function createMovieCardMarkup(movie) {
 
   try {
     const trailer = await getTrailer(id);
-    const trailerLink = `https://www.youtube.com/watch?v=${trailer}`;
+    const trailerLink = trailer
+      ? `https://www.youtube.com/watch?v=${trailer}`
+      : 'openModal()';
 
     return `
-      <div class="hero__wrap swiper-slide">
-        <div class="hero__bgd" style="background-image: url('${image}');"></div>
-        <div class="hero__overlay"></div>
-        <div class="hero__info">
-          <div class="hero__details">
-            <h2 class="hero__title">${
-              title.length > 25 ? title.substring(0, 25) + '...' : title
-            }</h2>
-            <div class="hero__rating ${stars(Number(rating.toFixed(1)))}"></div>
-            <p class="hero__overview">${
+      <div class="swiper-slide hero__card">
+        <img class="hero__img" src="${image}" alt="${title}" width="802" height="720" loading="lazy" />
+        <div class="hero__details">
+          <h2 class="hero__title">
+            ${title.length > 25 ? title.substring(0, 25) + '...' : title}
+          </h2>
+          <div class="hero__rating ${stars(Number(rating.toFixed(1)))}"></div>
+          <p class="hero__overview">
+            ${
               overview.length > 300
                 ? overview.substring(0, 300) + '...'
                 : overview
-            }</p>
-            <button id="modal-trigger" type="button" class="hero__btn" onclick="${
-              trailerLink ? `window.open('${trailerLink}', '_blank')` : `#`
-            }">
-              Watch trailer
-            </button>
-          </div>
+            }
+          </p>
+          <button
+            class="hero__btn"
+            id="modal-trigger"
+            type="button"
+            onclick="${
+              trailerLink
+                ? `window.open('${trailerLink}', '_blank')`
+                : 'openModal()'
+            }"
+          >
+            Watch trailer
+          </button>
         </div>
       </div>
     `;
@@ -50,27 +58,27 @@ async function createMovieCardMarkup(movie) {
 // to render Rating in stars
 function stars(vote) {
   if (vote === 10) {
-    return 'ten-stars1';
+    return 'ten-stars';
   } else if (vote < 10 && vote > 8) {
-    return 'nine-stars1';
+    return 'nine-stars';
   } else if (vote === 8) {
-    return 'eight-stars1';
+    return 'eight-stars';
   } else if (vote < 8 && vote > 6) {
-    return 'seven-stars1';
+    return 'seven-stars';
   } else if (vote === 6) {
-    return 'six-stars1';
+    return 'six-stars';
   } else if (vote < 6 && vote > 4) {
-    return 'five-stars1';
+    return 'five-stars';
   } else if (vote === 4) {
-    return 'four-stars1';
+    return 'four-stars';
   } else if (vote < 4 && vote > 2) {
-    return 'three-stars1';
+    return 'three-stars';
   } else if (vote === 2) {
-    return 'two-stars1';
+    return 'two-stars';
   } else if (vote < 2 && vote > 0) {
-    return 'one-star1';
+    return 'one-star';
   } else if (vote === 0) {
-    return 'zero-star1';
+    return 'zero-star';
   } else if (!vote) {
     return 'No rating';
   }
@@ -99,7 +107,7 @@ async function renderTrendingMovies() {
     const swiper = new Swiper('.swiper-container', {
       modules: [Navigation, Pagination],
       slidesPerView: 1,
-      spaceBetween: 500,
+      spaceBetween: 50,
       loop: true,
       pagination: {
         el: '.swiper-pagination',
@@ -116,12 +124,12 @@ async function renderTrendingMovies() {
       fadeEffect: {
         crossFade: true,
       },
-      autoplay: {
-        delay: 2000,
-        stopOnLastSlide: false,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
+      // autoplay: {
+      //   delay: 5000,
+      //   stopOnLastSlide: false,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true,
+      // },
     });
   } catch (error) {
     console.error(error);
@@ -133,14 +141,11 @@ export function defaultHeroMarkup() {
   ROOT_HERO_CONTAINER.innerHTML = `
       <div class="hero__wrap">
       <div class="hero__bgd hero__bgd-default"></div>
-      <div class="hero__overlay"></div>
         <div class="hero__info">
-          <div class="hero__details" >
+          <div class="hero__details">
             <h2 class="hero__title">Let's Make Your Own Cinema</h2>
             <p class="hero__overview">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
-            <button class="hero__btn">
-              <a href="./catalog.html" class="hero__btn-link">Get Started</a>
-            </button>
+            <a href="./catalog.html" class="hero__btn hero__btn-link">Get Started</a>
           </div>
         </div>
     </div>
