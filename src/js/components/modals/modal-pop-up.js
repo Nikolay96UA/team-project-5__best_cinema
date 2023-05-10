@@ -74,7 +74,7 @@ function renderDetailMarkup({
   detailMarkup = `
     <div class='container-image-wrap'>${
       poster_path
-        ? `<img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="tizer">`
+        ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">`
         : ''
     }</div>
     <div class='container-content-wrap'>
@@ -86,7 +86,7 @@ function renderDetailMarkup({
           <p class='feature-name'>Genre</p>
         </div>
         <div class='features-values-wrap'>
-          <p class='feature-value'>${vote_average}<span> / </span>${vote_count}</p>
+          <p class='feature-value'><span class="vote-numbers">${vote_average}</span><span class="slash"> / </span><span class="vote-numbers">${vote_count}</span></p>
           <p class='feature-value'>${popularity}</p>
           <p class='feature-value'>${Object.values(genres)
             .map(genre => genre.name)
