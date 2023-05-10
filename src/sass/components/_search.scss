@@ -1,7 +1,5 @@
 .search {
-  background-color: var(
-    --primary-bg-color
-  ); //background-color: $primary-bg-color;
+  background-color: var(--main-bg-color); //background-color: $primary-bg-color;
   padding: 80px 0 48px 0;
 }
 
@@ -13,10 +11,10 @@
     height: 48px;
     padding: 12px 20px;
     margin-right: 20px;
-    border: 1px solid $primary-text-color;
+    border: 1px solid var(--primary-text-color);
     border-radius: 8px;
-    background-color: $primary-bg-color;
-    color: $grey-text-color;
+    background-color: var(--main-bg-color);
+    color: var(--grey-text-color);
     transition: opacity 500ms linear;
   }
   & .search-input {
@@ -24,16 +22,19 @@
     width: 334px;
     padding: 14px 24px;
     margin-right: 20px;
-    background-color: $primary-bg-color;
-    border: 1px solid $primary-text-color;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--primary-text-color);
     border-radius: 8px;
-    color: $grey-text-color;
+    color: var(--grey-text-color);
     font-size: 16px;
     line-height: 1.19;
     background: rgba(0, 0, 0, 0);
     transition: opacity 500ms linear;
     &search-input::placeholder {
-      color: $grey-text-color;
+      color: var(--grey-text-color);
+    }
+    &focus {
+      color: var(--main-bg-color);
     }
   }
 

@@ -17,9 +17,7 @@
 }
 
 @mixin retina {
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     @content;
   }
 }
@@ -30,6 +28,13 @@
     background-repeat: no-repeat;
     background-size: 13px, 13px, 13px, 13px, 13px;
     background-position: 0, 18px, 36px, 54px, 72px;
+  }
+}
+@mixin bgcStarsMiddle {
+  @media screen and (min-width: 480px) and (max-width: 1199px) {
+    background-repeat: no-repeat;
+    background-size: 10px, 10px, 10px, 10px, 10px;
+    background-position: 0, 15px, 30px, 45px, 60px;
   }
 }
 @mixin bgcStarsTabl {

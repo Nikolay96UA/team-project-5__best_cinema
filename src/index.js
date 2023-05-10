@@ -4,8 +4,8 @@ import './js/components/upcoming';
 import './js/components/trends';
 import './js/components/scroll-to-top';
 import './js/components/search';
-import './js/components/uncoming-this-mounth';
-import './js/components/weekly-trends';
-import './js/components/footer';
+// import './js/components/uncoming-this-mounth';
+// import './js/components/weekly-trends';
+// import './js/components/footer';
 // Mmodals
 // import './js/components/modals';
