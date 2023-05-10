@@ -23,7 +23,7 @@
     z-index: 999;
 
     width: 280px;
-    height: 847px;
+    height: auto;
     border-radius: 4%;
 
     background-color: var(--main-bg-color);
@@ -42,7 +42,7 @@
     z-index: 999;
 
     width: 704px;
-    height: 488px;
+    height: auto;
     border-radius: 4%;
 
     background-color: var(--main-bg-color);
@@ -61,7 +61,7 @@
     z-index: 999;
 
     width: 846px;
-    height: 598px;
+    height: auto;
     border-radius: 4%;
 
     background-color: var(--main-bg-color);
@@ -75,17 +75,11 @@
   background-color: var(--main-bg-color);
   border-color: var(--main-bg-color);
   box-shadow: none;
+  border:none;
   position: absolute;
   top: 40px;
   right: 40px;
-}
 
-#close-button path {
-  stroke: red;
-}
-
-#close-button path {
-  fill: blue;
 }
 
 .wrap {
@@ -150,15 +144,27 @@
 .feature-value-description {
   color: var(--secondary-text-color);
   font-size: 14px;
+  line-height: 1.43;
 }
 
 .add-to-library {
-  background-color: var(--main-bg-color);
-  color: var(--primary-text-color);
-  border-color: var(--gradient);
-  // position: absolute;
-  width: 140px;
-  height: 40px;
-
+  padding: 11px 23px;
+  color: var(--secondary-text-color);
+  
+  background: var(--btn-gradient) padding-box,
+    linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%) border-box;
+  border: 1px solid;
+  border-color: transparent;
   border-radius: 74px;
+
+  &:hover,
+  &:focus {
+    padding: 11px 23px;
+    color: var(--accent-color);
+    
+    background: var(--btn-gradient-vice-versa) border-box;
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 74px;
+  }
 }
