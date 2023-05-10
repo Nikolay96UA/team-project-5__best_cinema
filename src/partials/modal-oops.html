@@ -1,19 +1,29 @@
 <h2>modal-oops</h2>
 <div id="modal-oops">
-  <button class="open-modal" type="button" data-modal-oops-open>
-    Open modal Ooops
-  </button>
-  <div class="backdrop backdrop--hidden" data-backdrop-oops>
-    <div class="modal">
-      <button class="close-modal" type="button" data-modal-oops-close>
-        <svg width="24px" height="24px">
-          <use
-            class="close-modal__icon-close"
-            href="./images/icons/symbol-defs.svg#close-button"
-          ></use>
-        </svg>
-        <img src="./images/modalOops.jpg" alt="image-oops" />
-      </button>
+        <button class="open-modal" type="button" data-modal-oops-open>Open modal Ooops</button>
+  <div class="backdrop-oops backdrop-oops--hidden" data-backdrop-oops>
+        <div class="modal-oops">
+            <button class="close-modal-oops" type="button" width="24px" height="24px" data-modal-oops-close>
+              <svg class="close-modal-fill" width="10.5px" height="10.5px">
+                <use 
+                  href="./images/icons/symbol-defs.svg#close-button"
+                ></use>
+              </svg>
+            </button>
+            <div class="container-content">
+              <div class="container-content-message">
+                <p>OOPS...<br>
+                  We are very sorry!<br>
+                  But we couldn’t find the trailer.</p>
+                <!-- <img class="image" src="./images/photographic_tape-desk.png" alt="image-oops"> -->
+                <img class="image-oops" src="./images/photographic_tape-mob.png"
+                srcset="./images/photographic_tape-mob.png 480w,
+                        ./images/photographic_tape-desk.png 768w,
+                        ./images/photographic_tape-desk.png 1200w"
+                alt="Image">
+              </div>
+            </div>
+            
+        </div>
     </div>
-  </div>
 </div>
