@@ -1,10 +1,11 @@
 import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 import axios from 'axios';
-
-import { pagInstance } from './pagination';
+import { searchWithQuery } from './search';
+import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
+
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
@@ -112,11 +113,17 @@ function stars(vote) {
   }
 }
 
-pagInstance.on('beforeMove', async event => {
-  const { page: pagPage } = event;
-  currentPage = pagPage;
-  const pagArray = await getTrendMoviesOfWeek();
-  createMarkUp(pagArray);
+pagInstanceTrendWeek.on('beforeMove', async event => {
+  if (paginContainerTrend.dataset.status === 'pagin-trend') {
+    console.log('pagin-trend');
+    const { page: pagPage } = event;
+    currentPage = pagPage;
+    const pagArray = await getTrendMoviesOfWeek();
+    createMarkUp(pagArray);
+  } else if (paginContainerTrend.dataset.status === 'pagin-search') {
+    console.log('pagin-search');
+    searchWithQuery();
+  }
 });
 
 export function onGalleryLinkClick(event) {

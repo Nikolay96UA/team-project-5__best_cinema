@@ -1,12 +1,12 @@
 import Pagination from 'tui-pagination';
-// import { totalPages } from './gallery';
-export { pagInstance };
-const paginContainer = document.getElementById('tui-pagination-container');
+export { pagInstanceTrendWeek };
+export const paginContainerTrend = document.getElementById('tui-pagination-container');
+paginContainerTrend.dataset.status = 'pagin-trend';
 // console.log('totalPages', totalPages);
 const pagOptions = {
   totalItems: 1000,
-  itemsPerPage: 10,
-  visiblePages: 3,
+  itemsPerPage: 20,
+  visiblePages: 5,
   page: 1,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
@@ -33,4 +33,4 @@ const pagOptions = {
       '</a>',
   },
 };
-const pagInstance = new Pagination(paginContainer, pagOptions);
+const pagInstanceTrendWeek = new Pagination(paginContainerTrend, pagOptions);
