@@ -1,10 +1,7 @@
 import { API_KEY, BASE_URL, IMG_URL } from '../constants/api';
 import { ROOT_HERO_CONTAINER } from '../constants/root';
 import { fetchTrendingMovies, getTrailer } from '../utils/fetchTrendDay';
-// import Swiper, { Navigation, Pagination } from 'swiper';
-// import 'swiper/swiper.min.css';
-// import 'swiper/modules/navigation/navigation.min.css';
-// import 'swiper/modules/pagination/pagination.min.css';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 // Function to create markup for a single movie
 async function createMovieCardMarkup(movie) {
@@ -23,28 +20,32 @@ async function createMovieCardMarkup(movie) {
       : 'openModal()';
 
     return `
-      <div class="hero__wrap swiper-slide">
-        <div class="hero__bgd" style="background-image: url('${image}');"></div>
-        <div class="hero__overlay"></div>
-        <div class="hero__info">
-          <div class="hero__details">
-            <h2 class="hero__title">${
-              title.length > 25 ? title.substring(0, 25) + '...' : title
-            }</h2>
-            <div class="hero__rating ${stars(Number(rating.toFixed(1)))}"></div>
-            <p class="hero__overview">${
+      <div class="swiper-slide hero__card">
+        <img class="hero__img" src="${image}" alt="${title}" width="802" height="720" loading="lazy" />
+        <div class="hero__details">
+          <h2 class="hero__title">
+            ${title.length > 25 ? title.substring(0, 25) + '...' : title}
+          </h2>
+          <div class="hero__rating ${stars(Number(rating.toFixed(1)))}"></div>
+          <p class="hero__overview">
+            ${
               overview.length > 300
                 ? overview.substring(0, 300) + '...'
                 : overview
-            }</p>
-            <button id="modal-trigger" type="button" class="hero__btn" onclick="${
+            }
+          </p>
+          <button
+            class="hero__btn"
+            id="modal-trigger"
+            type="button"
+            onclick="${
               trailerLink
                 ? `window.open('${trailerLink}', '_blank')`
                 : 'openModal()'
-            }">
-              Watch trailer
-            </button>
-          </div>
+            }"
+          >
+            Watch trailer
+          </button>
         </div>
       </div>
     `;
@@ -104,6 +105,7 @@ async function renderTrendingMovies() {
 
     // create SWIPER with options
     const swiper = new Swiper('.swiper-container', {
+      modules: [Navigation, Pagination],
       slidesPerView: 1,
       spaceBetween: 50,
       loop: true,
@@ -111,9 +113,7 @@ async function renderTrendingMovies() {
         el: '.swiper-pagination',
         clickable: true,
         renderBullet: function (index, className) {
-          return (
-            '<span class="' + className + '">' + 0 + (index + 1) + '</span>'
-          );
+          return `<span class="${className}">${index + 1}</span>`;
         },
       },
       navigation: {
@@ -142,12 +142,10 @@ export function defaultHeroMarkup() {
       <div class="hero__wrap">
       <div class="hero__bgd hero__bgd-default"></div>
         <div class="hero__info">
-          <div class="hero__details" >
+          <div class="hero__details">
             <h2 class="hero__title">Let's Make Your Own Cinema</h2>
             <p class="hero__overview">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
-            <button class="hero__btn">
-              <a href="./catalog.html" class="hero__btn-link">Get Started</a>
-            </button>
+            <a href="./catalog.html" class="hero__btn hero__btn-link">Get Started</a>
           </div>
         </div>
     </div>

@@ -2,13 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinemania</title>
     <!-- Themes settings -->
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-scheme" content="light dark" />
-    <title>Cinemania</title>
-    <meta name="color-scheme" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="color-scheme" media="(prefers-color-scheme: dark)" content="#111111" />
+    <meta
+      name="color-scheme"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="color-scheme"
+      media="(prefers-color-scheme: dark)"
+      content="#111111"
+    />
     <!-- Switcher script for old browsers -->
     <script>
       if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
@@ -20,8 +29,16 @@
       }
     </script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./sass/light-theme.scss" media="(prefers-color-scheme: light)" />
-    <link rel="stylesheet" href="./sass/dark-theme.scss" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="stylesheet"
+      href="./sass/light-theme.scss"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="stylesheet"
+      href="./sass/dark-theme.scss"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
   </head>
@@ -31,17 +48,19 @@
     <include src="./partials/header.html"></include>
     <main>
       <include src="./partials/hero.html"></include>
-      <include src="./partials/weekly-trends.html"></include>
-      <include src="./partials/uncoming-this-mounth.html"></include>
+      <include src="./partials/trends.html"></include>
+      <include src="./partials/upcoming-movies.html"></include>
     </main>
     <include src="./partials/footer.html"></include>
 
     <include src="./partials/scroll-to-top.html"></include>
-    <include src="./partials/loader.html"></include>
+    <!-- <include src="./partials/loader.html"></include> -->
+
     <!-- Modals -->
     <include src="./partials/modal-pop-up.html"></include>
     <!-- <include src="./partials/modal-oops.html"></include> -->
-    <include src="./partials/modal-team.html"></include>
+    <!-- <include src="./partials/modal-team.html"></include> -->
+
     <!-- Mobile menu -->
     <include src="./partials/mobile-menu.html"></include>
   </body>
