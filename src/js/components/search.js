@@ -1,5 +1,4 @@
 import { createMarkUp } from './gallery';
-import { galleryEl } from './gallery';
 import {
   API_KEY,
   BASE_URL,
@@ -11,7 +10,6 @@ import Notiflix from 'notiflix';
 import axios from 'axios';
 import { pagInstanceTrendWeek } from './pagination';
 import { paginContainerTrend } from './pagination';
-import { Pagination } from 'tui-pagination';
 
 // Оголошення змінних
 const searchForm = document.querySelector('.search-form');
@@ -19,10 +17,6 @@ const searchInput = document.querySelector('.search-input');
 const yearSelect = document.querySelector('.year-select');
 const genreSelect = document.querySelector('.genre-select');
 const countrySelect = document.querySelector('.country-select');
-const searchBtn = document.querySelector('.search-btn');
-const resultBlock = document.querySelector('.search-movies');
-let currentSearchPage = 1;
-let pageAfterMove = 0;
 let searchUrl = '';
 
 generateGenreList();
@@ -73,8 +67,8 @@ function createCountryListMarkup(array) {
 
 searchForm.addEventListener('submit', event => {
   event.preventDefault();
-  console.log('click');
-  console.log(event);
+  // console.log('click');
+  // console.log(event);
   searchForm.classList.remove('form-single');
   yearSelect.classList.remove('input__is-hidden');
   genreSelect.classList.remove('input__is-hidden');
@@ -105,7 +99,6 @@ async function searchMovies() {
     }
     searchUrl = url;
     const { data: objResultSearch } = await axios.get(url);
-    console.log(objResultSearch);
     if (objResultSearch.results.length === 0) {
       Notiflix.Notify.failure('Ooops, nothing to search.');
       return;
@@ -137,10 +130,8 @@ async function searchMovies() {
 // });
 export async function searchWithQuery() {
   console.log(pagInstanceTrendWeek.getCurrentPage());
-  console.log(currentSearchPage);
   const { data: resultSearch } = await axios.get(
     `${searchUrl}&page=${pagInstanceTrendWeek.getCurrentPage()}`
   );
-  console.log(resultSearch);
   createMarkUp(resultSearch.results);
 }

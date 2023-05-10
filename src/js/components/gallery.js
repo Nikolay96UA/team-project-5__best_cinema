@@ -5,7 +5,6 @@ import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
-
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
