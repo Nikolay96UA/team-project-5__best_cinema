@@ -8,6 +8,7 @@
   align-items: center;
 }
 
+
 .header-nav {
   display: flex;
   align-items: center;
@@ -31,6 +32,8 @@
     }
   }
 
+
+
   &-link {
     font-weight: 500;
     font-size: 14px;
@@ -44,4 +47,8 @@
       color: var(--accent-color);
     }
   }
+}
+
+.is-actine-page{
+  color:var(--accent-color)
 }
