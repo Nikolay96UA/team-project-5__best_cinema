@@ -47,9 +47,16 @@
       background-image: var(--hero-bg-tab);
       background-size: cover;
     }
-    @include tablet {
+    @include desktop {
       background-image: var(--hero-bg-desk);
     }
+  }
+}
+
+.hero__card-error {
+  @include desktop {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -65,6 +72,37 @@
     grid-column: 2 / 4;
 
     object-position: right center;
+  }
+}
+
+.hero__img-error {
+  grid-column: 1 / 4;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background-image: url(../images/hero/hero-bgd-stranger-tablet-1x.jpg);
+
+  @include retina {
+    background-image: url(../images/hero/hero-bgd-stranger-tablet-2x.jpg);
+  }
+  @include tablet {
+    grid-column: 2 / 4;
+    object-position: right center;
+    background-image: url(../images/hero/hero-bgd-stranger-tablet-1x.jpg);
+  }
+  @include retina {
+    background-image: url(../images/hero/hero-bgd-stranger-tablet-2x.jpg);
+  }
+
+  @include desktop {
+    background-position: right;
+    grid-column: 1 / 4;
+    object-position: right center;
+    background-image: url(../images/hero/hero-bgd-stranger-desktop-1x.jpg);
+  }
+  @include retina {
+    background-image: url(../images/hero/hero-bgd-stranger-desktop-2x.jpg);
   }
 }
 
@@ -88,6 +126,26 @@
     transform: translateX(-156%);
   }
 }
+.hero__details-error {
+  position: absolute;
+  top: 40px;
+  left: 68%;
+  transform: translateX(-70%);
+
+  @include tablet {
+    top: 62px;
+    left: 50%;
+    width: 357px;
+    transform: translateX(-96%);
+  }
+
+  @include desktop {
+    top: 169px;
+    width: 464px;
+    width: 464px;
+    transform: translateX(-130%);
+  }
+}
 
 .hero__title {
   display: -webkit-box;
@@ -107,6 +165,10 @@
     font-size: 64px;
     margin-bottom: 16px;
   }
+}
+
+.hero__title-error {
+  -webkit-line-clamp: 2;
 }
 
 .hero__rating {
@@ -154,7 +216,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--primary-text-color);
+  color: #111;
 
   background-color: transparent;
   background-position: -100%;

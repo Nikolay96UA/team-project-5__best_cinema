@@ -5,7 +5,6 @@ import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
-
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
@@ -37,7 +36,7 @@ export async function getTrendMoviesOfWeek() {
     if (moviesObject.results.length === 0) {
       return ['Ssory, we can not find something :-('];
     }
-
+    console.log(moviesObject);
     totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {
@@ -113,15 +112,13 @@ function stars(vote) {
   }
 }
 
-pagInstanceTrendWeek.on('beforeMove', async event => {
+pagInstanceTrendWeek.on('afterMove', async event => {
   if (paginContainerTrend.dataset.status === 'pagin-trend') {
-    console.log('pagin-trend');
     const { page: pagPage } = event;
     currentPage = pagPage;
     const pagArray = await getTrendMoviesOfWeek();
     createMarkUp(pagArray);
   } else if (paginContainerTrend.dataset.status === 'pagin-search') {
-    console.log('pagin-search');
     searchWithQuery();
   }
 });

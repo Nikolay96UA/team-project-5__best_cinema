@@ -140,13 +140,16 @@ async function renderTrendingMovies() {
 
 export function defaultHeroMarkup() {
   ROOT_HERO_CONTAINER.innerHTML = `
-      <div class="hero__wrap">
-      <div class="hero__bgd hero__bgd-default"></div>
-        <div class="hero__info">
-          <div class="hero__details">
-            <h2 class="hero__title">Let's Make Your Own Cinema</h2>
+      <div class="hero__card hero__card-error">
+      <div class="hero__img-error"></div>
+          <div class="hero__details hero__details-error">
+            <h2 class="hero__title hero__title-error">Let's Make Your Own Cinema</h2>
             <p class="hero__overview">Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
-            <a href="./catalog.html" class="hero__btn hero__btn-link">Get Started</a>
+            <a href="./catalog.html">
+            <button class="hero__btn" type="button">
+            Get Started
+          </button>
+          </a>
           </div>
         </div>
     </div>

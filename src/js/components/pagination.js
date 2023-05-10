@@ -2,7 +2,6 @@ import Pagination from 'tui-pagination';
 export { pagInstanceTrendWeek };
 export const paginContainerTrend = document.getElementById('tui-pagination-container');
 paginContainerTrend.dataset.status = 'pagin-trend';
-// console.log('totalPages', totalPages);
 const pagOptions = {
   totalItems: 1000,
   itemsPerPage: 20,
@@ -17,11 +16,11 @@ const pagOptions = {
     currentPage: '<span class="tui-page-btn tui-is-selected curr-page">{{ page }}</span>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} custom-class-{{type}}">' +
-      '<span class="tui-ico-{{type}}"></span>' +
+      '<span class="tui-ico-{{type}}"><svg xmlns="http://www.w3.org/2000/svg" class="arrow-svg-{{type}}" width="28" height="28" fill="none"><path stroke="#B7B7B7" style="stroke: var(--active-svg-color, var(--color-subtitle-card))" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.938 6.125 10.063 14l7.874 7.875"/></svg></span>' +
       '</a>',
     disabledMoveButton:
       '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}"></span>' +
+      '<span class="tui-ico-{{type}}"><svg xmlns="http://www.w3.org/2000/svg" class="arrow-svg-{{type}}" width="28" height="28" fill="none"><path stroke="#B7B7B7" style="stroke: var(--color-subtitle-card, var(--active-svg-color))" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.938 6.125 10.063 14l7.874 7.875"/></svg></span>' +
       '</span>',
     moreButton:
       '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
@@ -34,3 +33,6 @@ const pagOptions = {
   },
 };
 const pagInstanceTrendWeek = new Pagination(paginContainerTrend, pagOptions);
+
+// style = 'stroke: var(--active-svg-color, var(--secondary-text-color))';
+// style = 'stroke: var(--active-svg-color, var(--secondary-text-color))';
