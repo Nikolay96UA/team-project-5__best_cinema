@@ -71,6 +71,10 @@
 }
 
 .close-modal {
+  color: var(--secondary-text-color);
+  background-color: var(--main-bg-color);
+  border-color: var(--main-bg-color);
+  box-shadow: none;
   position: absolute;
   top: 40px;
   right: 40px;
@@ -91,6 +95,7 @@
 .container-image-wrap {
   width: 375px;
   height: 478px;
+  overflow: hidden;
 }
 
 .container-content-wrap {
