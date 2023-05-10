@@ -9,9 +9,6 @@ import axios from 'axios';
 const weekTrendsEl = document.getElementById('trends-list');
 
 let currentPage = 1;
-let arrayTrendsWeek = [];
-
-let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
 
