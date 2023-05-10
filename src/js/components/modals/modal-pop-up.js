@@ -11,7 +11,7 @@ const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
 
 // form.addEventListener('submit', fetchDetailInfo);
-// closeModalBtn.addEventListener('click', toggleModal);
+closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal() {
   backdrop.classList.toggle('backdrop--hidden');
@@ -74,7 +74,7 @@ function renderDetailMarkup({
   detailMarkup = `
     <div class='container-image-wrap'>${
       poster_path
-        ? `<img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="tizer">`
+        ? `<img class="detail-info-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="tizer">`
         : ''
     }</div>
     <div class='container-content-wrap'>

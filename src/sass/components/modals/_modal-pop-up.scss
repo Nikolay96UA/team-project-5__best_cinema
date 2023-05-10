@@ -13,6 +13,10 @@
   pointer-events: none;
 }
 
+// .detail-info-image{
+//   overflow: hidden;
+//       }
+
 @include mobile {
   .modal {
     padding: 60px;
@@ -67,6 +71,8 @@
     background-color: var(--main-bg-color);
     box-shadow: var(--modal-shadow);
     color: var(--secondary-text-color);
+
+  
   }
 }
 
@@ -91,6 +97,7 @@
 .container-image-wrap {
   width: 375px;
   height: 478px;
+  overflow: hidden;
 }
 
 .container-content-wrap {
