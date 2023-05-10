@@ -1,15 +1,11 @@
-import {
-  BASE_URL,
-  API_KEY,
-  URL_TREND_WEEK,
-  URL_GENRE_LIST,
-} from '../constants/api';
+import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 import axios from 'axios';
-
-import { pagInstance } from './pagination';
+import { searchWithQuery } from './search';
+import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
+
 let genresListArray = [];
 let idsArray = [];
 let categorysArray = [];
@@ -38,6 +34,10 @@ export async function getTrendMoviesOfWeek() {
     const { data: moviesObject } = await axios.get(
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
+    if (moviesObject.results.length === 0) {
+      return ['Ssory, we can not find something :-('];
+    }
+
     totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {
@@ -47,18 +47,23 @@ export async function getTrendMoviesOfWeek() {
 
 export function createMarkUp(array) {
   const markup = array
-    .map(
-      ({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
-        return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${poster_path})" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
-          genre_ids
-        )} | ${release_date.slice(
-          0,
-          4
-        )}</p></div><div class="vote-cinemas ${stars(
-          Number(vote_average.toFixed(1))
-        )}"></div></li>`;
-      }
-    )
+    .map(({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
+      // console.log(poster_path);
+      let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
+      // const image = `.\/img\/395x574-no-image.jpg`;
+      // const poster = poster_path === null ? `${image}` : poster_path;
+      // console.log('poster:', poster);
+      // if (poster_path === null) {
+      //   urlPoster = poster;
+      //   console.log('замінив');
+      // }
+
+      return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), ${urlPoster}" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
+        genre_ids
+      )} | ${release_date.slice(0, 4)}</p></div><div class="vote-cinemas ${stars(
+        Number(vote_average.toFixed(1))
+      )}"></div></li>`;
+    })
     .join('');
   renderMarkup(markup);
 }
@@ -108,11 +113,17 @@ function stars(vote) {
   }
 }
 
-pagInstance.on('beforeMove', async event => {
-  const { page: pagPage } = event;
-  currentPage = pagPage;
-  const pagArray = await getTrendMoviesOfWeek();
-  createMarkUp(pagArray);
+pagInstanceTrendWeek.on('beforeMove', async event => {
+  if (paginContainerTrend.dataset.status === 'pagin-trend') {
+    console.log('pagin-trend');
+    const { page: pagPage } = event;
+    currentPage = pagPage;
+    const pagArray = await getTrendMoviesOfWeek();
+    createMarkUp(pagArray);
+  } else if (paginContainerTrend.dataset.status === 'pagin-search') {
+    console.log('pagin-search');
+    searchWithQuery();
+  }
 });
 
 export function onGalleryLinkClick(event) {
