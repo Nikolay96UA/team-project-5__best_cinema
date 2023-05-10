@@ -1,14 +1,14 @@
 :root {
   // Background colors
-  --btn-gradient:linear-gradient(#ffffff, #ffffff);
-  
+  --btn-gradient: linear-gradient(#ffffff, #ffffff);
+
   --main-bg-color: #ffffff;
   --main-bg-color-20: rgba(0, 0, 0, 0.2);
   --primary-bg-color: #282828;
   --modal-bg-color: #f8f8f8;
   // Text colors
-  --upcoming-about:#282828;
-  --upcoming-criterion:#111111;
+  --upcoming-about: #282828;
+  --upcoming-criterion: #111111;
   --primary-text-color: #111111;
   --secondary-text-color: #282828;
   --grey-text-color: #595959;
@@ -19,4 +19,6 @@
   --hero-bg-mob: linear-gradient(88deg, #0e0e0e 15%, #0e0e0e 60%);
   --hero-bg-tab: url(/src/images/hero/hero-bgd-light-tablet-1x.png);
   --hero-bg-desk: url(/src/images/hero/hero-bgd-light-desktop-1x.png);
+  // SVG color
+  --active-svg-color: #595959;
 }
