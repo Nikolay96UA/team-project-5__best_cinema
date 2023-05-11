@@ -1,7 +1,7 @@
 import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 import axios from 'axios';
 import { searchWithQuery } from './search';
-import { pagInstanceTrendWeek, paginTrend } from './pagination';
+import { pagInstanceTrendWeek, paginTrend, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
@@ -37,7 +37,7 @@ export async function getTrendMoviesOfWeek() {
     if (moviesObject.results.length === 0) {
       return ['Ssory, we can not find something :-('];
     }
-    console.log(moviesObject);
+    // console.log(moviesObject);
     totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {
@@ -117,12 +117,12 @@ function stars(vote) {
 }
 
 pagInstanceTrendWeek.on('afterMove', async event => {
-  if (paginTrend === 'pagin-trend') {
+  if (paginContainerTrend.dataset.status === 'pagin-trend') {
     const { page: pagPage } = event;
     currentPage = pagPage;
     const pagArray = await getTrendMoviesOfWeek();
     createMarkUp(pagArray);
-  } else if (paginTrend === 'pagin-search') {
+  } else if (paginContainerTrend.dataset.status === 'pagin-search') {
     searchWithQuery();
   }
 });

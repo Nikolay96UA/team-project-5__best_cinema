@@ -1,13 +1,12 @@
 import Notiflix, { Notify } from 'notiflix';
 import Pagination from 'tui-pagination';
-export { pagInstanceTrendWeek };
+export { pagInstanceTrendWeek, paginTrend };
 export const paginContainerTrend = document.getElementById('tui-pagination-container');
 // Pagination
 // const paginContainerTrend = document.getElementById('tui-pagination-container');
 // paginContainerTrend.dataset.status = paginContainerTrend === null ? '' : 'pagin-trend';
 paginContainerTrend.dataset.status = paginContainerTrend === null ? '' : 'pagin-trend';
-export const paginTrend = paginContainerTrend.dataset.status;
-
+const paginTrend = paginContainerTrend.dataset.status;
 // console.log(paginTrend);
 const pagOptions = {
   totalItems: 1000,

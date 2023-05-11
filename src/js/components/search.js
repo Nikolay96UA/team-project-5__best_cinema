@@ -9,8 +9,7 @@ import {
 } from '../constants/api';
 import Notiflix from 'notiflix';
 import axios from 'axios';
-import { pagInstanceTrendWeek } from './pagination';
-import { paginContainerTrend } from './pagination';
+import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 // Оголошення змінних
 const searchForm = document.querySelector('.search-form');
@@ -134,7 +133,6 @@ async function searchMovies() {
 //   // createMarkUp(pagArray);
 // });
 export async function searchWithQuery() {
-  console.log(pagInstanceTrendWeek.getCurrentPage());
   const { data: resultSearch } = await axios.get(
     `${searchUrl}&page=${pagInstanceTrendWeek.getCurrentPage()}`
   );
