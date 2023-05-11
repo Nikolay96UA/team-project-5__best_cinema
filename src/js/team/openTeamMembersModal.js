@@ -7,6 +7,10 @@ function handleFooterBtnClick(e) {
     refs.body.addEventListener('keydown', onKeyPress);
     refs.backdropRef.addEventListener('click', closeBackdropClick);
 
+    refs.body.classList.add('modal-is-open');
+    refs.backdropRef.classList.remove('is-hidden');
+    refs.body.classList.add('content-hidden');
+}
     const swiperMarkup = renderSwiper();
     refs.backdropRef.innerHTML = '';
     refs.backdropRef.insertAdjacentHTML('beforeend', swiperMarkup);
@@ -29,9 +33,9 @@ function handleFooterBtnClick(e) {
         dynamicBullets: true,
     },
     });
-}
 
-refs.footerBtnRef.addEventListener('click', handleFooterBtnClick);
+    const footerBtn = document.querySelector('.footer-btn');
+    footerBtn.addEventListener('click', handleFooterBtnClick);
 
 function renderSwiper() {
     const memberCards = shuffle(teamInfo.map(member => renderTeamCard(member))).join('');
@@ -44,7 +48,7 @@ function renderSwiper() {
     return markup;
 }
 
-export function closeMembersModal() {
+    export function closeModal() {
     refs.body.removeEventListener('keydown', onKeyPress);
     refs.body.classList.remove('modal-is-open');
     refs.backdropRef.removeEventListener('click', closeBackdropClick);
