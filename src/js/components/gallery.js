@@ -123,9 +123,9 @@ pagInstanceTrendWeek.on('afterMove', async event => {
   }
 });
 
-export function onGalleryLinkClick(event) {
-  if (event.target.nodeName === 'LI') {
-    const movieId = event.target.dataset.id;
-    return movieId;
-  }
-}
+// export function onGalleryLinkClick(event) {
+//   if (event.target.nodeName === 'LI') {
+//     const movieId = event.target.dataset.id;
+//     return movieId;
+//   }
+// }
