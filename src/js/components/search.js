@@ -73,6 +73,8 @@ searchForm.addEventListener('submit', event => {
   yearSelect.classList.remove('input__is-hidden');
   genreSelect.classList.remove('input__is-hidden');
   countrySelect.classList.remove('input__is-hidden');
+  searchForm.classList.remove('form-single');
+
   yearSelect.classList.add('input__is-shown');
   genreSelect.classList.add('input__is-shown');
   countrySelect.classList.add('input__is-shown');

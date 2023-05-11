@@ -8,4 +8,4 @@ import './js/components/search';
 // import './js/components/weekly-trends';
 // import './js/components/footer';
 // Mmodals
-// import './js/components/modals';
+import './js/components/modals/index';

@@ -1,7 +1,10 @@
 import Pagination from 'tui-pagination';
 export { pagInstanceTrendWeek };
+// export const paginContainerTrend = document.getElementById('tui-pagination-container');
 export const paginContainerTrend = document.getElementById('tui-pagination-container');
-paginContainerTrend.dataset.status = 'pagin-trend';
+paginContainerTrend.dataset.status = paginContainerTrend === null ? '' : 'pagin-trend';
+export const paginTrend = paginContainerTrend.dataset.status;
+console.log(paginTrend);
 const pagOptions = {
   totalItems: 1000,
   itemsPerPage: 20,

@@ -5,7 +5,7 @@
 
 .search-form {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 16px;
   line-height: 1.19;
@@ -68,12 +68,13 @@
     background-color: var(--main-bg-color);
     color: var(--grey-text-color);
     transition: opacity 500ms linear;
+    font-weight: 500;
   }
   & .year-select {
     @include mobile {
       width: 95px;
       height: 40px;
-      padding: 12px 16px;
+      padding: 10px 16px;
       margin-right: 12px;
       margin-bottom: 12px;
       font-size: 14px;
@@ -97,7 +98,7 @@
     @include mobile {
       width: 173px;
       height: 40px;
-      padding: 12px 16px;
+      padding: 10px 16px;
       margin-right: 0;
       margin-bottom: 12px;
       font-size: 14px;
@@ -120,6 +121,7 @@
     @include mobile {
       width: 220px;
       height: 40px;
+      padding: 10px 20px;
       margin-right: 20px;
       font-size: 14px;
       line-height: 1.14;
@@ -127,6 +129,7 @@
     @include tablet {
       width: 181px;
       height: 44px;
+      padding: 12px 20px;
       margin-right: 16px;
       font-size: 14px;
       line-height: 1.14;
@@ -166,4 +169,18 @@
   position: relative;
   opacity: 1;
   pointer-events: all;
+}
+.for-year-genre,
+.for-country-btn {
+  @include mobile {
+    display: flex;
+  }
+  @include tablet {
+    display: flex;
+  }
+}
+.form-single {
+  @include desktop {
+    justify-content: center;
+  }
 }
