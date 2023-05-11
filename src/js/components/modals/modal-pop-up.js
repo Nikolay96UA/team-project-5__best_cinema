@@ -3,7 +3,7 @@ import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 import { galleryEl } from '../gallery';
 import { weekTrendsEl } from '../trends';
 
-const closeModalBtn = document.querySelector('[data-close-modal]');
+const closeModalButton = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
@@ -22,7 +22,7 @@ const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
 
 // form.addEventListener('submit', fetchDetailInfo);
-closeModalBtn.addEventListener('click', closeModal);
+closeModalButton.addEventListener('click', closeModal);
 backdrop.addEventListener('click', closeByBackdrop);
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
