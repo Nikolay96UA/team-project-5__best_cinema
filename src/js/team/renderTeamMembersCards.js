@@ -7,7 +7,7 @@ export function renderTeamMembersCard({
     img = '',
   })
 {
-  const markup = 
+  return markup =
   `<div class=" swiper-slide">
         <img src="${img}" alt="${name}" class="team-member__img">
             <h3 class="team-member__title">${name}</h3>
@@ -30,5 +30,4 @@ export function renderTeamMembersCard({
                         </li>
                     </ul>
     </div>`;
-    return markup;
 }
