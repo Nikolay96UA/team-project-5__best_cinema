@@ -30,6 +30,12 @@
   line-height: 33px;
 
   color: var(--accent-color);
+  &:focus,
+  &:hover{
+    
+    scale: 1.1;
+    text-shadow: 1px 1px 8px var(--primary-text-color);
+  }
 }
 
 .trends-list {
