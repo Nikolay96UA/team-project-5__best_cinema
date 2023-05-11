@@ -13,7 +13,6 @@
         height: 300px;
         object-fit: cover;
         @media screen and (min-width: $desktop) {
-            
         }
     }
 
@@ -46,7 +45,6 @@
     .team-social__link {
         display: block;
         // padding: 12px;
-        
     }
 }
 
@@ -55,10 +53,17 @@
     color: #F87719;
     //transition: fill;
 
+<<<<<<< Updated upstream
     .team-social__link:hover &,
     .team-social__link:focus & {
         $white-bg-color:#fff;
     }
+=======
+  .team-social__link:hover &,
+  .team-social__link:focus & {
+    background-color: #fff;
+  }
+>>>>>>> Stashed changes
 }
 
 .swiper {
@@ -76,6 +81,7 @@
     transition: transform;
 }
 
+<<<<<<< Updated upstream
 .swiper-pagination-bullet{
 width: 20px;
 height: 20px;
@@ -86,4 +92,15 @@ $white-bg-color:#fff;
 &-active-main {
     background-color: #F87719;
 }
+=======
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  &-active-main {
+    background-color: #f87719;
+  }
+>>>>>>> Stashed changes
 }
