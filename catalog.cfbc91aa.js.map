@@ -1,1 +1,0 @@
-{"mappings":"gfAAAA,EAAA,S","sources":["src/js/catalog.js"],"sourcesContent":["import './components/gallery';\nimport './components/pagination';\nimport './components/modals/modal-pop-up';\n"],"names":["parcelRequire"],"version":3,"file":"catalog.cfbc91aa.js.map"}

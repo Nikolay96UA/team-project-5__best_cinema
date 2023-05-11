@@ -1,0 +1,1 @@
+{"mappings":"gfAAAA,EAAA,S","sources":["src/js/catalog.js"],"sourcesContent":["import './components/gallery';\nimport './components/pagination';\nimport './components/search';\n// import './components/modals/modal-pop-up';\n"],"names":["parcelRequire"],"version":3,"file":"catalog.1a6a16d7.js.map"}
