@@ -16,7 +16,7 @@ async function onTrailerBtnClick(e) {
   if (trailerBtn.classList.contains('hero__btn')) {
     // console.log('you click here');
 
-    showTrailerModal();
+    showTrailerModal1();
 
     trailerContainerEl.classList.remove('trailer-is-hidden');
     noMovieContainerEl.classList.add('trailer-is-hidden');
@@ -26,7 +26,7 @@ async function onTrailerBtnClick(e) {
   }
 }
 
-function showTrailerModal() {
+function showTrailerModal1() {
   document.body.classList.add('show-trailer-modal');
   window.addEventListener('keydown', onEscPress);
   trailerBackdropEl.addEventListener('click', onBackdropClick);
