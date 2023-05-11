@@ -1,11 +1,18 @@
+import Notiflix, { Notify } from 'notiflix';
 import Pagination from 'tui-pagination';
 export { pagInstanceTrendWeek };
-// export const paginContainerTrend = document.getElementById('tui-pagination-container');
+export const paginContainerTrend = document.getElementById('tui-pagination-container');
 // Pagination
-const paginContainerTrend = document.getElementById('tui-pagination-container');
+// const paginContainerTrend = document.getElementById('tui-pagination-container');
 console.log(paginContainerTrend);
-paginContainerTrend.dataset.status = paginContainerTrend === null ? '' : 'pagin-trend';
-const paginTrend = paginContainerTrend.dataset.status;
+// paginContainerTrend.dataset.status = paginContainerTrend === null ? '' : 'pagin-trend';
+try {
+  paginContainerTrend.dataset.status = paginContainerTrend === null ? '' : 'pagin-trend';
+  const paginTrend = paginContainerTrend.dataset.status;
+} catch (error) {
+  Notiflix.Notify.failure('Something wrong with pagination :-(');
+  console.log(error);
+}
 // console.log(paginTrend);
 const pagOptions = {
   totalItems: 1000,
