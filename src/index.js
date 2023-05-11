@@ -9,13 +9,10 @@ import './js/components/modal-team';
 import './js/components/pagination';
 import './js/components/scroll-to-top';
 import './js/components/search';
-<<<<<<< Updated upstream
 import './js/components/uncoming-this-mounth';
 import './js/components/weekly-trends';
-=======
 // import './js/components/uncoming-this-mounth';
 // import './js/components/weekly-trends';
 //import './js/components/footer';
 // Mmodals
 // import './js/components/modals';
->>>>>>> Stashed changes
