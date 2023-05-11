@@ -45,7 +45,8 @@
 
   flex-basis: 100%;
   height: 335px;
-
+  cursor: pointer;
+  transition: scale 200ms linear, box-shadow 200ms linear;
   @include tablet {
     flex-basis: calc((100% - 16px * 2) / 3);
     height: 335px;
