@@ -69,7 +69,7 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   // console.log('click');
   // console.log(event);
-  searchForm.classList.remove('form-single');
+  // searchForm.classList.remove('form-single');
   yearSelect.classList.remove('input__is-hidden');
   genreSelect.classList.remove('input__is-hidden');
   countrySelect.classList.remove('input__is-hidden');
@@ -77,6 +77,8 @@ searchForm.addEventListener('submit', event => {
   genreSelect.classList.add('input__is-shown');
   countrySelect.classList.add('input__is-shown');
   searchInput.setAttribute('placeholder', 'Film');
+  searchInput.classList.add('for_mobile_width');
+  searchForm.classList.add('mobile-form');
 
   searchMovies();
 });

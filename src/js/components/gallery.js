@@ -49,6 +49,9 @@ export function createMarkUp(array) {
     .map(({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
       // console.log(poster_path);
       let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
+      if (poster_path === null) {
+        urlPoster = '';
+      }
       // const image = `.\/img\/395x574-no-image.jpg`;
       // const poster = poster_path === null ? `${image}` : poster_path;
       // console.log('poster:', poster);
