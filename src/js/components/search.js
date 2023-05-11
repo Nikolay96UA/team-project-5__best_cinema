@@ -1,3 +1,4 @@
+// search
 import { createMarkUp } from './gallery';
 import {
   API_KEY,
@@ -8,8 +9,7 @@ import {
 } from '../constants/api';
 import Notiflix from 'notiflix';
 import axios from 'axios';
-import { pagInstanceTrendWeek } from './pagination';
-import { paginContainerTrend } from './pagination';
+import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 // Оголошення змінних
 const searchForm = document.querySelector('.search-form');
@@ -69,14 +69,18 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault();
   // console.log('click');
   // console.log(event);
-  searchForm.classList.remove('form-single');
+  // searchForm.classList.remove('form-single');
   yearSelect.classList.remove('input__is-hidden');
   genreSelect.classList.remove('input__is-hidden');
   countrySelect.classList.remove('input__is-hidden');
+  searchForm.classList.remove('form-single');
+
   yearSelect.classList.add('input__is-shown');
   genreSelect.classList.add('input__is-shown');
   countrySelect.classList.add('input__is-shown');
   searchInput.setAttribute('placeholder', 'Film');
+  searchInput.classList.add('for_mobile_width');
+  searchForm.classList.add('mobile-form');
 
   searchMovies();
 });
@@ -129,7 +133,6 @@ async function searchMovies() {
 //   // createMarkUp(pagArray);
 // });
 export async function searchWithQuery() {
-  console.log(pagInstanceTrendWeek.getCurrentPage());
   const { data: resultSearch } = await axios.get(
     `${searchUrl}&page=${pagInstanceTrendWeek.getCurrentPage()}`
   );

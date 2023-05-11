@@ -1,7 +1,7 @@
 import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 import axios from 'axios';
 import { searchWithQuery } from './search';
-import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
+import { pagInstanceTrendWeek, paginTrend, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
@@ -11,6 +11,7 @@ let categorysArray = [];
 export const galleryEl = document.getElementById('gallery');
 
 onPageShow();
+
 async function onPageShow() {
   try {
     const arrayTrandMovies = await getTrendMoviesOfWeek();
@@ -36,7 +37,7 @@ export async function getTrendMoviesOfWeek() {
     if (moviesObject.results.length === 0) {
       return ['Ssory, we can not find something :-('];
     }
-    console.log(moviesObject);
+    // console.log(moviesObject);
     totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {
@@ -49,6 +50,9 @@ export function createMarkUp(array) {
     .map(({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
       // console.log(poster_path);
       let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
+      if (poster_path === null) {
+        urlPoster = '';
+      }
       // const image = `.\/img\/395x574-no-image.jpg`;
       // const poster = poster_path === null ? `${image}` : poster_path;
       // console.log('poster:', poster);
