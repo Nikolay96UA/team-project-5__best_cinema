@@ -109,7 +109,6 @@ async function searchMovies() {
     }
     pagInstanceTrendWeek.reset(objResultSearch.total_results);
     paginContainerTrend.dataset.status = 'pagin-search';
-    currentSearchPage = objResultSearch.page;
     createMarkUp(objResultSearch.results);
   } catch (error) {
     Notiflix.Notify.failure('Ooops, something go wrong, look at console for details.');
