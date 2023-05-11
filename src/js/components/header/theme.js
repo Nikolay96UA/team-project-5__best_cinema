@@ -17,6 +17,7 @@ function setupSwitcher() {
 
   [...switcherRadios].forEach(radio => {
     radio.addEventListener('change', event => {
+      console.log(event.target.value);
       setScheme(event.target.value);
     });
   });
