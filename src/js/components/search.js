@@ -1,3 +1,4 @@
+// search
 import { createMarkUp } from './gallery';
 import {
   API_KEY,
@@ -8,8 +9,8 @@ import {
 } from '../constants/api';
 import Notiflix from 'notiflix';
 import axios from 'axios';
-import { pagInstanceTrendWeek } from './pagination';
-import { paginContainerTrend } from './pagination';
+// import { pagInstanceTrendWeek } from './pagination';
+// import { paginContainerTrend } from './pagination';
 
 // Оголошення змінних
 const searchForm = document.querySelector('.search-form');

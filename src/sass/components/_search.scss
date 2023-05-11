@@ -1,6 +1,14 @@
 .search {
   background-color: var(--main-bg-color); //background-color: $primary-bg-color;
-  padding: 80px 0 48px 0;
+  @include mobile {
+    padding: 40px 0 16px 0;
+  }
+  @include tablet {
+    padding: 60px 0 36px 0;
+  }
+  @include desktop {
+    padding: 80px 0 48px 0;
+  }
 }
 
 .search-form {
