@@ -8,6 +8,16 @@ const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 
+// const library = localStorage.getItem('library');
+
+createLibraryAtLocalStor();
+function createLibraryAtLocalStor() {
+  if (localStorage.getItem('library')) {
+    return
+  }
+  localStorage.setItem('library', '[]');
+}
+
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
@@ -27,7 +37,7 @@ function closeByBackdrop(e){
   if(currentEl !== backdrop){
     return;
   } else{
-    closeModal(currentEl);
+    closeModal();
   }
 }
 
@@ -44,50 +54,58 @@ function closeModal() {
 }
 
 
- 
-
 async function fetchDetailInfo(movieId) {
   try {
     const result = await movieDatabaseAPI.fetchMovieDetails(movieId);
-    console.log('1');
     renderDetailMarkup(result);
-    console.log('2');
     console.log(result.id);
 
     const addToLibraryBtn = document.querySelector('.add-to-library');
-    if (
-      localStorage.getItem('library') &&
-      JSON.parse(localStorage.getItem('library')).includes(result)
-    ) {
-      addToLibraryBtn.innerText = 'Delete from my library';
-    } 
+    
+    const library = localStorage.getItem('library');
+    const localStorageData = library ? JSON.parse(library) : [];
 
-    // Add or remove object from library
-    addToLibraryBtn.addEventListener('click', () => {
-      const library = localStorage.getItem('library')
-        ? JSON.parse(localStorage.getItem('library'))
-        : [];
+    for (let i = 0; i < localStorageData.length; i++) {
+      const id = localStorageData[i].id;
+      if (id === result.id) {
+        console.log('Match found!');
+        addToLibraryBtn.innerText = 'Delete from my library';
+      }
+    }    
+
+        addToLibraryBtn.addEventListener('click', () => {
   
       if (addToLibraryBtn.innerText === 'Add to my library') {
-        library.push(result);
-        localStorage.setItem('library', JSON.stringify(library));
+        localStorageData.push(result);
+        localStorage.setItem('library', JSON.stringify(localStorageData));
         addToLibraryBtn.innerText = 'Delete from my library';
-      } else {
-        const index = library.findIndex(item => item.name === result.name);
+      } 
+      else {
+        const index = localStorageData.findIndex(item => item.id === result.id);
         if (index !== -1) {
-          library.splice(index, 1);
-          localStorage.setItem('library', JSON.stringify(library));
+          localStorageData.splice(index, 1);
+          localStorage.setItem('library', JSON.stringify(localStorageData));
           addToLibraryBtn.innerText = 'Add to my library';
         }
       }
     });
-    console.log('3');
     
+    // const parsedObjects = JSON.parse(localStorage.getItem('library'));
+    // console.log(parsedObjects);
+
+    // for (let i = 0; i < parsedObjects.length; i++) {
+    //   const id = parsedObjects[i].id;
+    //   if (id === result.id) {
+    //     console.log('Match found!');
+    //     addToLibraryBtn.innerText = 'Delete from my library';
+    //   }
+    // }
+    
+    console.log("Лог після циклу");
+
     console.log(result);
 
     openModal();
-
-    console.log('4');
 
   } catch (error) {
     console.dir(error);
@@ -144,5 +162,3 @@ function onGalleryLinkClick(event) {
     fetchDetailInfo(movieId);
   }
 }
-
-// export { fetchDetailInfo };
