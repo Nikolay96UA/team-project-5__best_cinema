@@ -6,7 +6,7 @@ import {
 } from '../constants/api';
 import axios from 'axios';
 
-const weekTrendsEl = document.getElementById('trends-list');
+export const weekTrendsEl = document.getElementById('trends-list');
 
 let currentPage = 1;
 let idsArray = [];
@@ -109,3 +109,4 @@ function stars(vote) {
     return 'No rating';
   }
 }
+

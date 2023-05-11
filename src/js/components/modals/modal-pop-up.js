@@ -1,34 +1,58 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { onGalleryLinkClick } from '../components/gallery';
 import { galleryEl } from '../gallery';
+import {weekTrendsEl} from '../trends';
 
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 
+
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
 
 // form.addEventListener('submit', fetchDetailInfo);
-closeModalBtn.addEventListener('click', toggleModal);
+closeModalBtn.addEventListener('click', closeModal);
+backdrop.addEventListener('click', closeByBackdrop);
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
 
-function toggleModal() {
-  backdrop.classList.toggle('backdrop--hidden');
+function closeByBackdrop(e){
+  const currentEl = e.target;
+  console.log('You click on:', currentEl);
+  if(currentEl !== backdrop){
+    return;
+  } else{
+    closeModal(currentEl);
+  }
 }
+
+function openModal() {
+  backdrop.classList.remove('backdrop--hidden');
+  // closeModalBtn.removeEventListener('click', closeModal);
+  // backdrop.removeEventListener('click', closeByBackdrop);
+  
+}
+
+function closeModal() {
+  backdrop.classList.add('backdrop--hidden');
+  // galleryEl.removeEventListener('click', onGalleryLinkClick);
+}
+
+
+ 
 
 async function fetchDetailInfo(movieId) {
   try {
-    // e.preventDefault();
-    // movieDatabaseAPI.query = e.currentTarget.elements.searchQuery.value;
-    // console.log(movieDatabaseAPI.query);
     const result = await movieDatabaseAPI.fetchMovieDetails(movieId);
-    // const secondResult = await fetchGenreDetails(result.genres.id);
+    console.log('1');
     renderDetailMarkup(result);
-    console.log(result);
-    // const renderMarkup = renderDetailMarkup(result);
-    // console.log(renderMarkup);
-    toggleModal();
+    console.log('2');
+    console.log(result.id);
 
     const addToLibraryBtn = document.querySelector('.add-to-library');
     if (
@@ -36,14 +60,14 @@ async function fetchDetailInfo(movieId) {
       JSON.parse(localStorage.getItem('library')).includes(result)
     ) {
       addToLibraryBtn.innerText = 'Delete from my library';
-    }
+    } 
 
     // Add or remove object from library
     addToLibraryBtn.addEventListener('click', () => {
       const library = localStorage.getItem('library')
         ? JSON.parse(localStorage.getItem('library'))
         : [];
-
+  
       if (addToLibraryBtn.innerText === 'Add to my library') {
         library.push(result);
         localStorage.setItem('library', JSON.stringify(library));
@@ -57,6 +81,14 @@ async function fetchDetailInfo(movieId) {
         }
       }
     });
+    console.log('3');
+    
+    console.log(result);
+
+    openModal();
+
+    console.log('4');
+
   } catch (error) {
     console.dir(error);
   }
@@ -99,15 +131,18 @@ function renderDetailMarkup({
     </div>
     `;
   container.innerHTML = detailMarkup;
+  
 }
 
 galleryEl.addEventListener('click', onGalleryLinkClick);
+weekTrendsEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
     const movieId = event.target.dataset.id;
+    console.log('Это LI!!!')
     fetchDetailInfo(movieId);
   }
 }
 
-export { fetchDetailInfo };
+// export { fetchDetailInfo };
