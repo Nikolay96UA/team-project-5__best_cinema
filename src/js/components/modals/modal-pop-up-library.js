@@ -2,7 +2,7 @@ import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { weekTrendsEl } from '../trends';
 // import { movieListContainer } from '../../libraries';
 
-// const libraryEl = document.querySelector('.library-cards');
+const libraryEl = document.querySelector('.movie-list');
 
 const body = document.querySelector('body');
 const closeModalBtn = document.querySelector('[data-close-modal]');
@@ -99,9 +99,7 @@ function renderDetailMarkup({
 }) {
   detailMarkup = `
     <div class='container-image-wrap'>${
-      poster_path
-        ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">`
-        : ''
+      poster_path ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">` : ''
     }</div>
     <div class='container-content-wrap'>
       <h3 class='title'>${original_title}</h3>
@@ -128,9 +126,10 @@ function renderDetailMarkup({
 }
 
 // galleryEl.addEventListener('click', onGalleryLinkClick);
-// libraryEl.addEventListener('click', onGalleryLinkClick);
+libraryEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
+  console.log(event.target);
   if (event.target.nodeName === 'LI') {
     const movieId = event.target.dataset.id;
     // console.log('Это LI!!!');

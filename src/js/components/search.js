@@ -1,5 +1,5 @@
 // search
-import { createMarkUp } from './gallery';
+import { createMarkUp, ifWrongSearch } from './gallery';
 import {
   API_KEY,
   BASE_URL,
@@ -105,6 +105,8 @@ async function searchMovies() {
     const { data: objResultSearch } = await axios.get(url);
     if (objResultSearch.results.length === 0) {
       Notiflix.Notify.failure('Ooops, nothing to search.');
+      pagInstanceTrendWeek.reset(objResultSearch.total_results);
+      ifWrongSearch('OOPS... We are very sorry! We don’t have any results due to your search.');
       return;
     }
     pagInstanceTrendWeek.reset(objResultSearch.total_results);
