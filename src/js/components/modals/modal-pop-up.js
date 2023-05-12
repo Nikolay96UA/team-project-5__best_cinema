@@ -1,23 +1,12 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
-// import { onGalleryLinkClick } from '../components/gallery';
-import { galleryEl } from '../gallery';
-import { weekTrendsEl } from '../trends';
+// import { weekTrendsEl } from '../trends';
 
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
-
-// const library = localStorage.getItem('library');
-
-createLibraryAtLocalStor();
-
-function createLibraryAtLocalStor() {
-  if (localStorage.getItem('library')) {
-    return;
-  }
-  localStorage.setItem('library', '[]');
-}
+const galleryEl = document.querySelector('.gallery');
+// const weekTrendsEl = document.getElementById('trends-list');
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
@@ -150,7 +139,7 @@ function renderDetailMarkup({
 }
 
 galleryEl.addEventListener('click', onGalleryLinkClick);
-weekTrendsEl.addEventListener('click', onGalleryLinkClick);
+// weekTrendsEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
