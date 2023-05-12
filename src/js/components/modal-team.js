@@ -1,5 +1,5 @@
 const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
-    const buttonElems = document.querySelector(btnOpen);
+    const buttonElems = document.querySelectorAll(btnOpen);
     const modalElem = document.querySelector(modal);
   
     modalElem.style.cssText = `
@@ -43,7 +43,7 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
   
   
   modalController({
-    modal: '.modal__main',
-    btnOpen: '.footer-btn btn',
+    modal: '.modal',
+    btnOpen: '.footer-btn',
     btnClose: '.modal__close'
   });

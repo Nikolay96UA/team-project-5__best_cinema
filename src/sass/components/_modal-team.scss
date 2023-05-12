@@ -1,138 +1,129 @@
 
-// .footer-btn {
-//   background: transparent;
-//   border: none;
-//   color: inherit;
-//   font-weight: normal;
-//   // padding: 10px 20px;
-//   cursor: pointer;
-//   outline: 2px solid transparent;
-//   outline-offset: 3px;
-//   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+// .footer-btn:hover {
+//   background-color: #fff;
+//   color: #000;
 // }
-
-
-
 /* Modal */
-// .modal {
-//   position: fixed;
-//   inset: 0;
-//   background-color: rgba(0, 0, 0, 0.5);
-//   cursor: pointer;
-//   padding: 30px;
-//   overflow-y: auto;
-//   display: none;
-//   z-index: 1;
-// }
-
-.modal__main {
-  position: relative;
-  max-width: 700px;
-  background-color: #dbd5d5;
-  margin: auto;
-  color: #000;
-  border-radius: 16px;
-  padding: 30px 60px 60px;
-  cursor: default;
-}
-
-.modal__title {
-  font-size: 50px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  text-align: center;
-  text-decoration: underline;
-}
-
-.modal__container {
-  font-size: 30px;
-  margin-bottom: 30px;
-}
-
-.modal__close {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 22px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  outline: 1px solid transparent;
-  outline-offset: 3px;
-  transition: outline-color 0.15s ease-in-out;
-  border-radius: 3px;
-  padding: 0;
-  text-align: center;
-  display: block;
-  width: 30px;
-  height: 30px;
-}
-
-.modal__close:hover {
-  background-color: #f87719;
-  color: #fff;
-}
-
-/* Team */
-.team__item:first-child img {
-  outline: none;
-  border-radius: 50%;
-}
-.title {
- margin-bottom: 10px;
-  color: var(--main-bg-color);
-}
-
-img {
-  box-shadow: 20px 20px 20px #585656;
-}
-
-.team__item img {
-  margin-bottom: 20px;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  outline: 2px solid transparent;
-  outline-offset: 3px;
-  transition: outline-color 0.15s ease-in-out;
-}
-
-.team__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.team__item::after {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: #242121;
-  margin: 1rem 0;
-}
-
-.team__item-box {
-  text-align: center;
-}
-
-.icon__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.icon__item {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.icon__item a {
-  color: #000;
-}
-
-.icon__item a:hover {
-  fill: #f87719;
-}
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 30px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1;
+  }
+  
+  .modal__main {
+    position: relative;
+    max-width: 700px;
+    background-color: #dbd5d5;
+    margin: auto;
+    color: #000;
+    border-radius: 16px;
+    padding: 30px 60px 60px;
+    cursor: default;
+  }
+  
+  .modal__title {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+  .modal__container {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .modal__close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    outline: 1px solid transparent;
+    outline-offset: 3px;
+    transition: outline-color 0.15s ease-in-out;
+    border-radius: 3px;
+    padding: 0;
+    text-align: center;
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .modal__close:hover {
+    background-color: #f87719;
+    color: #fff;
+  }
+  
+  /* Team */
+  .team__item:first-child img {
+    outline: none;
+    border-radius: 50%;
+  }
+  .title {
+   margin-bottom: 10px;
+    color: var(--main-bg-color);
+  }
+  
+  img {
+    box-shadow: 20px 20px 20px #585656;
+  }
+  
+  .team__item img {
+    margin-bottom: 20px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+    transition: outline-color 0.15s ease-in-out;
+  }
+  
+  .team__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .team__item::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #242121;
+    margin: 1rem 0;
+  }
+  
+  .team__item-box {
+    text-align: center;
+  }
+  
+  .icon__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .icon__item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .icon__item a {
+    color: #000;
+  }
+  
+  .icon__item a:hover {
+    fill: #f87719;
+  }
+  

@@ -9,3 +9,4 @@ import './js/components/scroll-to-top';
 // import './js/components/footer';
 // Mmodals
 import './js/components/modals';
+import './js/components/modal-team';
