@@ -1,9 +1,4 @@
-// import * as basicLightbox from 'basiclightbox';
-// import SimpleLightbox from 'simplelightbox';
-// import Pagination from 'tui-pagination';
-
 const movieListContainer = document.querySelector('.movie-list');
-// export const movieListContainer1 = document.querySelector('.movie-list gallery');
 
 document.addEventListener('DOMContentLoaded', () => {
   const errorContainer = document.querySelector('.library__error-message');
@@ -56,29 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
       : '';
     let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
     const genreNames = genres.map(genre => genre.name).join(' ');
-    // return `
-    //   <div class='container-image-wrap'>
-    //     ${posterImage}
-    //   </div>
-    //   <div class='container-content-wrap'>
-    //     <h3 class='title'>${original_title}</h3>
-    //     <div class='content-wrap'>
-    //       <div class='features-wrap'>
-    //         <p class='feature-name'>Vote / Votes</p>
-    //         <p class='feature-name'>Popularity</p>
-    //         <p class='feature-name'>Genre</p>
-    //       </div>
-    //       <div class='features-values-wrap'>
-    //         <p class='feature-value'>${vote_average}<span> / </span>${vote_count}</p>
-    //         <p class='feature-value'>${popularity}</p>
-    //         <p class='feature-value'>${genreNames}</p>
-    //       </div>
-    //     </div>
-    //     <p class='feature-name feature-name-uppercase'>About</p>
-    //     <p class='feature-value feature-value-description'>${overview}</p>
-    //     <button class="add-to-library" type="button">Add to my library</button>
-    //   </div>
-    // `;
     return `
     <div class="lib-gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), ${urlPoster}" data-id=${id}>
     <div class="lib-gallery-item__about">
