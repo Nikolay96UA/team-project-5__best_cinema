@@ -129,7 +129,6 @@ function renderDetailMarkup({
 libraryEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
-  console.log(event.target);
   if (event.target.nodeName === 'LI') {
     const movieId = event.target.dataset.id;
     // console.log('Это LI!!!');
