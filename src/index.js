@@ -4,8 +4,7 @@ import './js/components/upcoming';
 import './js/components/trends';
 import './js/components/scroll-to-top';
 
-// import './js/components/upcoming';
-// import './js/components/trends';
 // import './js/components/footer';
 // Mmodals
-import './js/components/modals/modal-pop-up';
+import './js/components/modals/modal-pop-up-index';
+import './js/components/modals/modal-trailer';

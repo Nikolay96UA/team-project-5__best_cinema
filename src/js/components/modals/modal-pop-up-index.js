@@ -1,9 +1,10 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
-// import { weekTrendsEl } from '../trends';
+import { weekTrendsEl } from '../trends';
 
+const body = document.querySelector('body');
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
-const modal = document.querySelector('.modal');
+const modalPopUp = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 const galleryEl = document.querySelector('.gallery');
 // const weekTrendsEl = document.getElementById('trends-list');
@@ -22,7 +23,6 @@ document.addEventListener('keydown', function (e) {
 
 function closeByBackdrop(e) {
   const currentEl = e.target;
-  console.log('You click on:', currentEl);
   if (currentEl !== backdrop) {
     return;
   } else {
@@ -32,6 +32,7 @@ function closeByBackdrop(e) {
 
 function openModal() {
   backdrop.classList.remove('backdrop--hidden');
+  body.classList.add('modal-open');
   // closeModalBtn.removeEventListener('click', closeModal);
   // backdrop.removeEventListener('click', closeByBackdrop);
 }
@@ -41,6 +42,7 @@ backdrop.addEventListener('click', closeByBackdrop);
 
 function closeModal() {
   backdrop.classList.add('backdrop--hidden');
+  body.classList.remove('modal-open');
   // galleryEl.removeEventListener('click', onGalleryLinkClick);
 }
 
@@ -48,7 +50,6 @@ async function fetchDetailInfo(movieId) {
   try {
     const result = await movieDatabaseAPI.fetchMovieDetails(movieId);
     renderDetailMarkup(result);
-    console.log(result.id);
 
     const addToLibraryBtn = document.querySelector('.add-to-library');
 
@@ -58,7 +59,6 @@ async function fetchDetailInfo(movieId) {
     for (let i = 0; i < localStorageData.length; i++) {
       const id = localStorageData[i].id;
       if (id === result.id) {
-        console.log('Match found!');
         addToLibraryBtn.innerText = 'Delete from my library';
       }
     }
@@ -77,21 +77,6 @@ async function fetchDetailInfo(movieId) {
         }
       }
     });
-
-    // const parsedObjects = JSON.parse(localStorage.getItem('library'));
-    // console.log(parsedObjects);
-
-    // for (let i = 0; i < parsedObjects.length; i++) {
-    //   const id = parsedObjects[i].id;
-    //   if (id === result.id) {
-    //     console.log('Match found!');
-    //     addToLibraryBtn.innerText = 'Delete from my library';
-    //   }
-    // }
-
-    console.log('Лог після циклу');
-
-    console.log(result);
 
     openModal();
   } catch (error) {
@@ -138,8 +123,8 @@ function renderDetailMarkup({
   container.innerHTML = detailMarkup;
 }
 
-galleryEl.addEventListener('click', onGalleryLinkClick);
-// weekTrendsEl.addEventListener('click', onGalleryLinkClick);
+// galleryEl.addEventListener('click', onGalleryLinkClick);
+weekTrendsEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
