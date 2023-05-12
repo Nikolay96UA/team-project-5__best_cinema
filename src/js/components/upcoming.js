@@ -100,5 +100,6 @@ function renderMovieCard(movieWithGenre) {
 
     <button type="button" class="remind-btn">Remind me</button>
 </div>`;
-  upcoming.insertAdjacentHTML('beforeend', markup);
+upcoming.insertAdjacentHTML('beforeend', markup);
 }
+

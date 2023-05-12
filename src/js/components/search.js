@@ -135,3 +135,4 @@ export async function searchWithQuery() {
   );
   createMarkUp(resultSearch.results);
 }
+

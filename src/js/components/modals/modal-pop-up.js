@@ -145,4 +145,4 @@ function onGalleryLinkClick(event) {
   }
 }
 
-// export { fetchDetailInfo };
+ export { fetchDetailInfo };
