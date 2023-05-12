@@ -9,15 +9,16 @@ const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
 const switcherRadios = document.querySelectorAll('.switcher-radio');
 
 function setupSwitcher() {
-  const savedScheme = getSavedScheme();
+  let savedScheme = getSavedScheme();
 
   if (savedScheme === null) {
     setScheme('dark');
   }
-
+  savedScheme = getSavedScheme();
+  const currentRadio = document.querySelector(`.switcher-radio[value=${savedScheme}]`);
+  currentRadio.checked = true;
   [...switcherRadios].forEach(radio => {
     radio.addEventListener('change', event => {
-      console.log(event.target.value);
       setScheme(event.target.value);
     });
   });

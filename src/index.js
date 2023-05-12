@@ -8,4 +8,4 @@ import './js/components/scroll-to-top';
 // import './js/components/trends';
 // import './js/components/footer';
 // Mmodals
-// import './js/components/modals/index';
+import './js/components/modals/modal-pop-up';

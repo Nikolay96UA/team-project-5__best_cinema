@@ -1,13 +1,12 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
-// import { onGalleryLinkClick } from '../components/gallery';
-import { galleryEl } from '../gallery';
-import {weekTrendsEl} from '../trends';
+// import { weekTrendsEl } from '../trends';
 
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
-
+const galleryEl = document.querySelector('.gallery');
+// const weekTrendsEl = document.getElementById('trends-list');
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
@@ -15,18 +14,18 @@ let detailMarkup;
 // form.addEventListener('submit', fetchDetailInfo);
 closeModalBtn.addEventListener('click', closeModal);
 backdrop.addEventListener('click', closeByBackdrop);
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
     closeModal();
   }
 });
 
-function closeByBackdrop(e){
+function closeByBackdrop(e) {
   const currentEl = e.target;
   console.log('You click on:', currentEl);
-  if(currentEl !== backdrop){
+  if (currentEl !== backdrop) {
     return;
-  } else{
+  } else {
     closeModal(currentEl);
   }
 }
@@ -35,16 +34,12 @@ function openModal() {
   backdrop.classList.remove('backdrop--hidden');
   // closeModalBtn.removeEventListener('click', closeModal);
   // backdrop.removeEventListener('click', closeByBackdrop);
-  
 }
 
 function closeModal() {
   backdrop.classList.add('backdrop--hidden');
   // galleryEl.removeEventListener('click', onGalleryLinkClick);
 }
-
-
- 
 
 async function fetchDetailInfo(movieId) {
   try {
@@ -60,14 +55,14 @@ async function fetchDetailInfo(movieId) {
       JSON.parse(localStorage.getItem('library')).includes(result)
     ) {
       addToLibraryBtn.innerText = 'Delete from my library';
-    } 
+    }
 
     // Add or remove object from library
     addToLibraryBtn.addEventListener('click', () => {
       const library = localStorage.getItem('library')
         ? JSON.parse(localStorage.getItem('library'))
         : [];
-  
+
       if (addToLibraryBtn.innerText === 'Add to my library') {
         library.push(result);
         localStorage.setItem('library', JSON.stringify(library));
@@ -82,13 +77,12 @@ async function fetchDetailInfo(movieId) {
       }
     });
     console.log('3');
-    
+
     console.log(result);
 
     openModal();
 
     console.log('4');
-
   } catch (error) {
     console.dir(error);
   }
@@ -105,9 +99,7 @@ function renderDetailMarkup({
 }) {
   detailMarkup = `
     <div class='container-image-wrap'>${
-      poster_path
-        ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">`
-        : ''
+      poster_path ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">` : ''
     }</div>
     <div class='container-content-wrap'>
       <h3 class='title'>${original_title}</h3>
@@ -131,18 +123,16 @@ function renderDetailMarkup({
     </div>
     `;
   container.innerHTML = detailMarkup;
-  
 }
 
 galleryEl.addEventListener('click', onGalleryLinkClick);
-weekTrendsEl.addEventListener('click', onGalleryLinkClick);
+// weekTrendsEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
     const movieId = event.target.dataset.id;
-    console.log('Это LI!!!')
+    console.log('Это LI!!!');
     fetchDetailInfo(movieId);
   }
 }
-
 // export { fetchDetailInfo };

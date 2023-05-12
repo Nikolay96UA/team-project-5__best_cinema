@@ -30,7 +30,7 @@
   height: 335px;
   cursor: pointer;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%),
-    url('../img/395x574-no-image.jpg');
+    url('../images/395x574-no-image.jpg');
 
   transition: scale 200ms linear, box-shadow 200ms linear;
   @include mobile {
@@ -39,7 +39,7 @@
     margin-right: 0;
     margin-bottom: 16px;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%),
-      url('../img/280x406-no-image.jpg');
+      url('../images/280x406-no-image.jpg');
   }
   @media screen and (min-width: 481px) and (max-width: 767px) {
     width: 100%;
@@ -48,7 +48,7 @@
     margin-bottom: 28px;
     flex-basis: calc((100% - 32px) / 3);
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%),
-      url('../img/224x325-no-image.jpg');
+      url('../images/224x325-no-image.jpg');
   }
   @include tablet {
     width: 224px;
@@ -57,7 +57,7 @@
     margin-bottom: 28px;
     flex-basis: calc((100% - 32px) / 3);
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%),
-      url('../img/224x325-no-image.jpg');
+      url('../images/224x325-no-image.jpg');
   }
   @include desktop {
     width: 395px;
