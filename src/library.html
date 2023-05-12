@@ -7,14 +7,35 @@
     <title>Cinemania</title>
     <!-- Themes settings -->
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-scheme" content="light dark" />
-    <meta name="color-scheme" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="color-scheme" media="(prefers-color-scheme: dark)" content="#111111" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#111111"
+    />
     <!-- favicon -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicons/favicon-16x16.png"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -27,16 +48,48 @@
       sizes="512x512"
       href="./images/favicons/android-chrome-512x512.png"
     />
-    <link rel="icon" type="image/png" sizes="70x70" href="./images/favicons/mstile-70x70.png" />
-    <link rel="icon" type="image/png" sizes="144x144" href="./images/favicons/mstile-144x144.png" />
-    <link rel="icon" type="image/png" sizes="150x150" href="./images/favicons/mstile-150x150.png" />
-    <link rel="icon" type="image/png" sizes="310x150" href="./images/favicons/mstile-310x150.png" />
-    <link rel="icon" type="image/png" sizes="310x310" href="./images/favicons/mstile-310x310.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="70x70"
+      href="./images/favicons/mstile-70x70.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="144x144"
+      href="./images/favicons/mstile-144x144.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="150x150"
+      href="./images/favicons/mstile-150x150.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="310x150"
+      href="./images/favicons/mstile-310x150.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="310x310"
+      href="./images/favicons/mstile-310x310.png"
+    />
     <link rel="manifest" href="./images/favicons/site.webmanifest" />
-    <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <link
+      rel="mask-icon"
+      href="./images/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
     <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
     <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="msapplication-config" content="./images/favicons/browserconfig.xml" />
+    <meta
+      name="msapplication-config"
+      content="./images/favicons/browserconfig.xml"
+    />
     <meta name="theme-color" content="#595959" />
 
     <!-- Switcher script for old browsers -->
@@ -50,105 +103,28 @@
       }
     </script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./sass/light-theme.scss" media="(prefers-color-scheme: light)" />
-    <link rel="stylesheet" href="./sass/dark-theme.scss" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="stylesheet"
+      href="./sass/light-theme.scss"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="stylesheet"
+      href="./sass/dark-theme.scss"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./library.js"></script>
   </head>
-  <!-- <header class="header">
-    <div class="header-container container">
-      <nav class="header-nav">
-        <a class="logo" href="./index.html">
-          <svg class="logo-icon" width="32" height="32">
-            <use href="./img/icons.svg#logo"></use>
-          </svg>
-          <span class="logo-txt">Cinemania</span>
-        </a>
-
-        <ul class="header-nav-list">
-          <li class="header-nav-item">
-            <a class="header-nav-link" href="./index.html">home</a>
-          </li>
-          <li class="header-nav-item">
-            <a class="header-nav-link" href="./catalog.html">catalog</a>
-          </li>
-          <li class="header-nav-item">
-            <a class="header-nav-link" href="./library.html">my library</a>
-          </li>
-        </ul>
-
-        <button
-          class="menu-toggle js-open-menu"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          Menu
-        </button>
-      </nav>
-      <fieldset class="switcher">
-        <legend class="switcher-legend">Scheme</legend>
-        <input
-          class="switcher-radio switcher-radio-dark"
-          type="radio"
-          name="color-scheme"
-          value="dark"
-          aria-label="Dark"
-          checked
-        />
-        <input
-          class="switcher-radio switcher-radio-light"
-          type="radio"
-          name="color-scheme"
-          value="light"
-          aria-label="Light"
-        />
-
-        <div class="switcher-status"></div>
-      </fieldset>
-    </div>
-  </header>
- -->
   <body>
     <include src="./partials/header.html"></include>
-    <!-- <include src="./partials/library.html"></include> -->
-    <section class="library">
-      <div class="container">
-        <div class="library__content">
-          <div class="library__title-wrapper">
-            <h1 class="library__title">Create Your Dream Cinema</h1>
-          </div>
-          <div class="library__text-wrapper">
-            <p class="library__text">
-              Is a guide to designing a personalized movie theater experience with the right
-              equipment, customized decor, and favorite films. This guide helps you bring the cinema
-              experience into your own home with cozy seating, dim lighting, and movie theater
-              snacks.
-            </p>
-          </div>
-        </div>
-
-        <div class="library__error-message">
-          <p class="error-line">
-            OOPS...<br />
-            We are very sorry!<br />
-            You don’t have any movies at your library.
-          </p>
-        </div>
-        <div class="container-button">
-          <a href="/src/catalog.html" class="search-button">Search movie</a>
-        </div>
-        <ul class="movie-list gallery-library"></ul>
-        <div class="no-movie"></div>
-      </div>
-    </section>
-
-    <include src="./partials/scroll-to-top.html"></include>
-
+    <main>
+      <include src="./partials/library.html"></include>
+    </main>
     <include src="./partials/footer.html"></include>
-    <include src="./partials/mobile-menu.html"></include>
-    <include src="./partials/modal-pop-up.html"></include>
 
-  
+    <include src="./partials/mobile-menu.html"></include>
+    <include src="./partials/scroll-to-top.html"></include>
+    <include src="./partials/modal-pop-up.html"></include>
   </body>
 </html>

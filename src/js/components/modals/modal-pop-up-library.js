@@ -2,7 +2,8 @@ import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { weekTrendsEl } from '../trends';
 // import { movieListContainer } from '../../libraries';
 
-const libraryEl = document.querySelector('.movie-list');
+const libraryEl = document.querySelector('.library__cards');
+
 const body = document.querySelector('body');
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');

@@ -1,36 +1,30 @@
-const movieListContainer = document.querySelector('.movie-list');
+// import * as basicLightbox from 'basiclightbox';
+// import SimpleLightbox from 'simplelightbox';
+// import Pagination from 'tui-pagination';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const errorContainer = document.querySelector('.library__error-message');
+  const movieListContainer = document.querySelector('.library__cards');
   const buttonContainer = document.querySelector('.container-button');
-  const movieListContainer = document.querySelector('.movie-list');
   const storedMovies = localStorage.getItem('library');
   const movies = storedMovies ? JSON.parse(storedMovies) : [];
   console.log(movies);
+
   if (movies.length > 0) {
-    errorContainer.remove();
+    // movieListContainer.remove();
     buttonContainer.remove();
     renderMovies(movies);
   } else {
-    const errorMessage = document.createElement('p');
-    errorMessage.classList.add('error-line');
-    errorMessage.innerHTML = `
+    movieListContainer.innerHTML = `<p class="library__message">
       OOPS...<br />
       We are very sorry!<br />
       You don’t have any movies at your library.
-    `;
-    errorContainer.appendChild(errorMessage);
+    </p>`;
   }
+
   function renderMovies(movies) {
     movieListContainer.innerHTML = '';
-    movies.forEach((movie, index) => {
-      const movieElement = document.createElement('li');
-      movieElement.classList.add('movie');
-      movieElement.innerHTML = renderDetailMarkup(movie);
-      movieListContainer.appendChild(movieElement);
-      if ((index + 1) % 3 === 0) {
-        movieElement.classList.add('last-in-row');
-      }
+    movies.forEach(movie => {
+      movieListContainer.innerHTML += renderDetailMarkup(movie);
     });
   }
   function renderDetailMarkup({
@@ -46,22 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
     release_date,
     id,
   }) {
-    const posterImage = poster_path
-      ? `<img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster">`
-      : '';
+    // const posterImage = poster_path
+    //   ? `<img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Poster">`
+    //   : '';
     let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
     const genreNames = genres.map(genre => genre.name).join(' ');
     return `
-    <div class="lib-gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), ${urlPoster}" data-id=${id}>
-    <div class="lib-gallery-item__about">
-    <h3 class="lib-gallery-item__about__title">${title}</h3>
-    <p class="lib-gallery-item__about__p">${genreNames} | ${release_date.slice(
+    <article class="library__card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), ${urlPoster}" data-id=${id}>
+      <div class="library__about">
+        <h3 class="lib-gallery-item__about__title">${title}</h3>
+        <p class="lib-gallery-item__about__p">${genreNames} | ${release_date.slice(
       0,
       4
     )}</p>
-    </div>
-    <div class="vote-cinemas ${stars(Number(vote_average.toFixed(1)))}"></div>
-    </div>`;
+      </div>
+      <div class="vote-cinemas ${stars(Number(vote_average.toFixed(1)))}"></div>
+    </article>`;
   }
 });
 function getGenreForCard(genreIds) {
