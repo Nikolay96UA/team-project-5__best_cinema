@@ -35,7 +35,8 @@ export async function getTrendMoviesOfWeek() {
       `${BASE_URL}${URL_TREND_WEEK}?api_key=${API_KEY}&page=${currentPage}`
     );
     if (moviesObject.results.length === 0) {
-      ifWrongSearch('OOPS... We are very sorry! We don’t have any results due to your search.');
+      const array = [];
+      ifWrongSearch(array);
       return;
     }
     totalPages = moviesObject.total_pages;
@@ -66,7 +67,9 @@ function renderMarkup(markup) {
 }
 
 export function ifWrongSearch(message) {
-  galleryEl.innerHTML = `<p class="mistake-in-search">${message}</p> `;
+  console.log(message);
+  const markup = message.map(el => `<p>${el}</p>`).join('');
+  galleryEl.innerHTML = `<div class="mistake-in-search">${markup}</div>`;
 }
 
 function getGenreForCard(genreIds) {
