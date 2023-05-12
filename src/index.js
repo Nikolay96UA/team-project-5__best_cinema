@@ -8,3 +8,4 @@ import './js/components/scroll-to-top';
 // Mmodals
 import './js/components/modals/modal-pop-up-index';
 import './js/components/modals/modal-trailer';
+import './js/components/modal-team';
