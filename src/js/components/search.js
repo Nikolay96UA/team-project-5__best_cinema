@@ -100,7 +100,7 @@ async function searchMovies() {
     searchUrl = url;
     const { data: objResultSearch } = await axios.get(url);
     if (objResultSearch.results.length === 0) {
-      Notiflix.Notify.failure('Ooops, nothing to search.');
+      Notiflix.Notify.failure('Ooops, wrong search.');
       pagInstanceTrendWeek.reset(objResultSearch.total_results);
       ifWrongSearch('OOPS... We are very sorry! We don’t have any results due to your search.');
       return;

@@ -206,6 +206,10 @@
     box-shadow: 1px 1px 14px var(--primary-text-color);
   }
 }
+.gallery-library {
+  display: flex;
+  flex-wrap: wrap;
+}
 .gallery-library > .movie:nth-child(3n) {
   margin-right: 0;
 }
