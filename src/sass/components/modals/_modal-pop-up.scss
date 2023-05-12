@@ -70,6 +70,7 @@
   margin-bottom: 22px;
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 }
 
 .feature-value-description {
@@ -80,7 +81,7 @@
 }
 
 .container-content-wrap {
-  width: 331px;
+  max-width: 100%;
   margin-left: 20px;
   margin-bottom: 20px;
 }
@@ -158,6 +159,26 @@
   }
 }
 
+@media (min-width: 480px) and (max-width: 767px) {
+
+  .close-modal {
+    top: 20px;
+    right: 16px;
+  }
+
+  .wrap {
+    flex-direction: column;
+    
+  }
+
+  .container-image-wrap{
+    max-width: 480px;
+  }
+  .container-content-wrap{
+    max-width: 480px;
+  }
+}
+
 @include tablet {  
   .backdrop {
     overflow-y: visible;
@@ -183,6 +204,19 @@
   .feature-value:not(:last-child) {
     margin-bottom: 24px;
   }
+
+  .feature-value-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .container-content-wrap {
+    max-width: 301px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
 }
 
 @include desktop {
@@ -200,6 +234,12 @@
     max-width: 375px;
     max-height: 478px;
     overflow: hidden;
+  }
+
+  .container-content-wrap {
+    max-width: 331px;
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 }
 
