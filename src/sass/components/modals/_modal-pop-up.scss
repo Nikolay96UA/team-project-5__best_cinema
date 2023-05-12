@@ -54,69 +54,35 @@
   right: 40px;
 }
 
-.container-image-wrap {
-  max-width: 448px;
-  max-height: auto;
-  overflow: hidden;
+.title {
+  margin-bottom: 28px;
+  color: var(--primary-text-color);
+  font-size: 24px;
 }
 
-@include mobile {
+// .container-image-wrap {
+//   max-width: 448px;
+//   max-height: auto;
+//   overflow: hidden;
+// }
 
-  .close-modal {
-    top: 20px;
-    right: 16px;
-  }
-
-  .wrap {
-    flex-direction: column;
-  }
+.container-image-wrap img{
+  margin-bottom: 22px;
+  width: 100%;
+  height: 100%;
 }
 
-@include tablet {  
-  .backdrop {
-    overflow-y: visible;
-  }
-
-  .modal {
-    padding: 60px;
-      max-width: 704px;
-      max-height: 488px;
-  }
-
-  .close-modal {
-    top: 24px;
-    right: 24px;
-  }
-}
-
-@include desktop {
-  .backdrop {
-    overflow-y: visible;
-  }
-
-  .modal {
-    padding: 60px;
-      max-width: 846px;
-      max-height: 598px;
-  }
-
-  .container-image-wrap {
-    width: 375px;
-    height: 478px;
-    overflow: hidden;
-  }
+.feature-value-description {
+  color: var(--secondary-text-color);
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 16px;
 }
 
 .container-content-wrap {
   width: 331px;
   margin-left: 20px;
   margin-bottom: 20px;
-}
-
-.title {
-  margin-bottom: 28px;
-  color: var(--primary-text-color);
-  font-size: 24px;
 }
 
 .content-wrap {
@@ -144,7 +110,7 @@
 }
 
 .feature-value:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .feature-value:last-child {
@@ -156,11 +122,7 @@
   margin-bottom: 16px;
 }
 
-.feature-value-description {
-  color: var(--secondary-text-color);
-  font-size: 14px;
-  line-height: 1.43;
-}
+
 
 .add-to-library {
   padding: 11px 23px;
@@ -183,3 +145,61 @@
     border-radius: 74px;
   }
 }
+
+@include mobile {
+
+  .close-modal {
+    top: 20px;
+    right: 16px;
+  }
+
+  .wrap {
+    flex-direction: column;
+  }
+}
+
+@include tablet {  
+  .backdrop {
+    overflow-y: visible;
+  }
+
+  .modal {
+    padding: 60px;
+      max-width: 704px;
+      max-height: 488px;
+  }
+
+  .container-image-wrap {
+    max-width: 294px;
+    max-height: 400px;
+    overflow: hidden;
+  }
+
+  .close-modal {
+    top: 24px;
+    right: 24px;
+  }
+
+  .feature-value:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+@include desktop {
+  .backdrop {
+    overflow-y: visible;
+  }
+
+  .modal {
+    padding: 60px;
+      max-width: 846px;
+      max-height: 598px;
+  }
+
+  .container-image-wrap {
+    max-width: 375px;
+    max-height: 478px;
+    overflow: hidden;
+  }
+}
+

@@ -11,7 +11,7 @@ const modalPopUp = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 const galleryEl = document.querySelector('.gallery');
 // const weekTrendsEl = document.getElementById('trends-list');
-const movieListContainer = document.querySelector('.movie');
+// const movieListContainer = document.querySelector('.movie');
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
