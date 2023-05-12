@@ -115,7 +115,7 @@
       media="(prefers-color-scheme: dark)"
     />
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./library.js"></script>
   </head>
   <!-- <header class="header">
     <div class="header-container container">
@@ -200,13 +200,17 @@
         <div class="container-button">
           <a href="/src/catalog.html" class="search-button">Search movie</a>
         </div>
-        <div class="movie-list"></div>
+        <ul class="movie-list gallery"></ul>
         <div class="no-movie"></div>
       </div>
     </section>
 
-    <script type="module" src="/src/js/libraries.js"></script>
+    <!-- <script type="module" src="/src/js/libraries.js"></script> -->
+    <include src="./partials/scroll-to-top.html"></include>
+
     <include src="./partials/footer.html"></include>
+    <include src="./partials/mobile-menu.html"></include>
+
     <!-- <footer class="footer">
       <div class="footer_container container">
         <span class="footer__text"

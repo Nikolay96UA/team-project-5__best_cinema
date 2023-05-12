@@ -1,3 +1,10 @@
+import './components/header';
+import './components/hero';
+
 import './components/gallery';
 import './components/pagination';
-import './components/modals/modal-pop-up';
+import './components/search';
+
+import './components/scroll-to-top';
+
+// import './components/modals';

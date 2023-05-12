@@ -1,20 +1,10 @@
-import {
-  BASE_URL,
-  API_KEY,
-  URL_TREND_WEEK,
-  URL_GENRE_LIST,
-} from '../constants/api';
+import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 
 // !!! Якщо розкоментувати цей рядок буде помилка tui-pagination
 // import { getTrendMoviesOfWeek } from './gallery';
 import axios from 'axios';
 
-import {
-  API_KEY,
-  BASE_URL,
-  URL_TREND_DAY,
-  URL_TREND_WEEK,
-} from '../constants/api';
+import { API_KEY, BASE_URL, URL_TREND_DAY, URL_TREND_WEEK } from '../constants/api';
 
 const upcoming = document.querySelector('#uncoming-this-mounth');
 
@@ -40,9 +30,7 @@ function renderMovieCard(movieWithGenre) {
         src="https://image.tmdb.org/t/p/original/${movieWithGenre.poster_path}"
         alt="" width="805" height="458">
     <img class="muvie-image-backdrop"
-        src="https://image.tmdb.org/t/p/original/${
-          movieWithGenre.backdrop_path
-        }"
+        src="https://image.tmdb.org/t/p/original/${movieWithGenre.backdrop_path}"
         alt="" width="805" height="458">
 </div>
 
@@ -60,9 +48,7 @@ function renderMovieCard(movieWithGenre) {
             </ul>
             <ul class="muvie-meta-left-data">
                 <li class="muvie-meta-item">
-                    <span class="date-number">${
-                      movieWithGenre.release_date
-                    }</span>
+                    <span class="date-number">${movieWithGenre.release_date}</span>
                 </li>
                 <li class="muvie-meta-item">
                     <span class="vote-numbers">${
@@ -86,9 +72,7 @@ function renderMovieCard(movieWithGenre) {
                     <span class="data">${movieWithGenre.popularity}</span>
                 </li>
                 <li class="muvie-meta-item">
-                    <span class="data">${movieWithGenre.genres.map(
-                      genre => `${genre.name}`
-                    )}</span>
+                    <span class="data">${movieWithGenre.genres.map(genre => `${genre.name}`)}</span>
                 </li>
             </ul>
         </div>

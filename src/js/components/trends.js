@@ -44,7 +44,7 @@ async function getTrendMoviesOfWeek() {
   }
 }
 
-export function createMarkUp(array) {
+function createMarkUp(array) {
   const markup = array
     .map(
       ({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
@@ -109,4 +109,3 @@ function stars(vote) {
     return 'No rating';
   }
 }
-

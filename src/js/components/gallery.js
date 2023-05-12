@@ -1,7 +1,16 @@
-import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
+import {
+  BASE_URL,
+  API_KEY,
+  URL_TREND_WEEK,
+  URL_GENRE_LIST,
+} from '../constants/api';
 import axios from 'axios';
 import { searchWithQuery } from './search';
-import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
+import {
+  pagInstanceTrendWeek,
+  paginTrend,
+  paginContainerTrend,
+} from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
@@ -11,6 +20,7 @@ let categorysArray = [];
 export const galleryEl = document.getElementById('gallery');
 
 onPageShow();
+
 async function onPageShow() {
   try {
     const arrayTrandMovies = await getTrendMoviesOfWeek();
@@ -36,7 +46,7 @@ export async function getTrendMoviesOfWeek() {
     if (moviesObject.results.length === 0) {
       return ['Ssory, we can not find something :-('];
     }
-    console.log(moviesObject);
+    // console.log(moviesObject);
     totalPages = moviesObject.total_pages;
     return moviesObject.results;
   } catch (error) {
@@ -46,23 +56,31 @@ export async function getTrendMoviesOfWeek() {
 
 export function createMarkUp(array) {
   const markup = array
-    .map(({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
-      // console.log(poster_path);
-      let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
-      // const image = `.\/img\/395x574-no-image.jpg`;
-      // const poster = poster_path === null ? `${image}` : poster_path;
-      // console.log('poster:', poster);
-      // if (poster_path === null) {
-      //   urlPoster = poster;
-      //   console.log('замінив');
-      // }
+    .map(
+      ({ title, genre_ids, release_date, poster_path, vote_average, id }) => {
+        // console.log(poster_path);
+        let urlPoster = `url('https://image.tmdb.org/t/p/w500${poster_path}')`;
+        if (poster_path === null) {
+          urlPoster = '';
+        }
+        // const image = `.\/img\/395x574-no-image.jpg`;
+        // const poster = poster_path === null ? `${image}` : poster_path;
+        // console.log('poster:', poster);
+        // if (poster_path === null) {
+        //   urlPoster = poster;
+        //   console.log('замінив');
+        // }
 
-      return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), ${urlPoster}" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
-        genre_ids
-      )} | ${release_date.slice(0, 4)}</p></div><div class="vote-cinemas ${stars(
-        Number(vote_average.toFixed(1))
-      )}"></div></li>`;
-    })
+        return `<li class="gallery-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), ${urlPoster}" data-id=${id}><div class="gallery-item__about"><h3 class="gallery-item__about__title">${title}</h3><p class="gallery-item__about__p">${getGenreForCard(
+          genre_ids
+        )} | ${release_date.slice(
+          0,
+          4
+        )}</p></div><div class="vote-cinemas ${stars(
+          Number(vote_average.toFixed(1))
+        )}"></div></li>`;
+      }
+    )
     .join('');
   renderMarkup(markup);
 }
@@ -123,9 +141,9 @@ pagInstanceTrendWeek.on('afterMove', async event => {
   }
 });
 
-export function onGalleryLinkClick(event) {
-  if (event.target.nodeName === 'LI') {
-    const movieId = event.target.dataset.id;
-    return movieId;
-  }
-}
+// export function onGalleryLinkClick(event) {
+//   if (event.target.nodeName === 'LI') {
+//     const movieId = event.target.dataset.id;
+//     return movieId;
+//   }
+// }

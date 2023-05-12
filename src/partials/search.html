@@ -3,65 +3,69 @@
   <div class="container">
     <form class="search-form form-single">
       <input type="text" class="search-input" name="keyword" placeholder="Search" required />
-      <select class="year-select input__is-hidden" name="yearSelect">
-        <option value="">Year</option>
-        <option value="2022">2022</option>
-        <option value="2021">2021</option>
-        <option value="2020">2020</option>
-        <option value="2019">2019</option>
-        <option value="2018">2018</option>
-        <option value="2017">2017</option>
-        <option value="2016">2016</option>
-        <option value="2015">2015</option>
-        <option value="2014">2014</option>
-        <option value="2013">2013</option>
-        <option value="2012">2012</option>
-        <option value="2011">2011</option>
-        <option value="2010">2010</option>
-      </select>
-      <select class="genre-select input__is-hidden" name="genreSelect">
-        <option value="">Genre</option>
-        <option value="10749">Romance</option>
-        <option value="80">Detective</option>
-        <option value="53">Thriller</option>
-        <option value="28">Action</option>
-        <option value="99">Documentary</option>
-        <option value="27">Horror</option>
-      </select>
-      <select class="country-select input__is-hidden" name="countrySelect">
-        <option value="">Country</option>
-        <option value="US">USA</option>
-        <option value="GB">Great Britain</option>
-        <option value="FR">France</option>
-        <option value="DE">Germany</option>
-        <option value="ES">Spain</option>
-        <option value="MX">Mexico</option>
-      </select>
-      <button type="submit" class="search-btn">
-        <svg
-          width="20"
-          height="20"
-          class="icon-search"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
-            stroke="white"
-            stroke-width="1.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-          <path
-            d="M17.5 17.5L13.875 13.875"
-            stroke="white"
-            stroke-width="1.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-      </button>
+      <div class="for-year-genre">
+        <select class="year-select input__is-hidden" name="yearSelect">
+          <option value="">Year</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="2015">2015</option>
+          <option value="2014">2014</option>
+          <option value="2013">2013</option>
+          <option value="2012">2012</option>
+          <option value="2011">2011</option>
+          <option value="2010">2010</option>
+        </select>
+        <select class="genre-select input__is-hidden" name="genreSelect">
+          <option value="">Genre</option>
+          <option value="10749">Romance</option>
+          <option value="80">Detective</option>
+          <option value="53">Thriller</option>
+          <option value="28">Action</option>
+          <option value="99">Documentary</option>
+          <option value="27">Horror</option>
+        </select>
+      </div>
+      <div class="for-country-btn">
+        <select class="country-select input__is-hidden" name="countrySelect">
+          <option value="">Country</option>
+          <option value="US">USA</option>
+          <option value="GB">Great Britain</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+          <option value="ES">Spain</option>
+          <option value="MX">Mexico</option>
+        </select>
+        <button type="submit" class="search-btn">
+          <svg
+            width="20"
+            height="20"
+            class="icon-search"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+              stroke="white"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M17.5 17.5L13.875 13.875"
+              stroke="white"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </form>
   </div>
 </section>

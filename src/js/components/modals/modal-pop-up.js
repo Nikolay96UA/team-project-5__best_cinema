@@ -1,13 +1,22 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { onGalleryLinkClick } from '../components/gallery';
 import { galleryEl } from '../gallery';
-import {weekTrendsEl} from '../trends';
+import { weekTrendsEl } from '../trends';
 
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modal = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 
+// const library = localStorage.getItem('library');
+
+createLibraryAtLocalStor();
+function createLibraryAtLocalStor() {
+  if (localStorage.getItem('library')) {
+    return;
+  }
+  localStorage.setItem('library', '[]');
+}
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
@@ -15,19 +24,19 @@ let detailMarkup;
 // form.addEventListener('submit', fetchDetailInfo);
 closeModalBtn.addEventListener('click', closeModal);
 backdrop.addEventListener('click', closeByBackdrop);
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
     closeModal();
   }
 });
 
-function closeByBackdrop(e){
+function closeByBackdrop(e) {
   const currentEl = e.target;
   console.log('You click on:', currentEl);
-  if(currentEl !== backdrop){
+  if (currentEl !== backdrop) {
     return;
-  } else{
-    closeModal(currentEl);
+  } else {
+    closeModal();
   }
 }
 
@@ -35,7 +44,6 @@ function openModal() {
   backdrop.classList.remove('backdrop--hidden');
   // closeModalBtn.removeEventListener('click', closeModal);
   // backdrop.removeEventListener('click', closeByBackdrop);
-  
 }
 
 function closeModal() {
@@ -43,52 +51,56 @@ function closeModal() {
   // galleryEl.removeEventListener('click', onGalleryLinkClick);
 }
 
-
- 
-
 async function fetchDetailInfo(movieId) {
   try {
     const result = await movieDatabaseAPI.fetchMovieDetails(movieId);
-    console.log('1');
     renderDetailMarkup(result);
-    console.log('2');
     console.log(result.id);
 
     const addToLibraryBtn = document.querySelector('.add-to-library');
-    if (
-      localStorage.getItem('library') &&
-      JSON.parse(localStorage.getItem('library')).includes(result)
-    ) {
-      addToLibraryBtn.innerText = 'Delete from my library';
-    } 
 
-    // Add or remove object from library
+    const library = localStorage.getItem('library');
+    const localStorageData = library ? JSON.parse(library) : [];
+
+    for (let i = 0; i < localStorageData.length; i++) {
+      const id = localStorageData[i].id;
+      if (id === result.id) {
+        console.log('Match found!');
+        addToLibraryBtn.innerText = 'Delete from my library';
+      }
+    }
+
     addToLibraryBtn.addEventListener('click', () => {
-      const library = localStorage.getItem('library')
-        ? JSON.parse(localStorage.getItem('library'))
-        : [];
-  
       if (addToLibraryBtn.innerText === 'Add to my library') {
-        library.push(result);
-        localStorage.setItem('library', JSON.stringify(library));
+        localStorageData.push(result);
+        localStorage.setItem('library', JSON.stringify(localStorageData));
         addToLibraryBtn.innerText = 'Delete from my library';
       } else {
-        const index = library.findIndex(item => item.name === result.name);
+        const index = localStorageData.findIndex(item => item.id === result.id);
         if (index !== -1) {
-          library.splice(index, 1);
-          localStorage.setItem('library', JSON.stringify(library));
+          localStorageData.splice(index, 1);
+          localStorage.setItem('library', JSON.stringify(localStorageData));
           addToLibraryBtn.innerText = 'Add to my library';
         }
       }
     });
-    console.log('3');
-    
+
+    // const parsedObjects = JSON.parse(localStorage.getItem('library'));
+    // console.log(parsedObjects);
+
+    // for (let i = 0; i < parsedObjects.length; i++) {
+    //   const id = parsedObjects[i].id;
+    //   if (id === result.id) {
+    //     console.log('Match found!');
+    //     addToLibraryBtn.innerText = 'Delete from my library';
+    //   }
+    // }
+
+    console.log('Лог після циклу');
+
     console.log(result);
 
     openModal();
-
-    console.log('4');
-
   } catch (error) {
     console.dir(error);
   }
@@ -131,7 +143,6 @@ function renderDetailMarkup({
     </div>
     `;
   container.innerHTML = detailMarkup;
-  
 }
 
 galleryEl.addEventListener('click', onGalleryLinkClick);
@@ -140,9 +151,10 @@ weekTrendsEl.addEventListener('click', onGalleryLinkClick);
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
     const movieId = event.target.dataset.id;
-    console.log('Это LI!!!')
+    console.log('Это LI!!!');
     fetchDetailInfo(movieId);
   }
 }
 
- export { fetchDetailInfo };
+ //eport { fetchDetailInfo };
+
