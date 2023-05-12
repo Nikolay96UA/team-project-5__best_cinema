@@ -7,4 +7,4 @@ import './components/search';
 
 import './components/scroll-to-top';
 
-// import './components/modals';
+import './components/modals';

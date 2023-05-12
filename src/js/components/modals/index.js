@@ -1,2 +1,2 @@
-import './modal-pop-up';
+import './modal-pop-up-catalog';
 import './modal-trailer';
