@@ -1,5 +1,4 @@
 .library__title {
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -7,7 +6,6 @@
   color: #fff;
   max-width: 235px;
   @include tablet {
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 44px;
@@ -16,7 +14,6 @@
   }
   @include desktop {
     max-width: 464px;
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
@@ -47,7 +44,6 @@
   }
 }
 .library__text {
-  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -56,7 +52,6 @@
   height: 112px;
   color: #fff;
   @include tablet {
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -64,7 +59,6 @@
     width: 357px;
   }
   @include desktop {
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -85,7 +79,6 @@
   background-position: bottom;
   max-width: 100%;
   height: 360px;
-  margin-bottom: 44px;
   @include retina {
     background-image: linear-gradient(rgba(14, 14, 14, 0), rgba(14, 14, 14, 0)),
       url('/src/img/hero-bg-mobile2x.jpg');
@@ -94,7 +87,6 @@
     background-image: linear-gradient(rgba(14, 14, 14, 0), rgba(14, 14, 14, 0)),
       url('/src/img/Hero-bg-tablet1x.jpg');
     height: 372px;
-    margin-bottom: 80px;
     @include retina {
       background-image: linear-gradient(
           rgba(14, 14, 14, 0),
@@ -106,7 +98,6 @@
   @include desktop {
     background-image: linear-gradient(rgba(14, 14, 14, 0), rgba(14, 14, 14, 0)),
       url('/src/img/Hero-bg-desctop1x.jpg');
-    margin-bottom: 160px;
     height: 660px;
     @include retina {
       background-image: linear-gradient(
@@ -117,6 +108,17 @@
     }
   }
 }
+
+ul {
+  margin-top: 40px;
+  @include tablet {
+    margin-top: 92px;
+  }
+  @include desktop {
+    margin-top: 117px;
+  }
+}
+
 .library__error-message {
   font-family: 'Roboto';
   font-style: normal;
@@ -143,7 +145,13 @@
   }
 }
 .error-line {
-  margin: 0;
+  margin-top: 44px;
+  @include tablet {
+    margin-top: 80px;
+  }
+  @include desktop {
+    margin-top: 160px;
+  }
 }
 .container-button {
   text-align: center;
