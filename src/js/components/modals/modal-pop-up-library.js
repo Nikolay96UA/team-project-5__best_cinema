@@ -1,6 +1,8 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { weekTrendsEl } from '../trends';
-import { movieListContainer } from '../../libraries';
+// import { movieListContainer } from '../../libraries';
+
+// const libraryEl = document.querySelector('.library-cards');
 
 const body = document.querySelector('body');
 const closeModalBtn = document.querySelector('[data-close-modal]');
@@ -126,12 +128,12 @@ function renderDetailMarkup({
 }
 
 // galleryEl.addEventListener('click', onGalleryLinkClick);
-movieListContainer.addEventListener('click', onGalleryLinkClick);
+// libraryEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
     const movieId = event.target.dataset.id;
-    console.log('Это LI!!!');
+    // console.log('Это LI!!!');
     fetchDetailInfo(movieId);
   }
 }
