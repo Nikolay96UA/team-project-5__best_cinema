@@ -123,7 +123,7 @@ function renderDetailMarkup({
 libraryEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
-  if (event.target.nodeName === 'LI') {
+  if (event.target.nodeName === 'DIV') {
     const movieId = event.target.dataset.id;
     fetchDetailInfo(movieId);
   }
