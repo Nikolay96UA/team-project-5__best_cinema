@@ -1,23 +1,17 @@
-.library {
+.in-section {
   padding-top: 40px;
   padding-bottom: 22px;
 
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: 320px 380px, 320px 380px, 100% 380px;
+  background-size: 320px 380px, 480px 380px, 100% 380px;
 
   background-image: linear-gradient(84deg, #0e0e0e 25%, rgba(14, 14, 14, 0) 60%),
-    url('../images/hero-library/bg-mob@1x.jpg'),
-    linear-gradient(#0e0e0e, #0e0e0e);
+    url('../images/hero-library/bg-mob@1x.jpg'), linear-gradient(#0e0e0e, #0e0e0e);
 
   @include retina {
-    background-image: linear-gradient(
-        84deg,
-        #0e0e0e 25%,
-        rgba(14, 14, 14, 0) 60%
-      ),
-      url('../images/hero-library/bg-mob@2x.jpg'),
-      linear-gradient(#0e0e0e, #0e0e0e);
+    background-image: linear-gradient(84deg, #0e0e0e 25%, rgba(14, 14, 14, 0) 60%),
+      url('../images/hero-library/bg-mob@2x.jpg'), linear-gradient(#0e0e0e, #0e0e0e);
   }
 
   @include tablet {
@@ -25,21 +19,11 @@
     padding-bottom: 20px;
     background-size: 768px 370px, 768px 370px, 100% 370px;
 
-    background-image: linear-gradient(
-        84deg,
-        #0e0e0e 25%,
-        rgba(14, 14, 14, 0) 60%
-      ),
-      url('../images/hero-library/bg-tab@1x.jpg'),
-      linear-gradient(#0e0e0e, #0e0e0e);
+    background-image: linear-gradient(84deg, #0e0e0e 25%, rgba(14, 14, 14, 0) 60%),
+      url('../images/hero-library/bg-tab@1x.jpg'), linear-gradient(#0e0e0e, #0e0e0e);
     @include retina {
-      background-image: linear-gradient(
-          84deg,
-          #0e0e0e 25%,
-          rgba(14, 14, 14, 0) 60%
-        ),
-        url('../images/hero-library/bg-tab@2x.jpg'),
-        linear-gradient(#0e0e0e, #0e0e0e);
+      background-image: linear-gradient(84deg, #0e0e0e 25%, rgba(14, 14, 14, 0) 60%),
+        url('../images/hero-library/bg-tab@2x.jpg'), linear-gradient(#0e0e0e, #0e0e0e);
     }
   }
 
@@ -48,24 +32,15 @@
     padding-bottom: 28px;
     background-size: 1280px 660px, 1280px 660px, 100% 660px;
 
-    background-image: linear-gradient(
-        84deg,
-        #0e0e0e 25%,
-        rgba(14, 14, 14, 0) 60%
-      ),
-      url('../images/hero-library/bg-desk@1x.jpg'),
-      linear-gradient(#0e0e0e, #0e0e0e);
+    background-image: linear-gradient(84deg, #0e0e0e 25%, rgba(14, 14, 14, 0) 60%),
+      url('../images/hero-library/bg-desk@1x.jpg'), linear-gradient(#0e0e0e, #0e0e0e);
     @include retina {
-      background-image: linear-gradient(
-          84deg,
-          #0e0e0e 25%,
-          rgba(14, 14, 14, 0) 60%
-        ),
-        url('../images/hero-library/bg-desk@2x.jpg'),
-        linear-gradient(#0e0e0e, #0e0e0e);
+      background-image: linear-gradient(84deg, #0e0e0e 25%, rgba(14, 14, 14, 0) 60%),
+        url('../images/hero-library/bg-desk@2x.jpg'), linear-gradient(#0e0e0e, #0e0e0e);
     }
   }
 }
+
 .library__hero {
   max-width: 249px;
   padding-bottom: 144px;
@@ -78,6 +53,7 @@
   @include desktop {
     max-width: 464px;
     padding-bottom: 249px;
+    margin-left: 117px;
   }
 }
 .library__title {
