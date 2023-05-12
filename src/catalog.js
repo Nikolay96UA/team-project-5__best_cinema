@@ -5,3 +5,4 @@ import './js/components/pagination';
 import './js/components/search';
 import './js/components/modals/modal-pop-up-catalog';
 import './js/components/modals/modal-trailer';
+import './js/components/scroll-to-top';

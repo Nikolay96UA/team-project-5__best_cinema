@@ -1,7 +1,7 @@
 import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
 import axios from 'axios';
 import { searchWithQuery } from './search';
-import { pagInstanceTrendWeek, paginTrend, paginContainerTrend } from './pagination';
+import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
 let currentPage = 1;
 let totalPages = 0;
