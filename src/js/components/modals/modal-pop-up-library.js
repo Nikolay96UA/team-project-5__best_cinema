@@ -1,5 +1,6 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
-import { weekTrendsEl } from '../trends';
+// import { weekTrendsEl } from '../trends';
+import { movieListContainer } from '../../libraries';
 
 const body = document.querySelector('body');
 const closeModalBtn = document.querySelector('[data-close-modal]');
@@ -8,6 +9,7 @@ const modalPopUp = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 const galleryEl = document.querySelector('.gallery');
 // const weekTrendsEl = document.getElementById('trends-list');
+const movieListContainer = document.querySelector('.movie');
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
@@ -124,7 +126,7 @@ function renderDetailMarkup({
 }
 
 // galleryEl.addEventListener('click', onGalleryLinkClick);
-weekTrendsEl.addEventListener('click', onGalleryLinkClick);
+movieListContainer.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
