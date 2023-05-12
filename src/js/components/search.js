@@ -102,7 +102,11 @@ async function searchMovies() {
     if (objResultSearch.results.length === 0) {
       Notiflix.Notify.failure('Ooops, wrong search.');
       pagInstanceTrendWeek.reset(objResultSearch.total_results);
-      ifWrongSearch('OOPS... We are very sorry! We don’t have any results due to your search.');
+      ifWrongSearch([
+        'OOPS...',
+        'We are very sorry!',
+        'We don’t have any results due to your search.',
+      ]);
       return;
     }
     pagInstanceTrendWeek.reset(objResultSearch.total_results);
