@@ -11,6 +11,7 @@ const container = document.querySelector('.wrap');
 // const library = localStorage.getItem('library');
 
 createLibraryAtLocalStor();
+
 function createLibraryAtLocalStor() {
   if (localStorage.getItem('library')) {
     return;
@@ -45,6 +46,9 @@ function openModal() {
   // closeModalBtn.removeEventListener('click', closeModal);
   // backdrop.removeEventListener('click', closeByBackdrop);
 }
+
+closeModalBtn.addEventListener('click', closeModal);
+backdrop.addEventListener('click', closeByBackdrop);
 
 function closeModal() {
   backdrop.classList.add('backdrop--hidden');
