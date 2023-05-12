@@ -101,7 +101,6 @@
 .library__cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 28px 16px;
   margin-top: 44px;
 
@@ -146,6 +145,7 @@
 }
 .library__message {
   margin-top: 44px;
+  margin: 0 auto;
   font-size: 20px;
   line-height: 1.4;
   text-align: center;
