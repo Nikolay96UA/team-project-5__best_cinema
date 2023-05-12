@@ -1,23 +1,13 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
-// import { onGalleryLinkClick } from '../components/gallery';
-// import { galleryEl } from '../gallery';
-import { weekTrendsEl } from '../trends';
+// import { weekTrendsEl } from '../trends';
 
 const body = document.querySelector('body');
 const closeModalBtn = document.querySelector('[data-close-modal]');
 const backdrop = document.querySelector('[data-backdrop]');
 const modalPopUp = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
-
-// const library = localStorage.getItem('library');
-
-createLibraryAtLocalStor();
-function createLibraryAtLocalStor() {
-  if (localStorage.getItem('library')) {
-    return;
-  }
-  localStorage.setItem('library', '[]');
-}
+const galleryEl = document.querySelector('.gallery');
+// const weekTrendsEl = document.getElementById('trends-list');
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
@@ -46,6 +36,9 @@ function openModal() {
   // closeModalBtn.removeEventListener('click', closeModal);
   // backdrop.removeEventListener('click', closeByBackdrop);
 }
+
+closeModalBtn.addEventListener('click', closeModal);
+backdrop.addEventListener('click', closeByBackdrop);
 
 function closeModal() {
   backdrop.classList.add('backdrop--hidden');
@@ -130,8 +123,8 @@ function renderDetailMarkup({
   container.innerHTML = detailMarkup;
 }
 
-// galleryEl.addEventListener('click', onGalleryLinkClick);
-weekTrendsEl.addEventListener('click', onGalleryLinkClick);
+galleryEl.addEventListener('click', onGalleryLinkClick);
+// weekTrendsEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
   if (event.target.nodeName === 'LI') {
