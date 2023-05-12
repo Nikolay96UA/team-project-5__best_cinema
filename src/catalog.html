@@ -1,74 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog</title>
+    <!-- Themes settings -->
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#111111"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catalog</title>
-  <!-- Themes settings -->
-  <meta name="color-scheme" content="light dark" />
-  <meta name="theme-scheme" content="light dark" />
-  <meta name="color-scheme" media="(prefers-color-scheme: light)" content="#ffffff" />
-  <meta name="color-scheme" media="(prefers-color-scheme: dark)" content="#111111" />
+    <!-- favicon -->
 
-  <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicons/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./images/favicons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./images/favicons/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="70x70"
+      href="./images/favicons/mstile-70x70.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="144x144"
+      href="./images/favicons/mstile-144x144.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="150x150"
+      href="./images/favicons/mstile-150x150.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="310x150"
+      href="./images/favicons/mstile-310x150.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="310x310"
+      href="./images/favicons/mstile-310x310.png"
+    />
+    <link rel="manifest" href="./images/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./images/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-config"
+      content="./images/favicons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#595959" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="./images/favicons/android-chrome-192x192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="./images/favicons/android-chrome-512x512.png" />
-  <link rel="icon" type="image/png" sizes="70x70" href="./images/favicons/mstile-70x70.png" />
-  <link rel="icon" type="image/png" sizes="144x144" href="./images/favicons/mstile-144x144.png" />
-  <link rel="icon" type="image/png" sizes="150x150" href="./images/favicons/mstile-150x150.png" />
-  <link rel="icon" type="image/png" sizes="310x150" href="./images/favicons/mstile-310x150.png" />
-  <link rel="icon" type="image/png" sizes="310x310" href="./images/favicons/mstile-310x310.png" />
-  <link rel="manifest" href="./images/favicons/site.webmanifest" />
-  <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-  <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
-  <meta name="msapplication-TileColor" content="#da532c" />
-  <meta name="msapplication-config" content="./images/favicons/browserconfig.xml" />
-  <meta name="theme-color" content="#595959" />
+    <!-- Switcher script for old browsers -->
+    <script>
+      if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+        document.documentElement.style.display = 'none';
+        document.head.insertAdjacentHTML(
+          'beforeend',
+          '<link rel="stylesheet" href="styles/light.css" onload="document.documentElement.style.display=\'\'">'
+        );
+      }
+    </script>
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="./sass/light-theme.scss"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="stylesheet"
+      href="./sass/dark-theme.scss"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./catalog.js"></script>
+  </head>
 
-  <!-- Switcher script for old browsers -->
-  <script>
-    if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
-      document.documentElement.style.display = 'none';
-      document.head.insertAdjacentHTML(
-        'beforeend',
-        '<link rel="stylesheet" href="styles/light.css" onload="document.documentElement.style.display=\'\'">'
-      );
-    }
-  </script>
-  <!-- Styles -->
-  <link rel="stylesheet" href="./sass/light-theme.scss" media="(prefers-color-scheme: light)" />
-  <link rel="stylesheet" href="./sass/dark-theme.scss" media="(prefers-color-scheme: dark)" />
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <!-- <script type="module" src="./index.js"></script> -->
-  <script type="module" src="./js/catalog.js"></script>
-</head>
+  <body>
+    <include src="./partials/header.html"></include>
+    <main>
+      <include src="./partials/hero.html"></include>
+      <include src="./partials/search.html"></include>
+      <include src="./partials/gallery.html"></include>
+      <include src="./partials/pagination.html"></include>
+    </main>
+    <include src="./partials/footer.html"></include>
 
-<body>
-  <include src="./partials/header.html"></include>
-  <main>
-    <include src="./partials/hero.html"></include>
-    <include src="./partials/search.html"></include>
-    <include src="./partials/gallery.html"></include>
-    <include src="./partials/pagination.html"></include>
-  </main>
-  <include src="./partials/footer.html"></include>
+    <include src="./partials/scroll-to-top.html"></include>
+    <include src="./partials/loader.html"></include>
 
-  <include src="./partials/scroll-to-top.html"></include>
-  <include src="./partials/loader.html"></include>
+    <!-- Modals -->
+    <include src="./partials/modal-trailer.html"></include>
+    <include src="./partials/modal-pop-up.html"></include>
 
-  <!-- Modals -->
-  <!-- <include src="./partials/modal-pop-up.html"></include> -->
-  <include src="./partials/modal-trailer.html"></include>
-  <!-- <include src="./partials/modal-team.html"></include> -->
-
-  <!-- Mobile menu -->
-  <include src="./partials/mobile-menu.html"></include>
-</body>
-
+    <!-- Mobile menu -->
+    <include src="./partials/mobile-menu.html"></include>
+  </body>
 </html>

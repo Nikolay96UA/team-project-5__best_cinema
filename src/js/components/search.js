@@ -1,5 +1,5 @@
 // search
-import { createMarkUp } from './gallery';
+import { createMarkUp, ifWrongSearch } from './gallery';
 import {
   API_KEY,
   BASE_URL,
@@ -11,7 +11,6 @@ import Notiflix from 'notiflix';
 import axios from 'axios';
 import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
 
-// Оголошення змінних
 const searchForm = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search-input');
 const yearSelect = document.querySelector('.year-select');
@@ -67,9 +66,6 @@ function createCountryListMarkup(array) {
 
 searchForm.addEventListener('submit', event => {
   event.preventDefault();
-  // console.log('click');
-  // console.log(event);
-  // searchForm.classList.remove('form-single');
   yearSelect.classList.remove('input__is-hidden');
   genreSelect.classList.remove('input__is-hidden');
   countrySelect.classList.remove('input__is-hidden');
@@ -104,7 +100,13 @@ async function searchMovies() {
     searchUrl = url;
     const { data: objResultSearch } = await axios.get(url);
     if (objResultSearch.results.length === 0) {
-      Notiflix.Notify.failure('Ooops, nothing to search.');
+      Notiflix.Notify.failure('Ooops, wrong search.');
+      pagInstanceTrendWeek.reset(objResultSearch.total_results);
+      ifWrongSearch([
+        'OOPS...',
+        'We are very sorry!',
+        'We don’t have any results due to your search.',
+      ]);
       return;
     }
     pagInstanceTrendWeek.reset(objResultSearch.total_results);
@@ -114,23 +116,8 @@ async function searchMovies() {
     Notiflix.Notify.failure('Ooops, something go wrong, look at console for details.');
     console.log(error);
   }
-  // fetch(url)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     createMarkUp(data.results); // виклик функції для передачі масиву об'єктів
-  //   })
-  //   .catch(error => {
-  //     Notiflix.Notify.failure('Ooops, something go wrong, look at console for details.');
-  //     console.error(error);
-  //   });
 }
-// pagInstanceTrendWeek.on('beforeMove', async event => {
-//   console.log('next search results');
-//   const { page: pagPage } = event;
-//   currentSearchPage = pagPage;
-//   // const pagArray = await getTrendMoviesOfWeek();
-//   // createMarkUp(pagArray);
-// });
+
 export async function searchWithQuery() {
   const { data: resultSearch } = await axios.get(
     `${searchUrl}&page=${pagInstanceTrendWeek.getCurrentPage()}`

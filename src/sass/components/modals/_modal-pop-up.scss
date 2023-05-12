@@ -6,6 +6,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 998;
+  overflow-y: scroll;
 }
 
 .backdrop--hidden {
@@ -13,61 +14,33 @@
   pointer-events: none;
 }
 
-@include mobile {
-  .modal {
-    padding: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-
-    width: 280px;
-    height: auto;
-    border-radius: 4%;
-
-    background-color: var(--main-bg-color);
-    box-shadow: var(--modal-shadow);
-    color: var(--secondary-text-color);
-  }
+.backdrop--hidden .modal {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
 }
 
-@include tablet {
-  .modal {
-    padding: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
+.modal {
+  padding-left: 16px;
+  padding-top: 52px;
+  padding-right: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 
-    width: 704px;
-    height: auto;
-    border-radius: 4%;
+  width: 100%;
+  height: 100%;
+  border-radius: 4%;
 
-    background-color: var(--main-bg-color);
-    box-shadow: var(--modal-shadow);
-    color: var(--secondary-text-color);
-  }
+  background-color: var(--main-bg-color);
+  box-shadow: var(--modal-shadow);
+  color: var(--secondary-text-color);
 }
 
-@include desktop {
-  .modal {
-    padding: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-
-    width: 846px;
-    height: auto;
-    border-radius: 4%;
-
-    background-color: var(--main-bg-color);
-    box-shadow: var(--modal-shadow);
-    color: var(--secondary-text-color);
-  }
+.wrap {
+  display: flex;
 }
 
 .close-modal {
@@ -79,29 +52,38 @@
   position: absolute;
   top: 40px;
   right: 40px;
-
-}
-
-.wrap {
-  display: flex;
-}
-
-.container-image-wrap {
-  width: 375px;
-  height: 478px;
-  overflow: hidden;
-}
-
-.container-content-wrap {
-  width: 331px;
-  margin-left: 20px;
-  margin-bottom: 20px;
 }
 
 .title {
   margin-bottom: 28px;
   color: var(--primary-text-color);
   font-size: 24px;
+}
+
+// .container-image-wrap {
+//   max-width: 448px;
+//   max-height: auto;
+//   overflow: hidden;
+// }
+
+.container-image-wrap img{
+  margin-bottom: 22px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.feature-value-description {
+  color: var(--secondary-text-color);
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 16px;
+}
+
+.container-content-wrap {
+  max-width: 100%;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 .content-wrap {
@@ -129,7 +111,7 @@
 }
 
 .feature-value:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .feature-value:last-child {
@@ -141,11 +123,7 @@
   margin-bottom: 16px;
 }
 
-.feature-value-description {
-  color: var(--secondary-text-color);
-  font-size: 14px;
-  line-height: 1.43;
-}
+
 
 .add-to-library {
   padding: 11px 23px;
@@ -168,3 +146,100 @@
     border-radius: 74px;
   }
 }
+
+@include mobile {
+
+  .close-modal {
+    top: 20px;
+    right: 16px;
+  }
+
+  .wrap {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+  .close-modal {
+    top: 20px;
+    right: 16px;
+  }
+
+  .wrap {
+    flex-direction: column;
+    
+  }
+
+  .container-image-wrap{
+    max-width: 480px;
+  }
+  .container-content-wrap{
+    max-width: 480px;
+  }
+}
+
+@include tablet {  
+  .backdrop {
+    overflow-y: visible;
+  }
+
+  .modal {
+    padding: 60px;
+      max-width: 704px;
+      max-height: 488px;
+  }
+
+  .container-image-wrap {
+    max-width: 294px;
+    max-height: 400px;
+    overflow: hidden;
+  }
+
+  .close-modal {
+    top: 24px;
+    right: 24px;
+  }
+
+  .feature-value:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .feature-value-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .container-content-wrap {
+    max-width: 301px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@include desktop {
+  .backdrop {
+    overflow-y: visible;
+  }
+
+  .modal {
+    padding: 60px;
+      max-width: 846px;
+      max-height: 598px;
+  }
+
+  .container-image-wrap {
+    max-width: 375px;
+    max-height: 478px;
+    overflow: hidden;
+  }
+
+  .container-content-wrap {
+    max-width: 331px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+}
+
