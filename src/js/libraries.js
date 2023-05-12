@@ -1,6 +1,6 @@
-import * as basicLightbox from 'basiclightbox';
-import SimpleLightbox from 'simplelightbox';
-import Pagination from 'tui-pagination';
+// import * as basicLightbox from 'basiclightbox';
+// import SimpleLightbox from 'simplelightbox';
+// import Pagination from 'tui-pagination';
 
 document.addEventListener('DOMContentLoaded', () => {
   const errorContainer = document.querySelector('.library__error-message');

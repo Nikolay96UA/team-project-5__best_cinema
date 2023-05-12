@@ -26,7 +26,7 @@ function closeByBackdrop(e) {
   if (currentEl !== backdrop) {
     return;
   } else {
-    closeModal(currentEl);
+    closeModal();
   }
 }
 
@@ -36,6 +36,9 @@ function openModal() {
   // backdrop.removeEventListener('click', closeByBackdrop);
 }
 
+closeModalBtn.addEventListener('click', closeModal);
+backdrop.addEventListener('click', closeByBackdrop);
+
 function closeModal() {
   backdrop.classList.add('backdrop--hidden');
   // galleryEl.removeEventListener('click', onGalleryLinkClick);
@@ -44,45 +47,53 @@ function closeModal() {
 async function fetchDetailInfo(movieId) {
   try {
     const result = await movieDatabaseAPI.fetchMovieDetails(movieId);
-    console.log('1');
     renderDetailMarkup(result);
-    console.log('2');
     console.log(result.id);
 
     const addToLibraryBtn = document.querySelector('.add-to-library');
-    if (
-      localStorage.getItem('library') &&
-      JSON.parse(localStorage.getItem('library')).includes(result)
-    ) {
-      addToLibraryBtn.innerText = 'Delete from my library';
+
+    const library = localStorage.getItem('library');
+    const localStorageData = library ? JSON.parse(library) : [];
+
+    for (let i = 0; i < localStorageData.length; i++) {
+      const id = localStorageData[i].id;
+      if (id === result.id) {
+        console.log('Match found!');
+        addToLibraryBtn.innerText = 'Delete from my library';
+      }
     }
 
-    // Add or remove object from library
     addToLibraryBtn.addEventListener('click', () => {
-      const library = localStorage.getItem('library')
-        ? JSON.parse(localStorage.getItem('library'))
-        : [];
-
       if (addToLibraryBtn.innerText === 'Add to my library') {
-        library.push(result);
-        localStorage.setItem('library', JSON.stringify(library));
+        localStorageData.push(result);
+        localStorage.setItem('library', JSON.stringify(localStorageData));
         addToLibraryBtn.innerText = 'Delete from my library';
       } else {
-        const index = library.findIndex(item => item.name === result.name);
+        const index = localStorageData.findIndex(item => item.id === result.id);
         if (index !== -1) {
-          library.splice(index, 1);
-          localStorage.setItem('library', JSON.stringify(library));
+          localStorageData.splice(index, 1);
+          localStorage.setItem('library', JSON.stringify(localStorageData));
           addToLibraryBtn.innerText = 'Add to my library';
         }
       }
     });
-    console.log('3');
+
+    // const parsedObjects = JSON.parse(localStorage.getItem('library'));
+    // console.log(parsedObjects);
+
+    // for (let i = 0; i < parsedObjects.length; i++) {
+    //   const id = parsedObjects[i].id;
+    //   if (id === result.id) {
+    //     console.log('Match found!');
+    //     addToLibraryBtn.innerText = 'Delete from my library';
+    //   }
+    // }
+
+    console.log('Лог після циклу');
 
     console.log(result);
 
     openModal();
-
-    console.log('4');
   } catch (error) {
     console.dir(error);
   }
@@ -99,7 +110,9 @@ function renderDetailMarkup({
 }) {
   detailMarkup = `
     <div class='container-image-wrap'>${
-      poster_path ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">` : ''
+      poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">`
+        : ''
     }</div>
     <div class='container-content-wrap'>
       <h3 class='title'>${original_title}</h3>
@@ -135,4 +148,3 @@ function onGalleryLinkClick(event) {
     fetchDetailInfo(movieId);
   }
 }
-// export { fetchDetailInfo };

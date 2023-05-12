@@ -33,3 +33,16 @@ export async function getTrailer(movie_id) {
     defaultHeroMarkup();
   }
 }
+
+export async function getMovieTrailer(movie_id) {
+  const BASE_URL = `https://api.themoviedb.org/3/movie/${movie_id}/videos`;
+  const params = {
+    api_key: API_KEY,
+  };
+
+  const response = await axios.get(BASE_URL, { params });
+
+  const movieTrailer = await response.data;
+
+  return movieTrailer;
+}
