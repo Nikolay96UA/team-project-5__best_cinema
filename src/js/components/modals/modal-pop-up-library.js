@@ -10,13 +10,10 @@ const backdrop = document.querySelector('[data-backdrop]');
 const modalPopUp = document.querySelector('.modal');
 const container = document.querySelector('.wrap');
 const galleryEl = document.querySelector('.gallery');
-// const weekTrendsEl = document.getElementById('trends-list');
-const movieListContainer = document.querySelector('.movie');
 
 const movieDatabaseAPI = new MovieDatabaseAPI();
 let detailMarkup;
 
-// form.addEventListener('submit', fetchDetailInfo);
 closeModalBtn.addEventListener('click', closeModal);
 backdrop.addEventListener('click', closeByBackdrop);
 document.addEventListener('keydown', function (e) {
@@ -37,8 +34,6 @@ function closeByBackdrop(e) {
 function openModal() {
   backdrop.classList.remove('backdrop--hidden');
   body.classList.add('modal-open');
-  // closeModalBtn.removeEventListener('click', closeModal);
-  // backdrop.removeEventListener('click', closeByBackdrop);
 }
 
 closeModalBtn.addEventListener('click', closeModal);
@@ -47,7 +42,6 @@ backdrop.addEventListener('click', closeByBackdrop);
 function closeModal() {
   backdrop.classList.add('backdrop--hidden');
   body.classList.remove('modal-open');
-  // galleryEl.removeEventListener('click', onGalleryLinkClick);
 }
 
 async function fetchDetailInfo(movieId) {
@@ -127,14 +121,11 @@ function renderDetailMarkup({
   container.innerHTML = detailMarkup;
 }
 
-// galleryEl.addEventListener('click', onGalleryLinkClick);
 libraryEl.addEventListener('click', onGalleryLinkClick);
 
 function onGalleryLinkClick(event) {
-  console.log(event.target);
-  if (event.target.nodeName === 'LI') {
+  if (event.target.nodeName === 'DIV') {
     const movieId = event.target.dataset.id;
-    // console.log('Это LI!!!');
     fetchDetailInfo(movieId);
   }
 }
