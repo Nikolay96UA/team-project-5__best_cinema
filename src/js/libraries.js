@@ -2,6 +2,9 @@
 // import SimpleLightbox from 'simplelightbox';
 // import Pagination from 'tui-pagination';
 
+const movieListContainer = document.querySelector('.movie-list');
+// export const movieListContainer1 = document.querySelector('.movie-list gallery');
+
 document.addEventListener('DOMContentLoaded', () => {
   const errorContainer = document.querySelector('.library__error-message');
   const buttonContainer = document.querySelector('.container-button');
