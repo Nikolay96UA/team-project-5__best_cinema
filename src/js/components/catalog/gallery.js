@@ -58,7 +58,9 @@ export function createMarkUp(array) {
       )} | ${release_date.slice(
         0,
         4
-      )}</p></div><div class="rating"><div class="rating-body"><div class="rating-active"></div><div class="rating-items"><input class="rating-item" type="radio" value="1" name="rating"><input class="rating-item" type="radio" value="2" name="rating"><input class="rating-item" type="radio" value="3" name="rating"><input class="rating-item" type="radio" value="4" name="rating"><input class="rating-item" type="radio" value="5" name="rating"></div><div class="rating-value">${vote_average.toFixed(
+      )}</p></div><div class="rating"><input type="range" min="0" max ="10" class="input-rating" step=0.1 value="${vote_average.toFixed(
+        1
+      )}"><div class="rating-body"><div class="rating-active"></div><div class="rating-value">${vote_average.toFixed(
         1
       )}</div></div>
 </div></li>`;
@@ -130,6 +132,7 @@ pagInstanceTrendWeek.on('afterMove', async event => {
   }
 });
 
+// here is rating with radio: <div class="rating-items"><input class="rating-item" type="radio" value="1" name="rating"><input class="rating-item" type="radio" value="2" name="rating"><input class="rating-item" type="radio" value="3" name="rating"><input class="rating-item" type="radio" value="4" name="rating"><input class="rating-item" type="radio" value="5" name="rating"></div>
 {
   /* <div class="vote-cinemas ${stars(Number(vote_average.toFixed(1)))}"></div>
 simple rating
