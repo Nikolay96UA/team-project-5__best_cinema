@@ -1,4 +1,4 @@
-import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../constants/api';
+import { BASE_URL, API_KEY, URL_TREND_WEEK, URL_GENRE_LIST } from '../../constants/api';
 import axios from 'axios';
 import { searchWithQuery } from './search';
 import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';

@@ -1,6 +1,6 @@
 import { MovieDatabaseAPI } from '../../utils/fetchMovieDetails';
 // import { onGalleryLinkClick } from '../components/gallery';
-import { galleryEl } from '../gallery';
+import { galleryEl } from '../catalog/gallery';
 // import { weekTrendsEl } from '../trends';
 
 const body = document.querySelector('body');
@@ -102,9 +102,7 @@ function renderDetailMarkup({
 }) {
   detailMarkup = `
     <div class='container-image-wrap'>${
-      poster_path
-        ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">`
-        : ''
+      poster_path ? `<img src="https://image.tmdb.org/t/p/w342/${poster_path}" alt="tizer">` : ''
     }</div>
     <div class='container-content-wrap'>
       <h3 class='title'>${original_title}</h3>

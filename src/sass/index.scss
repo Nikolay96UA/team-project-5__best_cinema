@@ -14,9 +14,8 @@
 @import './components/upcoming';
 @import './components/footer';
 
-@import './components/gallery';
-@import './components/pagination';
-@import './components/search';
+// Catalog styles
+@import './components/catalog/index';
 @import './components/library';
 @import './components/scroll-to-top';
 @import './components/loader';

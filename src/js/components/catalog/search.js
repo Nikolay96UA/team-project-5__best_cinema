@@ -6,7 +6,7 @@ import {
   URL_GENRE_LIST,
   URL_COUNTRY_LIST,
   URL_SEARCH_MOVIE,
-} from '../constants/api';
+} from '../../constants/api';
 import Notiflix from 'notiflix';
 import axios from 'axios';
 import { pagInstanceTrendWeek, paginContainerTrend } from './pagination';
